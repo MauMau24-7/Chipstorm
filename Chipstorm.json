@@ -1,0 +1,15 @@
+{
+  "id": "Chipstorm",
+  "name": "Chipstorm",
+  "display_name": "Chipstorm",
+  "author": [ "gigachad_of_earth" ],
+  "description": "Chipstorm, a mod that focuses on adding chip-based stuff!",
+  "prefix": "cstorm",
+  "prefixcomment": "ABOVE PREFIX IS ADDED TO E.G. LOCALIZATION!",
+  "main_file": "Chipstorm.lua",
+  "priority": 0,
+  "badge_colour": "630b9e",
+  "badge_text_colour": "",
+  "version": "1.0.0",
+  "dependencies": [ "Steamodded (>=1.0.0~BETA-0614a)" ]
+}
