@@ -22,16 +22,19 @@ SMODS.Consumable{
     discovered = true,
     cost = 5,
     
--- safe cardSelection amount for changing back to afterwards in context.after hand or something
+    
+--TODO: Change play limit back to beforeSelection
+--TODO: Add +200 chips to the next hand
+-- TODO: Maybe make chips last for x Rounds instead of usables
 
-    -- calculate = function(self, card, context)
+    calculate = function (self, card, context)
+        if context.end_of_round then
+            SMODS.change_play_limit(self.config.beforeSelection - 1)
 
-    --     if context.before then
-    --         self.config.beforeSelection = G.hand.config.highlighted_limit
-    --         print(self.config.beforeSelection)
-            
-    --     end
-    -- end,
+            card.getting_sliced = true
+            card:start_dissolve({ HEX("57ecab") }, nil, 1.6)
+        end
+    end,
 
     use = function(self, card, area)
         self.config.active = true
@@ -44,9 +47,13 @@ SMODS.Consumable{
     end,
 
     can_use = function (self, card)
-        if self.config.active == false then
+        -- if self.config.active == false then
             return true
-        end
+        -- end
+    end,
+
+    keep_on_use = function (self, card)
+        return true
     end,
 
     loc_vars = function(self, info_queue, card)
