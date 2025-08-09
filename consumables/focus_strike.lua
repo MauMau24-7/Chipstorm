@@ -1,6 +1,6 @@
 SMODS.Atlas({
     key = "focus_strike",
-    path = "j_pixelart.png",
+    path = "j_focus_strike.png",
     px = 71,
     py = 95
 })
