@@ -1,108 +1,6 @@
 return {
     descriptions = {
         Joker = {
-            -- j_cstorm_sample_wee = {
-            --     name = "Sample Wee",
-            --     text = {
-            --         "This Joker gains",
-            --         "{C:chips}+#2#{} Chips when each",
-            --         "played {C:attention}2{} is scored",
-            --         "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
-            --     },
-            -- },
-            -- j_cstorm_sample_obelisk = {
-            --     name = "Sample Obelisk",
-            --     text = {
-            --         {
-            --             "This Joker gives {X:mult,C:white} X#1# {} Mult",
-            --             "for each time you've played this {C:attention}hand",
-            --         }
-            --     },
-            -- },
-            -- j_cstorm_sample_specifichand = {
-            --     name = "Sample Specific Hand",
-            --     text = {
-            --         {
-            --             "If the hand played is #1#,",
-            --             "Gives {X:mult,C:white} X#2# {} Mult"
-            --         }
-            --     },
-            -- },
-            -- j_cstorm_sample_money = {
-            --     name = "Sample Money",
-            --     text = {
-            --         {
-            --             "Earn (Ante x 2) {C:money}${} at",
-            --             "end of round, also here's some text effects:",
-            --             "{C:money} money{}, {C:chips} chips{}, {C:mult} mult{}, {C:red} red{}, {C:blue} blue{}, {C:green} green{}",
-            --             "{C:attention} attention{}, {C:purple} purple{}, {C:inactive} inactive{}",
-            --             "{C:spades} spades{}, {C:hearts} hearts{}, {C:clubs} clubs{}, {C:diamonds} diamonds{}",
-            --             "{C:tarot} tarot{}, {C:planet} planet{}, {C:spectral} spectral{}",
-            --             "{C:edition} edition{}, {C:dark_edition} dark edition{}, {C:legendary} legendary{}, {C:enhanced} enhanced{}",
-            --         }
-            --     },
-            -- },
-            -- j_cstorm_sample_roomba = {
-            --     name = "Sample Roomba",
-            --     text = {
-            --         {
-            --             "Attempts to remove edition",
-            --             "from another Joker",
-            --             "at the end of each round",
-            --             "{C:inactive}(Foil, Holo, Polychrome)"
-            --         }
-            --     },
-            -- },
-            -- j_cstorm_sample_drunk_juggler = {
-            --     name = "Sample Drunk Juggler",
-            --     text = {
-            --         {
-            --             "{C:red}+#1#{} discard,",
-            --             "also here's some {X:legendary,C:white}text effects{}:",
-            --             "{s:0.5} scaled down by 0.5",
-            --             "{C:attention,T:tag_double}#2#",
-            --         }
-            --     },
-            -- },
-            -- j_cstorm_sample_hackerman = {
-            --     name = "Sample Hackerman",
-            --     text = {
-            --         {
-            --             "Retrigger",
-            --             "each played",
-            --             "{C:attention}6{}, {C:attention}7{}, {C:attention}8{}, or {C:attention}9{}",
-            --         }
-            --     },
-            -- },
-            -- j_cstorm_sample_baroness = {
-            --     name = "Sample Baroness",
-            --     text = {
-            --         {
-            --             "Each {C:attention}Queen{}",
-            --             "held in hand",
-            --             "gives {X:mult,C:white} X#1# {} Mult",
-            --         }
-            --     },
-            -- },
-            -- j_cstorm_sample_rarebaseballcard = {
-            --     name = "Sample Rare Baseball Card",
-            --     text = {
-            --         {
-            --             "{X:mult,C:white}Rare{} Jokers",
-            --             "each give {X:mult,C:white} X#1# {} Mult",
-            --         }
-            --     },
-            -- },
-            -- j_cstorm_sample_multieffect = {
-            --     name = "Sample Multi-Effect",
-            --     text = {
-            --         {
-            --             "Each played {C:attention}10{}",
-            --             "gives {C:chips}+#1#{} Chips and",
-            --             "{C:mult}+#2#{} Mult when scored",
-            --         }
-            --     },
-            -- },
             j_cstorm_three = {
                 name = "3",
                 text = {
@@ -116,7 +14,7 @@ return {
                 name = "Miscount",
                 text = {
                     {
-                        "Gives {C:edition}random {C:chips}Chips",
+                        "Gives {X:dark_edition,C:white}random{} {C:chips}Chips",
                         "after every {C:attention}hand",
                         "{C:inactive} (between #2# and #3#)"
                     }
@@ -201,10 +99,18 @@ return {
             }
         },
         Other = {
+            p_cstorm_chip_stack = {
+                name = "Chip Stack",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2#{} {C:purple}Tokens",
+                    "{C:inactive}(Doesn't get used immediately)"
+                }
+            },
             cstorm_death = {
                 name = "Death",
                 text = {
-                    
+
                     "If you still have this card",
                     "after #1# rounds, immediately lose",
                     "{C:red}#2# rounds left..."
@@ -213,19 +119,17 @@ return {
         },
     },
     misc = {
-
-            -- do note that when using messages such as: 
-            -- message = localize{type='variable',key='a_xmult',vars={current_xmult}},
-            -- that the key 'a_xmult' will use provided values from vars={} in that order to replace #1#, #2# etc... in the localization file.
-
-
         dictionary = {
-            a_handsize="+#1# Hand Size",
-            a_handsize_minus="-#1# Hand Size",
-            a_sold_tally="#1#/#2# Sold",
+            a_handsize = "+#1# Hand Size",
+            a_handsize_minus = "-#1# Hand Size",
+            a_sold_tally = "#1#/#2# Sold",
 
             k_cstorm_Tokens = "Token",
             b_cstorm_Tokens_cards = "Tokens",
+
+            k_chip_stack = "Gambler's Thing",
+
+            -- ["$"] = "BOB"
         },
         labels = {
             cstorm_Tokens = "Tokens",

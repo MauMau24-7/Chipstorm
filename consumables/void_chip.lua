@@ -47,9 +47,9 @@ SMODS.Consumable{
     end,
 
     can_use = function (self, card)
-        -- if self.config.active == false then
+        if self.config.active == false then
             return true
-        -- end
+        end
     end,
 
     keep_on_use = function (self, card)
