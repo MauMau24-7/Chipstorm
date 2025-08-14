@@ -17,6 +17,7 @@ SMODS.Consumable{
     set = 'cstorm_Tokens',
     atlas = "void_chip",
     pos = { x = 0, y = 0},
+    pixel_size = { w = 71, h = 71 },
     config = { chips = 200, beforeSelection = 5, active = false },
     unlocked = true,
     discovered = true,

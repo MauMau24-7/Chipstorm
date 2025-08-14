@@ -76,8 +76,16 @@ return {
                         "Gives {C:chips}+#1#{} Chips",
                         "for every foil card played"
                     }
-                }
-            }
+                },
+            },
+            j_cstorm_booster_bundle = {
+                name = "Booster Bundle",
+                text = {
+                    "Gains {C:chips}+#2#{} Chips for every Booster",
+                    "Pack opened with this Joker",
+                    "{C:inactive} Currently {C:chips}+#1#"
+                },
+            },
         },
         Enhanced = {
             m_cstorm_cracked_stone = {
@@ -95,6 +103,20 @@ return {
                     "{C:attention}Next hand{} gives",
                     "{C:chips}+#1#{} but you can",
                     "only play #2# card"
+                }
+            }
+        },
+        Blind = {
+            bl_cstorm_green_light_red_light = {
+                name = "TESTING",
+                text = {
+                    "TESTING"
+                }
+            },
+            bl_cstorm_slots = {
+                name = "Slots",
+                text = {
+                    "This is a litteral slot machine"
                 }
             }
         },

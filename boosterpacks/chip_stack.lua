@@ -37,10 +37,10 @@ SMODS.Booster {
     weight = 1,
     draw_hand = false,
     
-    -- ease_background_colour = function(self)
-	-- 	ease_colour(G.C.DYN_UI.MAIN, G.C.SET.Code)
-	-- 	ease_background_colour({ special_colour = G.C.BLACK, contrast = 2 })
-    -- end,
+    ease_background_colour = function(self)
+		ease_colour(G.C.DYN_UI.MAIN, G.C.BLUE)
+		ease_background_colour({ new_colour = G.C.BLUE, special_colour = G.C.GOLD, contrast = 3 })
+	end,
 
     create_card = function(self, card, i)
         return {set = "cstorm_Tokens", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "cstorm"}

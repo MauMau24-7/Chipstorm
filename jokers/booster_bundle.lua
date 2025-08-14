@@ -5,7 +5,7 @@ SMODS.Atlas({
     py = 95
 })
 
-SMODS.Joker{
+SMODS.Joker {
     key = "booster_bundle",
     config = { extra = { chips = 30, chipsMod = 15 } },
     pos = { x = 0, y = 0 },
@@ -19,9 +19,22 @@ SMODS.Joker{
     atlas = 'booster_bundle',
     soul_pos = nil,
 
-    calculate = function (self, card, context)
-        if 1 == 1 then
-            
+    calculate = function(self, card, context)
+        if context.open_booster then
+            card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipsMod
+            return {
+                extra = {focus = context.self, message = localize('k_upgrade_ex')}
+            }
         end
+
+        if context.joker_main then
+            return {
+                chips = card.ability.extra.chips
+            }
+        end
+    end,
+
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.chips, card.ability.extra.chipsMod }, key = self.key }
     end
 }

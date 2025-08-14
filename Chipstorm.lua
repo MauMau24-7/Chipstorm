@@ -4,6 +4,7 @@ local joker_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "jokers" )
 local enhancement_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "enhancements" )
 local consumable_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "consumables" )
 local boosterpack_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "boosterpacks" )
+local blind_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "blinds" )
 local sticker_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "stickers" )
 
 assert(SMODS.load_file("globals.lua"))()
@@ -23,6 +24,10 @@ end
 
 for _, file in ipairs(boosterpack_src) do
     assert(SMODS.load_file("boosterpacks/" .. file ))()
+end
+
+for _, file in ipairs(blind_src) do
+    assert(SMODS.load_file("blinds/" .. file ))()
 end
 
 -- for _, file in ipairs(sticker_src) do
