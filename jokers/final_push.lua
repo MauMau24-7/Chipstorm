@@ -1,6 +1,6 @@
 SMODS.Atlas({
     key = "final_push",
-    path = "j_final_push.png",
+    path = "Jokers.png",
     px = 71,
     py = 95
 })
@@ -36,7 +36,7 @@ SMODS.Sound({
 SMODS.Joker{
     key = "final_push",
     config = { extra = { xchips = 2, hand_count_before = 0 } },
-    pos = { x = 0, y = 0 },
+    pos = { x = 4, y = 0 },
     rarity = 3,
     cost = 8,
     blueprint_compat = true,
@@ -90,16 +90,16 @@ SMODS.Joker{
 
     update = function(self, card, dt)
         if G.GAME.current_round.hands_left >= 4 then
-            card.children.center:set_sprite_pos({x = 0, y = 0})
+            card.children.center:set_sprite_pos({x = 4, y = 0})
         end
         if G.GAME.current_round.hands_left == 3 then
-            card.children.center:set_sprite_pos({x = 1, y = 0})
+            card.children.center:set_sprite_pos({x = 5, y = 0})
         end
         if G.GAME.current_round.hands_left == 2 then
-            card.children.center:set_sprite_pos({x = 0, y = 1})
+            card.children.center:set_sprite_pos({x = 6, y = 0})
         end
         if G.GAME.current_round.hands_left == 1 then
-            card.children.center:set_sprite_pos({x = 1, y = 1})
+            card.children.center:set_sprite_pos({x = 7, y = 0})
         end
     end,
 }

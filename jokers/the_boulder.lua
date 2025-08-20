@@ -1,6 +1,6 @@
 SMODS.Atlas({
     key = "the_boulder",
-    path = "j_the_boulder.png",
+    path = "Jokers.png",
     px = 71,
     py = 95
 })
@@ -8,7 +8,7 @@ SMODS.Atlas({
 SMODS.Joker{
     key = "the_boulder",
     config = { extra = { chips = 50, stone_card = false } },
-    pos = {x = 0, y = 0},
+    pos = {x = 2, y = 0},
     rarity = 1,
     cost = 3,
     blueprint_compat = true,

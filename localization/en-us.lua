@@ -87,6 +87,80 @@ return {
                 },
             },
         },
+        Edition = {
+            e_cstorm_ionized = {
+                name = "Ionized",
+                text = {
+                    "Ionized"
+                }
+            },
+            e_cstorm_gilded = {
+                name = "Gilded",
+                text = {
+                    "Gilded"
+                }
+            },
+            e_cstorm_anaglyphic = {
+                name = "Anaglyphic",
+                text = {
+                    "Anaglyphic"
+                }
+            },
+            e_cstorm_flipped = {
+                name = "Flipped",
+                text = {
+                    "Flipped"
+                }
+            },
+            e_cstorm_laminated = {
+                name = "Laminated",
+                text = {
+                    "Laminated"
+                }
+            },
+            e_cstorm_fluorescent = {
+                name = "Fluorescent",
+                text = {
+                    "Fluorescent"
+                }
+            },
+            e_cstorm_foil = {
+                name = "Foil",
+                text = {
+                    "Foil"
+                }
+            },
+            e_cstorm_gold = {
+                name = "Gold",
+                text = {
+                    "Gold"
+                }
+            },
+            e_cstorm_greyscale = {
+                name = "Greyscale",
+                text = {
+                    "Greyscale"
+                }
+            },
+            e_cstorm_monochrome = {
+                name = "Monochrome",
+                text = {
+                    "Monochrome"
+                }
+            },
+            e_cstorm_sepia = {
+                name = "Sepia",
+                text = {
+                    "Sepia"
+                }
+            },
+            e_cstorm_overexposed = {
+                name = "Overexposed",
+                text = {
+                    "Overexposed"
+                }
+            },
+        },
         Enhanced = {
             m_cstorm_cracked_stone = {
                 name = "Cracked Stone",
@@ -116,7 +190,7 @@ return {
             bl_cstorm_slots = {
                 name = "Slots",
                 text = {
-                    "This is a litteral slot machine"
+                    "This is a literal slot machine"
                 }
             }
         },
@@ -138,6 +212,25 @@ return {
                     "{C:red}#2# rounds left..."
                 },
             },
+            cstorm_credits = {
+                name = " ",
+                text = {
+                    -- "{C:cstorm_mod}Booster Art:{} IcyEthics",
+                    " ",
+                    "{C:cstorm_mod}Localization:{}",
+                    -- "{C:attention}French:{} Keraloon",
+                    -- "{C:attention}Simplified Chinese:{} Alophrine",
+                    " ",
+                    -- "{C:cstorm_mod}Archetype Ideas:{}",
+                    -- "{C:cstorm_link}@Ignister{}: gyro/rina",
+                    " ",
+                    "Some ideas taken from these mods:",
+                    --Add Mod names here
+                    " ",
+                    "{C:cstorm_mod}Special Thanks{} to the",
+                    "{C:attention}Balatro{} Discord server <3"
+                }
+            },
         },
     },
     misc = {
@@ -150,6 +243,27 @@ return {
             b_cstorm_Tokens_cards = "Tokens",
 
             k_chip_stack = "Gambler's Thing",
+
+            k_cstorm_github = "Github",
+            k_cstorm_credits = "Credits",
+
+            -- "NEW STUFF" Tab thingies
+            k_cstorm_new_stuff = "NEW STUFF!",
+
+            --C1
+            k_cstorm_jokers = "Jokers",
+            k_cstorm_decks = "Decks",
+            k_cstorm_vouchers = "Vouchers",
+            k_cstorm_consumables = "Consumables",
+
+            --C2
+            k_cstorm_enhancements = "Enhanced Cards",
+            k_cstorm_seals = "Seals",
+            k_cstorm_editions = "Editions",
+            k_cstorm_booster_packs = "Booster Packs",
+            k_cstorm_tags = "Tags",
+            k_cstorm_blinds = "Blinds",
+            k_cstorm_others = "Other"
 
             -- ["$"] = "BOB"
         },

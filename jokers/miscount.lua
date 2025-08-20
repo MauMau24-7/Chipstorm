@@ -1,6 +1,6 @@
 SMODS.Atlas({
     key = "miscount",
-    path = "j_miscount.png",
+    path = "Jokers.png",
     px = 71,
     py = 95
 })
@@ -8,7 +8,7 @@ SMODS.Atlas({
 SMODS.Joker{
     key = "miscount",
     config = { extra = { min_chips = 0, max_chips = 200, rand_key = 'miscount' } },
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 0 },
     rarity = 1,
     cost = 4,
     blueprint_compat = true,

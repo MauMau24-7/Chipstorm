@@ -34,7 +34,7 @@ SMODS.Joker{
                 end
             end
 
-            bonus = card.ability.extra.chips * cards_amount
+            bonus = card.ability.extra.chips * card.ability.extra.card_amount
         end
 
 

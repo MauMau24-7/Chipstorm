@@ -41,10 +41,20 @@ local function stopScoring()
 	}))
 end
 
+SMODS.Atlas({
+	key = "slots",
+	path = "blindChips.png",
+	atlas_table = "ANIMATION_ATLAS",
+	frames = 21,
+	px = 34,
+	py = 34
+})
+
 
 SMODS.Blind {
 	key = "slots",
-	pos = { x = 0, y = 6 },
+	atlas = "slots",
+	pos = { x = 0, y = 0 },
 	dollars = 10,
 	mult = 5,
 	boss = { min = 1, max = 10 },

@@ -1,6 +1,6 @@
 SMODS.Atlas({
     key = "juggling_jack",
-    path = "j_juggling_jack.png",
+    path = "Jokers.png",
     px = 71,
     py = 95
 })
@@ -8,7 +8,7 @@ SMODS.Atlas({
 SMODS.Joker{
     key = "juggling_jack",
     config = { extra = { chips = 5 } },
-    pos = { x = 0, y = 0 },
+    pos = { x = 3, y = 0 },
     rarity = 2,
     cost = 5,
     blueprint_compat = true,
