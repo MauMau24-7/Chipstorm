@@ -1,0 +1,1 @@
+CSTORM.NEW = {}

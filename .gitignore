@@ -2,3 +2,5 @@
 Balatro/
 /templates
 templates/
+/.luarc.json
+.luarc.json/

@@ -1,13 +1,22 @@
-ChipStorm = {}
+CSTORM = SMODS.current_mod
+Chipstorm = {}
+
+Chipstorm.config = SMODS.current_mod.config
 
 local joker_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "jokers" )
 local enhancement_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "enhancements" )
+local edition_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "editions" )
 local consumable_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "consumables" )
 local boosterpack_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "boosterpacks" )
 local blind_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "blinds" )
 local sticker_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "stickers" )
+local shader_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "shaders" )
 
 assert(SMODS.load_file("globals.lua"))()
+assert(SMODS.load_file("newStuff.lua"))()
+assert(SMODS.load_file("newStuff_UI.lua"))()
+assert(SMODS.load_file("newStuff_functions.lua"))()
+assert(SMODS.load_file("mod_info.lua"))()
 
 
 for _, file in ipairs(joker_src) do
@@ -16,6 +25,10 @@ end
 
 for _, file in ipairs(enhancement_src) do
     assert(SMODS.load_file("enhancements/" .. file ))()
+end
+
+for _, file in ipairs(edition_src) do
+    assert(SMODS.load_file("editions/" .. file ))()
 end
 
 for _, file in ipairs(consumable_src) do
@@ -33,3 +46,7 @@ end
 -- for _, file in ipairs(sticker_src) do
 --     assert(SMODS.load_file("stickers/" .. file ))()
 -- end
+
+for _, file in ipairs(shader_src) do
+    assert(SMODS.load_file("shaders/" .. file ))()
+end
