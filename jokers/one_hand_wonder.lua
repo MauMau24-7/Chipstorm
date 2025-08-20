@@ -10,6 +10,7 @@ SMODS.Joker{
     config = { extra = { chips = 30, chipsMod = 30, hands = 0 } },
     pos = { x = 8, y = 0 },
     atlas = "one_hand_wonder",
+    blueprint_compat = true,
     discovered = true,
     unlocked = true,
     rarity = 2,
@@ -26,7 +27,7 @@ SMODS.Joker{
             }
         end
 
-        if context.end_of_round and not context.repetition and not context.individual then
+        if context.end_of_round and not context.repetition and not context.individual and not context.blueprint_card then
             if card.ability.extra.hands == G.GAME.current_round.hands_left + 1 then
                 card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipsMod
                 return {
