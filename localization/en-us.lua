@@ -86,6 +86,14 @@ return {
                     "{C:inactive} Currently {C:chips}+#1#"
                 },
             },
+            j_cstorm_one_hand_wonder = {
+                name = "One Hand Wonder",
+                text = {
+                    "Gains {C:chips}+#2#{} Chips for every Blind",
+                    "won in only {C:attention}1 hand",
+                    "{C:inactive} Currently {C:chips}+#1#"
+                },
+            },
         },
         Edition = {
             e_cstorm_ionized = {

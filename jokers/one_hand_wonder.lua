@@ -7,7 +7,7 @@ SMODS.Atlas({
 
 SMODS.Joker{
     key = "one_hand_wonder",
-    config = { extra = { chips = 30, chipsMod = 30 } },
+    config = { extra = { chips = 30, chipsMod = 30, hands = 0 } },
     pos = { x = 8, y = 0 },
     atlas = "one_hand_wonder",
     discovered = true,
@@ -16,6 +16,28 @@ SMODS.Joker{
     cost = 5,
 
     calculate = function (self, card, context)
-        
+        if context.blind then
+            card.ability.extra.hands = G.GAME.current_round.hands_left
+            print(card.ability.extra.hands)
+        end
+
+        if context.joker_main then
+            return {
+                chips = card.ability.extra.chips
+            }
+        end
+
+        if context.end_of_round and not context.repetition and not context.individual then
+            if card.ability.extra.hands == G.GAME.current_round.hands_left + 1 then
+                card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipsMod
+                return {
+                    extra = {focus = context.self, message = localize('k_upgrade_ex')}
+                }
+            end
+        end
+    end,
+
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.chips, card.ability.extra.chipsMod }, key = self.key }
     end
 }
