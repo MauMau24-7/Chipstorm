@@ -94,6 +94,14 @@ return {
                     "{C:inactive} Currently {C:chips}+#1#"
                 },
             },
+            j_cstorm_fast_draw = {
+                name = "Fast Draw",
+                text = {
+                    "Gains {C:chips}+#2#{} Chips for every Blind",
+                    "won {C:redn}without discarding",
+                    "{C:inactive} Currently {C:chips}+#1#"
+                },
+            },
         },
         Edition = {
             e_cstorm_ionized = {
