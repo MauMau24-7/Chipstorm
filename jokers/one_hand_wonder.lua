@@ -18,7 +18,6 @@ SMODS.Joker{
     calculate = function (self, card, context)
         if context.blind then
             card.ability.extra.hands = G.GAME.current_round.hands_left
-            print(card.ability.extra.hands)
         end
 
         if context.joker_main then
