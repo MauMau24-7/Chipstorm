@@ -98,8 +98,18 @@ return {
                 name = "Fast Draw",
                 text = {
                     "Gains {C:chips}+#2#{} Chips for every Blind",
-                    "won {C:redn}without discarding",
+                    "won {C:red}without discarding",
                     "{C:inactive} Currently {C:chips}+#1#"
+                },
+            },
+            j_cstorm_washed_card = {
+                name = "{C:chips}Washed Card",
+                text = {
+                    "{s:1.2}Choose if you want...",
+                    "",
+                    "{C:chips}+#1# Chips",
+                    "or",
+                    "{C:mult}+#2# Mult"
                 },
             },
         },
@@ -209,6 +219,14 @@ return {
                     "This is a literal slot machine"
                 }
             }
+        },
+        Tag = {
+            tag_cstorm_raccoon = {
+                name = "Raccoon",
+                text = {
+                    "Washes a random Joker",
+                }
+            },
         },
         Other = {
             p_cstorm_chip_stack = {
