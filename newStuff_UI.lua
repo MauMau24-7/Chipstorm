@@ -153,8 +153,9 @@ end
 --C1
 function G.FUNCS.cstorm_jokers(e)
     local new_jokers = {
-    "j_cstorm_final_push", -- put the key for your new cards here
-    "j_cstorm_juggling_jack",
+    "j_cstorm_one_hand_wonder", -- put the key for your new cards here
+    "j_cstorm_fast_draw",
+    "j_cstorm_washed_card",
     }
 
     local new_pool = {}
@@ -327,7 +328,7 @@ function G.FUNCS.cstorm_booster_packs(e)
 end
 function G.FUNCS.cstorm_tags(e)
     local new_tags = {
-    --"j_cstorm_final_push", -- put the key for your new cards here
+    "tag_cstorm_raccoon", -- put the key for your new cards here
     }
 
     local new_pool = {}
