@@ -1,12 +1,3 @@
-SMODS.Atlas({
-    key = "final_push",
-    path = "Jokers.png",
-    px = 71,
-    py = 95
-})
-
-----------------------------------------------------------------------------------------
-
 --sounds
 
 SMODS.Sound({
@@ -44,7 +35,7 @@ SMODS.Joker{
     unlocked = true,
     discovered = true,
     effect = nil,
-    atlas = 'final_push',
+    atlas = 'jokers',
     soul_pos = nil,
 
     calculate = function(self, card, context)

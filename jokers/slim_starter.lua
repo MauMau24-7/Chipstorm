@@ -1,10 +1,3 @@
-SMODS.Atlas({
-    key = "slim_starter",
-    path = "j_SPACEHOLDER.png",
-    px = 71,
-    py = 95
-})
-
 SMODS.Joker{
     key = "slim_starter",
     config = { extra = { chips = 100, cardMax = 30 } },
@@ -16,7 +9,7 @@ SMODS.Joker{
     unlocked = true,
     discovered = true,
     effect = nil,
-    atlas = 'slim_starter',
+    atlas = 'jokers_SPACEHOLDER',
     soul_pos = nil,
 
     calculate = function(self, card, context)

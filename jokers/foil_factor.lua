@@ -1,10 +1,3 @@
-SMODS.Atlas({
-    key = "foil_factor",
-    path = "j_SPACEHOLDER.png",
-    px = 71,
-    py = 95
-})
-
 -- This doesn't work!
 
 SMODS.Joker{
@@ -18,7 +11,7 @@ SMODS.Joker{
     unlocked = true,
     discovered = true,
     effect = nil,
-    atlas = 'foil_factor',
+    atlas = 'jokers_SPACEHOLDER',
     soul_pos = nil,
 
     calculate = function(self, card, context)

@@ -41,19 +41,10 @@ local function stopScoring()
 	}))
 end
 
-SMODS.Atlas({
-	key = "slots",
-	path = "blindChips.png",
-	atlas_table = "ANIMATION_ATLAS",
-	frames = 21,
-	px = 34,
-	py = 34
-})
-
 
 SMODS.Blind {
 	key = "slots",
-	atlas = "slots",
+	atlas = "blinds",
 	pos = { x = 0, y = 0 },
 	dollars = 10,
 	mult = 5,
@@ -179,12 +170,12 @@ SMODS.Blind {
 			end
 			--burnCard
 			if RNGesus >= 7 and RNGesus <= 40 then
-				local destroyCard = pseudorandom_element(G.playing_cards, "Card")
+				local destroyCard = pseudorandom_element(G.playing_cards, "burnCard")
 				SMODS.destroy_cards(destroyCard)
 			--destroyJoker
 			elseif RNGesus >= 41 and RNGesus <= 85 then
 				if #G.jokers.cards > 0 then
-					local destroyJoker = pseudorandom_element(G.jokers.cards, "Joker")
+					local destroyJoker = pseudorandom_element(G.jokers.cards, "destroyJoker")
 					SMODS.destroy_cards(destroyJoker)
 				else
 					G.jokers.config.card_limit = G.jokers.config.card_limit - 1

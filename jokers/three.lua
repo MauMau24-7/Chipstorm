@@ -1,10 +1,3 @@
-SMODS.Atlas({
-    key = "three",
-    path = "Jokers.png",
-    px = 71,
-    py = 95
-})
-
 SMODS.Joker{
     key = "three",
     config = { extra = { chips = 33.3 } },
@@ -16,7 +9,7 @@ SMODS.Joker{
     unlocked = true,
     discovered = true,
     effect = nil,
-    atlas = 'three',
+    atlas = 'jokers',
     soul_pos = nil,
 
     calculate = function(self, card, context)

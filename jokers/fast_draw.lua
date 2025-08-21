@@ -1,15 +1,8 @@
-SMODS.Atlas({
-    key = "fast_draw",
-    path = "j_SPACEHOLDER.png",
-    px = 71,
-    py = 95,
-})
-
 SMODS.Joker{
     key = "fast_draw",
     config = { extra = { chips = 50, chipsMod = 25, discards = 0 } },
     pos = { x = 0, y = 0 },
-    atlas = "fast_draw",
+    atlas = "jokers_SPACEHOLDER",
     blueprint_compat = true,
     discovered = true,
     unlocked = true,

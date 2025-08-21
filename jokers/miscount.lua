@@ -1,10 +1,3 @@
-SMODS.Atlas({
-    key = "miscount",
-    path = "Jokers.png",
-    px = 71,
-    py = 95
-})
-
 SMODS.Joker{
     key = "miscount",
     config = { extra = { min_chips = 0, max_chips = 200, rand_key = 'miscount' } },
@@ -16,7 +9,7 @@ SMODS.Joker{
     unlocked = true,
     discovered = true,
     effect = nil,
-    atlas = 'miscount',
+    atlas = 'jokers',
     soul_pos = nil,
 
     calculate = function(self, card, context)

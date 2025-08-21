@@ -11,8 +11,10 @@ local boosterpack_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "booster
 local blind_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "blinds" )
 local sticker_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "stickers" )
 local shader_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "shaders" )
+local tag_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "tags" )
 
 assert(SMODS.load_file("globals.lua"))()
+assert(SMODS.load_file("Atlas.lua"))()
 assert(SMODS.load_file("newStuff.lua"))()
 assert(SMODS.load_file("newStuff_UI.lua"))()
 assert(SMODS.load_file("newStuff_functions.lua"))()
@@ -49,4 +51,8 @@ end
 
 for _, file in ipairs(shader_src) do
     assert(SMODS.load_file("shaders/" .. file ))()
+end
+
+for _, file in ipairs(tag_src) do
+    assert(SMODS.load_file("tags/" .. file ))()
 end
