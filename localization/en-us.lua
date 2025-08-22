@@ -112,6 +112,21 @@ return {
                     "{C:mult}+#2# Mult"
                 },
             },
+            j_cstorm_arcana_hunter = {
+                name = "{C:purple}Arcana Hunter",
+                text = {
+                    {
+                        "Gains {C:chips}+#2#{} Chips for every",
+                        "{C:attention}#3#{} {C:purple}Tarot{}, {C:dark_edition}Spectral{} or {C:chips}Planet{} cards",
+                        "bought in the same shop",
+                        "{C:inactive}Currently {C:chips}+#1#"
+                    },
+                    {
+                        "{s:0.8}Consumables bought this shop: {C:attention,s:0.8}#4#"
+                    }
+
+                },
+            },
         },
         Edition = {
             e_cstorm_ionized = {

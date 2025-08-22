@@ -156,6 +156,7 @@ function G.FUNCS.cstorm_jokers(e)
     "j_cstorm_one_hand_wonder", -- put the key for your new cards here
     "j_cstorm_fast_draw",
     "j_cstorm_washed_card",
+    "j_cstorm_arcana_hunter",
     }
 
     local new_pool = {}
