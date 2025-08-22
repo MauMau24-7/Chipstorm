@@ -47,17 +47,14 @@ SMODS.Joker{
         if context.joker_main then
 
             if card.ability.extra.hand_count_before == 3 then
-                return { message = not context.blueprint and "Charging...", sound = "cstorm_charge_up1" }
+                return { message = not context.blueprint and "Charging...", colour = G.C.BLUE, sound = "cstorm_charge_up1" }
             end
             if card.ability.extra.hand_count_before == 2 then
-                return { message = not context.blueprint and "Charging...", sound = "cstorm_charge_up2" }
+                return { message = not context.blueprint and "Charging...", colour = G.C.BLUE, sound = "cstorm_charge_up2" }
             end
             if card.ability.extra.hand_count_before == 1 then
-                return { message = not context.blueprint and "Fully Charged", sound = "cstorm_charge_up3" }
+                return { message = not context.blueprint and "Fully Charged", colour = G.C.BLUE, sound = "cstorm_charge_up3" }
             end
-            -- if card.ability.extra.hand_count_before < 4 then
-            --    return { message = "Reset" }
-            -- end
 
             if G.GAME.current_round.hands_left == 0 and context.blueprint then
                 return {
@@ -67,6 +64,7 @@ SMODS.Joker{
             if G.GAME.current_round.hands_left == 0 and not context.blueprint then
                 return {
                     message = "Overcharged!",
+                    colour = G.C.BLUE,
                     sound = "cstorm_overcharge",
                     remove_default_message = true,
                     xchips = card.ability.extra.xchips

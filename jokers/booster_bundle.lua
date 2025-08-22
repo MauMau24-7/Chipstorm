@@ -9,7 +9,7 @@ SMODS.Joker {
     unlocked = true,
     discovered = true,
     effect = nil,
-    atlas = 'jokers',
+    atlas = 'jokers_SPACEHOLDER',
     soul_pos = nil,
 
     calculate = function(self, card, context)
