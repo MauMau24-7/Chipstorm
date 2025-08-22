@@ -19,6 +19,7 @@ assert(SMODS.load_file("newStuff.lua"))()
 assert(SMODS.load_file("newStuff_UI.lua"))()
 assert(SMODS.load_file("newStuff_functions.lua"))()
 assert(SMODS.load_file("mod_info.lua"))()
+assert(SMODS.load_file("general_ui.lua"))()
 
 
 for _, file in ipairs(joker_src) do
