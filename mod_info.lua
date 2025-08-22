@@ -20,23 +20,12 @@ SMODS.current_mod.custom_ui = function(modNodes)
         { card_limit = 5, type = 'title', highlight_limit = 0, collection = true }
     )
     G.cstorm_desc_area.cstorm_demo_area = true
-    for i, key in ipairs({ "j_cstorm_final_push", "j_cstorm_miscount", "j_cstorm_juggling_jack" }) do
+    for i, key in ipairs({ "j_cstorm_animation" }) do
         local card = Card(G.cstorm_desc_area.T.x + G.cstorm_desc_area.T.w / 2, G.cstorm_desc_area.T.y,
             G.CARD_W, G.CARD_H, G.P_CARDS.empty,
             G.P_CENTERS[key])
-        -- Chipstorm.set_back_sprite(nil, card)
         G.cstorm_desc_area:emplace(card)
-        card:flip()
-        G.E_MANAGER:add_event(Event({
-            blocking = false,
-            trigger = "after",
-            delay = 0.4 * i,
-            func = function()
-                play_sound("card1")
-                card:flip()
-                return true
-            end,
-        }))
+        card.no_ui = true
     end
 
     modNodes[#modNodes + 1] = {
