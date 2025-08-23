@@ -28,3 +28,17 @@ SMODS.Atlas({
     py = 95
 })
 
+SMODS.Atlas({
+    key = "tokens",
+    path = "Tokens.png",
+    px = 71,
+    py = 95
+})
+
+SMODS.ConsumableType{
+    key = "cstorm_tokens",
+    collection_rows = { 4, 4 },
+    primary_colour = HEX ('000000'),
+    secondary_colour = HEX("06540b"),
+}
+
