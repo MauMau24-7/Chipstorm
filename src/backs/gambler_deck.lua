@@ -7,13 +7,11 @@ SMODS.Back {
 
     calculate = function(self, back, context)
         if context.end_of_round and context.beat_boss and self.config.tokenGiven == false then
-            print("test1")
             self.config.tokenGiven = true
             SMODS.add_card({ set = 'cstorm_tokens' })
         end
 
         if context.setting_blind then
-            print("test2")
             self.config.tokenGiven = false
         end
     end,
