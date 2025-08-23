@@ -1,3 +1,0 @@
-SMODS.Back{
-    key = "",
-}

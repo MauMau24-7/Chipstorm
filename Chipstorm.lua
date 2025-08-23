@@ -9,6 +9,7 @@ local edition_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "editions" )
 local consumable_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "consumables" )
 local boosterpack_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "boosterpacks" )
 local blind_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "blinds" )
+local back_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "backs" )
 local sticker_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "stickers" )
 local shader_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "shaders" )
 local tag_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "tags" )
@@ -44,6 +45,10 @@ end
 
 for _, file in ipairs(blind_src) do
     assert(SMODS.load_file("blinds/" .. file ))()
+end
+
+for _, file in ipairs(back_src) do
+    assert(SMODS.load_file("backs/" .. file ))()
 end
 
 -- for _, file in ipairs(sticker_src) do

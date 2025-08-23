@@ -233,6 +233,16 @@ return {
                     }
                 }
             },
+            c_cstorm_lucky_chip = {
+                name = "Lucky Chip",
+                text = {
+                    {
+                        "Get {C:attention}+#1# handsize{} for",
+                        "the current blind",
+                        "Activated: #2#"
+                    }
+                }
+            },
         },
         Blind = {
             bl_cstorm_green_light_red_light = {
@@ -245,6 +255,15 @@ return {
                 name = "Slots",
                 text = {
                     "This is a literal slot machine"
+                }
+            }
+        },
+        Back = {
+            b_cstorm_gambler_deck = {
+                name = "Gambler Deck",
+                text = {
+                    "Gives a {X:dark_edition,C:white}random{} {C:cstorm_tokens,E:1}Token{} after",
+                    "every {C:attention}defeated Boss Blind"
                 }
             }
         },
