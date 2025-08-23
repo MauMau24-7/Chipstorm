@@ -6,8 +6,8 @@ SMODS.Atlas({
 })
 
 SMODS.Sound({
-    key = "music_Tokens_boosterpack", 
-    path = "music_Tokens_boosterpack.ogg",
+    key = "music_tokens_boosterpack", 
+    path = "music_tokens_boosterpack.ogg",
     pitch = 1,
     volume = 0.6,
     select_music_track = function()
@@ -36,6 +36,7 @@ SMODS.Booster {
     cost = 4,
     weight = 1,
     draw_hand = false,
+    select_card = "consumeables",
     
     ease_background_colour = function(self)
 		ease_colour(G.C.DYN_UI.MAIN, G.C.BLUE)
@@ -43,7 +44,7 @@ SMODS.Booster {
 	end,
 
     create_card = function(self, card, i)
-        return {set = "cstorm_Tokens", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "cstorm"}
+        return {set = "cstorm_tokens", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "cstorm"}
     end,
 
     loc_vars = function(self, info_queue, card)

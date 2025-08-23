@@ -1,3 +1,5 @@
+-- This doesn't work!
+
 SMODS.Joker{
     key = "pimp_my_deck",
     config = { extra = { chips = 30 } },

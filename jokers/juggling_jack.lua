@@ -16,7 +16,7 @@ SMODS.Joker{
         if context.discard then
             context.other_card.ability.perma_bonus = context.other_card.ability.perma_bonus + card.ability.extra.chips
             return {
-                extra = {focus = context.other_card, message = localize('k_upgrade_ex')}
+                extra = {focus = context.other_card, message = localize('k_upgrade_ex'), colour = G.C.CHIPS}
             }
         end
     end,

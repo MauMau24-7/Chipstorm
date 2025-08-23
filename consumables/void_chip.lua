@@ -1,31 +1,15 @@
-SMODS.ConsumableType{
-    key = "cstorm_tokens",
-    collection_rows = { 4, 5 },
-    primary_colour = HEX ('000000'),
-    secondary_colour = HEX("06540b"),
-}
-
-SMODS.Atlas({
-    key = "void_chip",
-    path = "void_chip.png",
-    px = 71,
-    py = 95
-})
-
 SMODS.Consumable{
     key = "void_chip",
     set = 'cstorm_tokens',
-    atlas = "void_chip",
+    atlas = "tokens",
     pos = { x = 0, y = 0},
     pixel_size = { w = 71, h = 71 },
-    config = { chips = 200, beforeSelection = 5, active = false },
+    config = { chips = 200, beforeSelection = 5, maxCardSelection = 1, active = false },
     unlocked = true,
     discovered = true,
     cost = 5,
     
-    
---TODO: Change play limit back to beforeSelection
---TODO: Add +200 chips to the next hand
+-- TODO: Add +200 chips to the next hand
 -- TODO: Maybe make chips last for x Rounds instead of usables
 
     calculate = function (self, card, context)
@@ -41,9 +25,9 @@ SMODS.Consumable{
         self.config.active = true
         self.config.beforeSelection = G.hand.config.highlighted_limit
         
-        local maxCardSelection = G.hand.config.highlighted_limit -1
+        self.config.maxCardSelection = G.hand.config.highlighted_limit -1
 
-        SMODS.change_play_limit(-maxCardSelection)
+        SMODS.change_play_limit(-self.config.maxCardSelection)
 
     end,
 
