@@ -4,3 +4,7 @@ Balatro/
 templates/
 /.luarc.json
 .luarc.json/
+/.vs
+.vs/
+/.vscode
+.vscode/
