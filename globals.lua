@@ -12,6 +12,7 @@ G.C.CSTORM = {
     XYZ = HEX("546587"),
     BUTTONS = HEX("FF463C"),
     CON_BUTTON = HEX("FF8700"),
+    TOKENS = HEX("06540b"),
 }
 
 -- Hooks
@@ -32,5 +33,6 @@ function loc_colour(_c, _default)
     G.ARGS.LOC_COLOURS.cstorm_xyz = G.C.CSTORM.XYZ
     G.ARGS.LOC_COLOURS.cstorm_buttons = G.C.CSTORM.BUTTONS
     G.ARGS.LOC_COLOURS.cstorm_con_buttons = G.C.CSTORM.CON_BUTTONS
+    G.ARGS.LOC_COLOURS.cstorm_tokens = G.C.CSTORM.TOKENS
     return loc_colour_ref(_c, _default)
 end

@@ -1,8 +1,8 @@
 SMODS.ConsumableType{
-    key = "cstorm_Tokens",
+    key = "cstorm_tokens",
     collection_rows = { 4, 5 },
     primary_colour = HEX ('000000'),
-    secondary_colour = HEX ('ffffff'),
+    secondary_colour = HEX("06540b"),
 }
 
 SMODS.Atlas({
@@ -14,7 +14,7 @@ SMODS.Atlas({
 
 SMODS.Consumable{
     key = "void_chip",
-    set = 'cstorm_Tokens',
+    set = 'cstorm_tokens',
     atlas = "void_chip",
     pos = { x = 0, y = 0},
     pixel_size = { w = 71, h = 71 },

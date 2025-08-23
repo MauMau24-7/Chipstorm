@@ -211,7 +211,7 @@ return {
                 }
             }
         },
-        cstorm_Tokens = {
+        cstorm_tokens = {
             c_cstorm_void_chip = {
                 name = "Void Chip",
                 text = {
@@ -301,8 +301,8 @@ return {
             a_handsize_minus = "-#1# Hand Size",
             a_sold_tally = "#1#/#2# Sold",
 
-            k_cstorm_Tokens = "Token",
-            b_cstorm_Tokens_cards = "Tokens",
+            k_cstorm_tokens = "Token",
+            b_cstorm_tokens_cards = "Tokens",
 
             k_chip_stack = "Gambler's Thing",
 
@@ -330,7 +330,7 @@ return {
             -- ["$"] = "BOB"
         },
         labels = {
-            cstorm_Tokens = "Tokens",
+            cstorm_tokens = "Tokens",
 
             cstorm_cracked_stone = "Cracked Stone",
 

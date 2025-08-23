@@ -7,7 +7,7 @@ SMODS.Atlas({
 
 SMODS.Consumable{
     key = "neon_chip",
-    set = 'cstorm_Tokens',
+    set = 'cstorm_tokens',
     atlas = "neon_chip",
     pos = { x = 0, y = 0},
     pixel_size = { w = 71, h = 71 },
