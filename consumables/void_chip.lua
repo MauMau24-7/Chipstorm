@@ -29,11 +29,11 @@ SMODS.Consumable{
 -- TODO: Maybe make chips last for x Rounds instead of usables
 
     calculate = function (self, card, context)
-        if context.end_of_round then
+        if context.after and self.config.active == true then
+            self.config.active = false
             SMODS.change_play_limit(self.config.beforeSelection - 1)
 
-            card.getting_sliced = true
-            card:start_dissolve({ HEX("57ecab") }, nil, 1.6)
+            SMODS.destroy_cards(card)
         end
     end,
 
