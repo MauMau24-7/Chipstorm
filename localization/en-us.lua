@@ -219,7 +219,20 @@ return {
                     "{C:chips}+#1#{} but you can",
                     "only play #2# card"
                 }
-            }
+            },
+            c_cstorm_neon_chip = {
+                name = "Neon Chip",
+                text = {
+                    {
+                        "Get {C:chips}+#1# Chips{} for",
+                        "{C:attention}every Joker{} you have on use",
+                        "Activated: #3#"
+                    },
+                    {
+                        "Would currently give {C:chips}#2# Chips"
+                    }
+                }
+            },
         },
         Blind = {
             bl_cstorm_green_light_red_light = {

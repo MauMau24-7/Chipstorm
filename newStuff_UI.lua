@@ -219,6 +219,7 @@ function G.FUNCS.cstorm_consumables(e)
     local new_consumables = {
     "c_cstorm_focus_strike", -- put the key for your new cards here
     "c_cstorm_void_chip",
+    "c_cstorm_neon_chip",
     }
 
     local new_pool = {}
