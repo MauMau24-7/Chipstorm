@@ -157,6 +157,7 @@ function G.FUNCS.cstorm_jokers(e)
     "j_cstorm_fast_draw",
     "j_cstorm_washed_card",
     "j_cstorm_arcana_hunter",
+    "j_cstorm_second_thoughts",
     }
 
     local new_pool = {}
@@ -175,8 +176,7 @@ function G.FUNCS.cstorm_jokers(e)
 end
 function G.FUNCS.cstorm_decks(e)
     local new_decks = {
-    "j_cstorm_final_push", -- put the key for your new cards here
-    "j_cstorm_juggling_jack",
+    "b_cstorm_gambler_deck", -- put the key for your new cards here
     }
 
     local new_pool = {}
@@ -217,10 +217,11 @@ function G.FUNCS.cstorm_vouchers(e)
 end
 function G.FUNCS.cstorm_consumables(e)
     local new_consumables = {
-    "c_cstorm_focus_strike", -- put the key for your new cards here
+    --"c_cstorm_focus_strike", -- put the key for your new cards here
     "c_cstorm_void_chip",
     "c_cstorm_neon_chip",
     "c_cstorm_lucky_chip",
+    "c_cstorm_split_chip",
     }
 
     local new_pool = {}

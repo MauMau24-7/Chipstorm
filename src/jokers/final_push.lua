@@ -1,29 +1,3 @@
---sounds
-
-SMODS.Sound({
-    key = "charge_up1",
-    path = "s_charge_up1.ogg"
-})
-
-SMODS.Sound({
-    key = "charge_up2",
-    path = "s_charge_up2.ogg"
-})
-
-SMODS.Sound({
-    key = "charge_up3",
-    path = "s_charge_up3.ogg"
-})
-
-SMODS.Sound({
-    key = "overcharge",
-    path = "s_overcharge.ogg"
-})
-
----------------------------------------------------------------------------------------------------
-
----joker
-
 SMODS.Joker{
     key = "final_push",
     config = { extra = { xchips = 2, hand_count_before = 0 } },

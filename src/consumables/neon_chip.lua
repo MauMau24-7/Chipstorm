@@ -4,7 +4,7 @@ SMODS.Consumable {
     atlas = "tokens",
     pos = { x = 1, y = 0 },
     pixel_size = { w = 71, h = 71 },
-    config = { chips = 75, chipsAll = 0, jokerAmount = 0, inBlind = false, active = false, },
+    config = { chips = 75, chipsAll = 0, jokerAmount = 0, active = false, },
     unlocked = true,
     discovered = true,
     cost = 6,
@@ -13,11 +13,7 @@ SMODS.Consumable {
         self.config.jokerAmount = #G.jokers.cards
         self.config.chipsAll = self.config.chips * self.config.jokerAmount
 
-        if context.blind then
-            self.config.inBlind = true
-        end
-
-        if context.final_scoring_step and self.config.active == true then
+        if context.joker_main and self.config.active == true then
             return {
                 chips = self.config.chipsAll
             }
@@ -27,10 +23,6 @@ SMODS.Consumable {
             self.config.active = false
             SMODS.destroy_cards(card)
         end
-
-        if context.end_of_round then
-            self.config.inBlind = false
-        end
     end,
 
     use = function(self, card, area, copier)
@@ -38,7 +30,7 @@ SMODS.Consumable {
     end,
 
     can_use = function(self, card)
-        if self.config.inBlind == true and self.config.active == false then
+        if G.GAME.blind.in_blind == true and self.config.active == false then
             return true
         end
     end,

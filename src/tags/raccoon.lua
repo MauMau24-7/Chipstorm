@@ -14,9 +14,7 @@ SMODS.Tag{
             while replaceJoker.config.center_key == "j_cstorm_washed_card" do
                 replaceJoker = pseudorandom_element(G.jokers.cards, "replaceJoker")
                 try = try + 1
-                print("Try: " .. try)
                 if try >= 10 then
-                    print("I tried my best TwT")
                     break
                 end
             end

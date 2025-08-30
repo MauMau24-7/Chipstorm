@@ -10,18 +10,36 @@ SMODS.Consumable{
     cost = 3,
 
     use = function (self, card, area, copier)
-        print(tostring(G.hand.highlighted[1]:get_id()))
-
         local rankBefore = G.hand.highlighted[1]:get_id()
+        local rankAce = false
+
+        print(rankBefore)
+
+        -- Handling Aces, Kings, Queens, Jacks
+        if rankBefore == 14 or ( rankBefore >= 11 and rankBefore <= 13) then
+            rankBefore = 10
+        end
 
         local rankAfter = rankBefore / 2
 
+        if math.floor(rankAfter) == 1 then
+            rankAce = true
+        end
+
+        print(rankAfter)
+
         SMODS.destroy_cards(G.hand.highlighted)
+        if rankAce == false then
+            SMODS.add_card { set = "Base", rank = math.floor(rankAfter) }
+            SMODS.add_card { set = "Base", rank = math.floor(rankAfter) }
+        else
+            SMODS.add_card { set = "Base", rank = "Ace" }
+            SMODS.add_card { set = "Base", rank = "Ace" }
+        end
+    end,
 
-        SMODS.add_card { set = "Base", rank = math.floor(rankAfter) }
-        SMODS.add_card { set = "Base", rank = math.floor(rankAfter) }
-
-        print(tostring(rankAfter))
+    loc_vars = function (self, info_queue, card)
+        return { vars = { self.config.max_highlighted }, key = self.key}
     end
 
 }
