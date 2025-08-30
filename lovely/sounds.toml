@@ -1,0 +1,18 @@
+[manifest]
+version = "0.1.0"
+priority = 0
+
+
+#Change card destroy sound
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = '''
+play_sound('whoosh2', math.random()*0.2 + 0.9,0.5)
+play_sound('crumple'..math.random(1, 5), math.random()*0.2 + 0.9,0.5)
+'''
+position = "at"
+payload = '''
+play_sound('cstorm_rippingPaper', math.random()*0.2 + 0.9,0.5)
+'''
+match_indent = true
