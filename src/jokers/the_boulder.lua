@@ -1,6 +1,6 @@
 SMODS.Joker{
     key = "the_boulder",
-    config = { extra = { chips = 50, stone_card = false } },
+    config = { extra = { chips = 50, allChips = 0, stone_card = 0, stone = false } },
     pos = {x = 2, y = 0},
     rarity = 1,
     cost = 3,
@@ -15,19 +15,24 @@ SMODS.Joker{
     calculate = function(self, card, context)
 
         if context.before and context.cardarea == G.jokers then
-            card.ability.extra.stone_card = false
+            card.ability.extra.stone_card = 0
+            card.ability.extra.chips = 50
+            card.ability.extra.allChips = 50
+            card.ability.extra.stone = false
 
             for _, c in ipairs(context.scoring_hand) do
-                if SMODS.has_enhancement(c, 'm_stone') then -- or SMODS.has_enhancement(c, 'cracked_stone')
-                    card.ability.extra.stone_card = true
-                    break
+                if SMODS.has_enhancement(c, 'm_stone') or SMODS.has_enhancement(c, 'm_cstorm_rock') then
+                    card.ability.extra.stone_card = card.ability.extra.stone_card + 1
+                    card.ability.extra.stone = true
                 end
             end
+
+            card.ability.extra.allChips = card.ability.extra.chips * card.ability.extra.stone_card
         end
 
-        if context.joker_main and context.cardarea == G.jokers and card.ability.extra.stone_card == true then
+        if context.joker_main and context.cardarea == G.jokers and card.ability.extra.stone_card > 0 and card.ability.extra.stone == true then
             return{
-                chips = card.ability.extra.chips
+                chips = card.ability.extra.allChips
             }
         end
     end,

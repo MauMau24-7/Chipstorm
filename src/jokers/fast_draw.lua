@@ -1,8 +1,8 @@
 SMODS.Joker{
     key = "fast_draw",
     config = { extra = { chips = 50, chipsMod = 25, discards = 0 } },
-    pos = { x = 0, y = 0 },
-    atlas = "jokers_SPACEHOLDER",
+    pos = { x = 6, y = 1 },
+    atlas = "jokers",
     blueprint_compat = true,
     discovered = true,
     unlocked = true,

@@ -3,7 +3,7 @@
 SMODS.Joker{
     key = "pimp_my_deck",
     config = { extra = { chips = 30 } },
-    pos = { x = 0, y = 0 },
+    pos = { x = 7, y = 1 },
     rarity = 3,
     cost = 9,
     blueprint_compat = true,
@@ -11,7 +11,7 @@ SMODS.Joker{
     unlocked = true,
     discovered = true,
     effect = nil,
-    atlas = 'jokers_SPACEHOLDER',
+    atlas = 'jokers',
     soul_pos = nil,
 
     calculate = function(self, card, context)

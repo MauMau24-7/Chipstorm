@@ -1,6 +1,6 @@
 SMODS.Joker{
     key = "chipy",
-    config = { extra = { chips = 50, chipsMod = 50 } },
+    config = { extra = { chips = 50, chipsMod = 25 } },
     pos = { x = 3, y = 1 },
     rarity = 1,
     cost = 4,
