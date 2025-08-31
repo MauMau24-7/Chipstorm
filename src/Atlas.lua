@@ -44,6 +44,13 @@ SMODS.Atlas({
     py = 95
 })
 
+SMODS.Atlas({
+    key = "rock",
+    path = "rock.png",
+    px = 71,
+    py = 95
+})
+
 --ConsumableTypes
 
 SMODS.ConsumableType{
