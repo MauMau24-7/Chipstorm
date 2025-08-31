@@ -242,7 +242,7 @@ end
 --C2
 function G.FUNCS.cstorm_enhancements(e)
     local new_enhancements = {
-    "m_cstorm_cracked_stone", -- put the key for your new cards here
+    "m_cstorm_rock", -- put the key for your new cards here
     }
 
     local new_pool = {}
