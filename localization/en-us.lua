@@ -64,17 +64,8 @@ return {
                 text = {
                     {
                         "Gives {C:chips}+#1#{} Chips",
-                        "if there is at least",
-                        "{C:green}1 Stone Card{} in scoring hand"
-                    }
-                },
-            },
-            j_cstorm_foil_factor = {
-                name = "Foil Factor",
-                text = {
-                    {
-                        "Gives {C:chips}+#1#{} Chips",
-                        "for every foil card played"
+                        "for {C:attention}every{} {C:green}Rock Card{} and",
+                        "{C:green}Stone Card{} in scoring hand"
                     }
                 },
             },
@@ -141,6 +132,12 @@ return {
                     "{C:cstorm_red}Second {C:cstorm_black}Thoughts{} grants half the",
                     "score of the {C:cstorm_red}strongest{} possible hand",
                     "if it is left {C:attention}unplayed{}"
+                },
+            },
+            j_cstorm_the_rock = {
+                name = "The Rock",
+                text = {
+                    "Turns {C:attention}scored{} stone cards into rock cards"
                 },
             },
         },
@@ -219,8 +216,8 @@ return {
             },
         },
         Enhanced = {
-            m_cstorm_cracked_stone = {
-                name = "Cracked Stone",
+            m_cstorm_rock = {
+                name = " Rock",
                 text = {
                     "Gives {X:chips,C:white} X#1# {}",
                     "when scored"
@@ -344,6 +341,13 @@ return {
                     "{C:purple}TheDogVT (Twitch)"
                 },
             },
+            rock_description = {
+                name = "Rock",
+                text = {
+                    "Gives {X:chips,C:white} X1.2 {}",
+                    "when scored"
+                },
+            },
         },
     },
     misc = {
@@ -383,7 +387,7 @@ return {
         labels = {
             cstorm_tokens = "Tokens",
 
-            cstorm_cracked_stone = "Cracked Stone",
+            cstorm_rock = "Rock",
 
             cstorm_death = "Death",
         },
