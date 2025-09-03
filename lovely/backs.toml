@@ -1,0 +1,22 @@
+[manifest]
+version = "0.1.0"
+priority = 0
+
+
+#Change areas for jokers
+[[patches]]
+[patches.pattern]
+target = 'functions/button_callbacks.lua'
+pattern = '''
+G.jokers:emplace(c1)
+'''
+position = "at"
+payload = '''
+if G.GAME and G.GAME.selected_back and G.GAME.selected_back.effect.center.key == "b_cstorm_law_of_chaos" then
+    G.deck:emplace(c1)
+    table.insert(G.playing_cards, c1)
+else
+    G.jokers:emplace(c1)
+end
+'''
+match_indent = true
