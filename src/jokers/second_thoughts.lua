@@ -7,7 +7,7 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     atlas = 'jokers',
     soul_pos = {
         x = 2, y = 2,
@@ -94,24 +94,7 @@ SMODS.Joker {
                     end
                 }))
             end
-            -- for _, card in ipairs(card.ability.extra.poker_hand_cards) do
-            -- end 
-            -- for _, card in ipairs(card.ability.extra.poker_hand_cards) do
-            --     G.hand:add_to_highlighted(card)
-            --     G.hand:remove_from_highlighted(card)
-            -- end
-
-            -- for _, card in ipairs(card.ability.extra.poker_hand_cards) do
-            --     G.E_MANAGER:add_event(Event({
-            --         func = function()
-            --             card:juice_up(0.2, 0.2)
-            --             return true
-            --         end
-            --     }))
-            -- end
         end
-
-        --How do I get the cards for the poker hand that `G.FUNCS.get_poker_hand_info(G.hand.cards)` detected?
 
         -- I wasted 2 hours of my life on this just to find out it exists as a function already TwT
         -- if not self.deck then

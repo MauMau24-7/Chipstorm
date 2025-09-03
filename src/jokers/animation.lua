@@ -10,7 +10,6 @@ SMODS.Joker{
     pos = { x = 0, y = 0},
     atlas = "animation",
     unlocked = true,
-    discovered = true,
     no_collection = true,
 
     update =function (self, card, dt)

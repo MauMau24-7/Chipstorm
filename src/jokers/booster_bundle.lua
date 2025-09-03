@@ -7,10 +7,8 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     unlocked = true,
-    discovered = true,
-    effect = nil,
+    discovered = false,
     atlas = 'jokers',
-    soul_pos = nil,
 
     calculate = function(self, card, context)
         if context.open_booster then

@@ -3,9 +3,10 @@ SMODS.Joker {
     pos = { x = 3, y = 2 },
     rarity = 2,
     cost = 4,
+    blueprint_compat = false,
     eternal_compat = true,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     atlas = "jokers",
 
     calculate = function(self, card, context)

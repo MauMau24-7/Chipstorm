@@ -1,23 +1,18 @@
 SMODS.Joker{
     key = "miscount",
-    config = { extra = { min_chips = 0, max_chips = 200, rand_key = 'miscount' } },
+    config = { extra = { min_chips = 0, max_chips = 200 } },
     pos = { x = 1, y = 0 },
     rarity = 1,
     cost = 4,
     blueprint_compat = true,
     eternal_compat = true,
     unlocked = true,
-    discovered = true,
-    effect = nil,
+    discovered = false,
     atlas = 'jokers',
-    soul_pos = nil,
 
     calculate = function(self, card, context)
-        if context.before and context.cardarea == G.jokers then
-            card.ability.extra.chips = math.floor(pseudorandom(card.ability.extra.rand_key) * (card.ability.extra.max_chips - card.ability.extra.min_chips + 1)) + card.ability.extra.min_chips
-        end
-
-        if context.joker_main and context.cardarea == G.jokers then
+        if context.joker_main then
+            card.ability.extra.chips = math.floor(pseudorandom("miscount", card.ability.extra.min_chips, card.ability.extra.max_chips))
             return {
                 chips = card.ability.extra.chips
             }

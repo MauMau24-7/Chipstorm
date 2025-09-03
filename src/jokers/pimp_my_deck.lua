@@ -9,10 +9,8 @@ SMODS.Joker{
     blueprint_compat = true,
     eternal_compat = true,
     unlocked = true,
-    discovered = true,
-    effect = nil,
+    discovered = false,
     atlas = 'jokers',
-    soul_pos = nil,
 
     calculate = function(self, card, context)
         if not (context.joker_main and context.cardarea == G.jokers) then
