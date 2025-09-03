@@ -140,6 +140,15 @@ return {
                     "Turns {C:attention}scored{} stone cards into rock cards"
                 },
             },
+            j_cstorm_human_captcha = {
+                name = "Human Captcha",
+                text = {
+                    "Each played {C:attention}#2#{} of {V:1}#3#{}",
+                    "gets{C:green} retriggered #1#",
+                    "times when scored",
+                    "{s:0.8}Card changes every ante",
+                },
+            },
         },
         Edition = {
             e_cstorm_ionized = {
@@ -279,6 +288,13 @@ return {
                 text = {
                     "This is a literal slot machine"
                 }
+            },
+            bl_cstorm_the_minimalist = {
+                name = "The Minimalist",
+                text = {
+                    "Not more than 3 different",
+                    "ranks in the same hand allowed"
+                }
             }
         },
         Back = {
@@ -364,6 +380,8 @@ return {
             k_cstorm_github = "Github",
             k_cstorm_credits = "Credits",
 
+            k_cstorm_chatter = "Chatter",
+
             -- "NEW STUFF" Tab thingies
             k_cstorm_new_stuff = "NEW STUFF!",
 
@@ -390,6 +408,8 @@ return {
             cstorm_rock = "Rock",
 
             cstorm_death = "Death",
+
+            cstorm_chatter = "Chatter",
         },
         ranks = {
             cstorm_HalfJack = "Half Jack",

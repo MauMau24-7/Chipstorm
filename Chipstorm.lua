@@ -14,6 +14,7 @@ local sticker_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/sticker
 local shader_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/shaders" )
 local tag_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/tags" )
 local rank_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/ranks" )
+local rarity_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/rarities" )
 
 assert(SMODS.load_file("src/globals.lua"))()
 assert(SMODS.load_file("src/Atlas.lua"))()
@@ -67,3 +68,7 @@ end
 -- for _, file in ipairs(rank_src) do
 --     assert(SMODS.load_file("src/ranks/" .. file ))()
 -- end
+
+for _, file in ipairs(rarity_src) do
+    assert(SMODS.load_file("src/rarities/" .. file ))()
+end
