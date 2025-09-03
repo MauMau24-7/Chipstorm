@@ -354,7 +354,7 @@ return {
             idea_credits = {
                 name = "Idea:",
                 text = {
-                    "{C:purple}TheDogVT (Twitch)"
+                    "{C:purple}#1#"
                 },
             },
             rock_description = {
@@ -362,6 +362,12 @@ return {
                 text = {
                     "Gives {X:chips,C:white} X1.2 {}",
                     "when scored"
+                },
+            },
+            chatter_name =  {
+                name = "Chatter:",
+                text = {
+                    "{C:purple}#1#"
                 },
             },
         },

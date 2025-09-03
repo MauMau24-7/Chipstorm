@@ -281,7 +281,7 @@ SMODS.Joker {
     end,
 
     loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue+1] = {set = "Other", key = "idea_credits"}
+        info_queue[#info_queue+1] = {set = "Other", key = "idea_credits", specific_vars = {"TheDogVT (Twitch)"}}
         return { vars = { card.ability.extra.chips }, key = self.key }
     end,
 

@@ -51,6 +51,13 @@ SMODS.Atlas({
     py = 95
 })
 
+SMODS.Atlas({
+    key = "chatters",
+    path = "Chatters.png",
+    px = 71,
+    py = 95
+})
+
 --ConsumableTypes
 
 SMODS.ConsumableType{
