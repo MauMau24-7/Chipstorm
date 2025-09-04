@@ -1,9 +1,7 @@
----@diagnostic disable: duplicate-index
 SMODS.Rarity{
     key = "chatter",
     pools = {
-        ["Joker"] = true,
-        ["Joker"] = { rate = 0.7 },
+        ["Joker"] = { weight = 0.7 },
     },
     badge_colour = HEX("8956FB"),
 }
