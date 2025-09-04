@@ -1,3 +1,4 @@
+---@diagnostic disable: duplicate-index
 SMODS.Rarity{
     key = "chatter",
     pools = {
