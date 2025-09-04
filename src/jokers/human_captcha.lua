@@ -1,6 +1,6 @@
-SMODS.Joker{
+SMODS.Joker {
     key = "human_captcha",
-    config = { extra = { repetitions = 7, animation = false, } },
+    config = { extra = { repetitions = 0, animation = false, inRow = 0 } },
     pos = { x = 0, y = 0 },
     rarity = "cstorm_chatter",
     cost = 15,
@@ -10,15 +10,27 @@ SMODS.Joker{
     discovered = false,
     atlas = "chatters",
 
-    calculate = function (self, card, context)
+    calculate = function(self, card, context)
         if context.repetition and context.cardarea == G.play and
-            G.GAME.current_round.cstorm_captcha_card and
-            context.other_card:get_id() == G.GAME.current_round.cstorm_captcha_card.id and
-            context.other_card:is_suit(G.GAME.current_round.cstorm_captcha_card.suit) then
+            G.GAME.current_round.cstorm_captcha_card then
+            if context.other_card:get_id() == G.GAME.current_round.cstorm_captcha_card.id and
+                context.other_card:is_suit(G.GAME.current_round.cstorm_captcha_card.suit) then
+                card.ability.extra.inRow = card.ability.extra.inRow + 1
+
+                -- Retriggers = Square Root of right hands played after each other (per hand)
+                card.ability.extra.repetitions = math.floor(math.sqrt(card.ability.extra.inRow))
+
+                print(card.ability.extra.inRow .. " cards played right in a row")
+                print("Current retriggers: " .. card.ability.extra.repetitions)
+
                 card.ability.extra.animation = true
                 return {
                     repetitions = card.ability.extra.repetitions
                 }
+            else
+                card.ability.extra.inRow = 0
+                card.ability.extra.repetitions = 0
+            end
         end
 
         if context.ante_end or G.GAME.current_round.cstorm_captcha_card == nil then
@@ -38,13 +50,14 @@ SMODS.Joker{
         end
     end,
 
-    loc_vars = function (self, info_queue, card)
+    loc_vars = function(self, info_queue, card)
         local captcha_card = G.GAME.current_round.cstorm_captcha_card or { rank = 'Ace', suit = 'Spades' }
-        info_queue[#info_queue+1] = {set = "Other", key = "chatter_name", specific_vars = {"human person"}}
+        info_queue[#info_queue + 1] = { set = "Other", key = "chatter_name", specific_vars = { "human person" } }
+        info_queue[#info_queue + 1] = { set = "Other", key = "captcha_retriggers_formula" }
         return { vars = { card.ability.extra.repetitions, localize(captcha_card.rank, 'ranks'), localize(captcha_card.suit, 'suits_plural'), colours = { G.C.SUITS[captcha_card.suit] } } }
     end,
 
-    update = function (self, card, dt)
+    update = function(self, card, dt)
         if card.ability.extra.animation == true then
             card.children.center:set_sprite_pos({ x = math.floor(G.TIMERS.REAL * 7) % 15, y = 0 })
 
