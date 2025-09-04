@@ -149,6 +149,28 @@ return {
                     "{s:0.8}Card changes every ante",
                 },
             },
+            j_cstorm_shnack = {
+                name = "Shnack",
+                text = { 
+                    {
+                        "Gains {C:chips}+#2# chips{} at",
+                        "the end of every round",
+                        "{C:inactive} Currently gives #1# Chips",
+                    },
+                    {
+                        "{s:0.8}Dogs like these snacks very much",
+                    },
+                }
+            },
+            j_cstorm_dog = {
+                name = "Dog",
+                text = {
+                    "Eats all {C:green}Shnack Jokers",
+                    "at the start of a round and",
+                    "gains it's chips as {C:attention}#2#x Mult",
+                    "{C:inactive} Currently gives #1# Mult",
+                },
+            },
         },
         Edition = {
             e_cstorm_ionized = {
