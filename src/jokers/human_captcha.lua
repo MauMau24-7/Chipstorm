@@ -23,9 +23,6 @@ SMODS.Joker {
                     -- Retriggers = Square Root of right hands played after each other (per hand)
                     card.ability.extra.repetitions = math.floor(math.sqrt(card.ability.extra.inRow))
 
-                    print(card.ability.extra.inRow .. " cards played right in a row")
-                    print("Current retriggers: " .. card.ability.extra.repetitions)
-
                     card.ability.extra.animation = true
                     return {
                         repetitions = card.ability.extra.repetitions

@@ -14,7 +14,6 @@ SMODS.Joker {
         if context.individual and context.cardarea == G.play then
             if context.other_card:get_id() == 13 then
                 RNGesus = pseudorandom("cosmicRNG", 1, 100)
-                print(RNGesus)
 
                 if RNGesus >= 1 and RNGesus <= 5 then
                     for _, planets in ipairs(G.P_CENTER_POOLS.Planet) do

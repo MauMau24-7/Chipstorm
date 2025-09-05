@@ -29,19 +29,18 @@ end
 SMODS.Joker {
     key = "suns_power",
     config = { extra = { mult = 2, } },
-    pos = { x = 14, y = 0 },
+    pos = { x = 0, y = 0 },
     rarity = "cstorm_chatter",
     cost = 12,
     blueprint_compat = true,
     eternal_compat = true,
     unlocked = true,
     discovered = false,
-    atlas = "chatters",
+    atlas = "jokers_SPACEHOLDER",
 
     calculate = function (self, card, context)
         if G.GAME.current_round.cstorm_suns_power_hand == nil then
             G.GAME.current_round.cstorm_suns_power_hand = pseudorandom_element(G.handlist, 'cstorm_suns_power')
-            print(G.GAME.current_round.cstorm_suns_power_hand)
         end
 
         if context.joker_main then
