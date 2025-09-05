@@ -143,10 +143,18 @@ return {
             j_cstorm_human_captcha = {
                 name = "Human Captcha",
                 text = {
-                    "Each played {C:attention}#2#{} of {V:1}#3#{}",
-                    "gets{C:green} retriggered #1#",
-                    "times when scored",
-                    "{s:0.8}Card changes every ante",
+                    {
+                        "Each played {C:attention}#2#{} of {V:1}#3#{}",
+                        "gets{C:green} retriggered #1#",
+                        "times when scored",
+                        "{s:0.8}Card changes every ante",
+                    },
+                    {
+                        "{s:0.8,C:inactive}(Retriggers depend on",
+                        "{s:0.8,C:inactive}the amount of times",
+                        "{s:0.8,C:inactive}the card is played",
+                        "{s:0.8,C:inactive}in a row per hand)"
+                    }
                 },
             },
             j_cstorm_shnack = {
@@ -169,6 +177,21 @@ return {
                     "at the start of a round and",
                     "gains it's chips as {C:attention}#2#x Mult",
                     "{C:inactive} Currently gives #1# Mult",
+                },
+            },
+            j_cstorm_suns_power = {
+                name = "The Sun's Power",
+                text = {
+                    "Levels up the {C:mult}Mult",
+                    "of {C:attention}#1#{} by {C:mult}+#2#{} if it is played",
+                    "{C:inactive} Poker hand changes every game",
+                },
+            },
+            j_cstorm_cosmic_joker = {
+                name = "Cosmic Joker",
+                text = {
+                    "Has a {C:green}5% chance{} to give",
+                    "all planet cards when a {C:attention}King is scored",
                 },
             },
         },
@@ -382,7 +405,7 @@ return {
             rock_description = {
                 name = "Rock",
                 text = {
-                    "Gives {X:chips,C:white} X1.2 {}",
+                    "Gives {X:chips,C:white} X1.5 {}",
                     "when scored"
                 },
             },
@@ -392,6 +415,20 @@ return {
                     "{C:purple}#1#"
                 },
             },
+            captcha_retriggers_formula = {
+                name = "Formula:",
+                text = {
+                    "{s:0.8,C:inactive}repetitions = square root of",
+                    "{s:0.8,C:inactive}cards in a Row rounded down",
+                    "{s:0.8,C:inactive} ",
+                    "{s:0.8,C:inactive}repetitions | cards in a row",
+                    "{s:0.8,C:inactive}0 | 0",
+                    "{s:0.8,C:inactive}1 | 1 through 3",
+                    "{s:0.8,C:inactive}2 | 4 through 8",
+                    "{s:0.8,C:inactive}3 | 9 through 15",
+                    "{s:0.8,C:inactive}and so on"
+                }
+            }
         },
     },
     misc = {
