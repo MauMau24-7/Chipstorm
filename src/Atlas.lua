@@ -1,10 +1,10 @@
 --Spritesheets
 
 SMODS.Atlas({
-    key = "tags",
-    path = "Tags.png",
-    px = 34,
-    py = 34
+	key = "tags",
+	path = "Tags.png",
+	px = 34,
+	py = 34
 })
 
 SMODS.Atlas({
@@ -17,113 +17,148 @@ SMODS.Atlas({
 })
 
 SMODS.Atlas({
-    key = "jokers",
-    path = "Jokers.png",
-    px = 71,
-    py = 95,
+	key = "jokers",
+	path = "Jokers.png",
+	px = 71,
+	py = 95,
 })
 
 SMODS.Atlas({
-    key = "jokers_SPACEHOLDER",
-    path = "j_SPACEHOLDER.png",
-    px = 71,
-    py = 95
+	key = "jokers_SPACEHOLDER",
+	path = "j_SPACEHOLDER.png",
+	px = 71,
+	py = 95
 })
 
 SMODS.Atlas({
-    key = "tokens",
-    path = "Tokens.png",
-    px = 71,
-    py = 95
+	key = "tokens",
+	path = "Tokens.png",
+	px = 71,
+	py = 95
 })
 
 SMODS.Atlas({
-    key = "halfRanks",
-    path = "Ranks.png",
-    px = 71,
-    py = 95
+	key = "halfRanks",
+	path = "Ranks.png",
+	px = 71,
+	py = 95
 })
 
 SMODS.Atlas({
-    key = "rock",
-    path = "rock.png",
-    px = 71,
-    py = 95
+	key = "rock",
+	path = "rock.png",
+	px = 71,
+	py = 95
 })
 
 SMODS.Atlas({
-    key = "chatters",
-    path = "Chatters.png",
-    px = 71,
-    py = 95
+	key = "chatters",
+	path = "Chatters.png",
+	px = 71,
+	py = 95
+})
+
+SMODS.Atlas({
+	key = "animation",
+	path = "animation.png",
+	px = 71,
+	py = 95
+})
+
+SMODS.Atlas {
+	key = "cstorm_splash_screen",
+	px = 362,
+	py = 48,
+	path = 'cstorm_splash_sprite.png'
+}
+
+SMODS.Atlas({
+	key = "astro",
+	path = "Astro.png",
+	px = 71,
+	py = 95
 })
 
 --ConsumableTypes
 
-SMODS.ConsumableType{
-    key = "cstorm_tokens",
-    collection_rows = { 4, 4 },
-    primary_colour = HEX ('000000'),
-    secondary_colour = HEX("06540b"),
+SMODS.ConsumableType {
+	key = "cstorm_tokens",
+	collection_rows = { 4, 4 },
+	primary_colour = HEX('000000'),
+	secondary_colour = HEX("06540b"),
+}
+
+SMODS.ConsumableType {
+	key = "cstorm_astro",
+	collection_rows = { 1, 2, 3, },
+	primary_colour = HEX('FF0000'),
+	secondary_colour = HEX("230049"),
+}
+
+SMODS.ConsumableType {
+	key = "cstorm_astro_hints",
+	collection_rows = { 1, 2, 3, },
+	primary_colour = HEX('FF0000'),
+	secondary_colour = HEX("230049"),
 }
 
 -- Sounds
 
 SMODS.Sound({
-    key = "charge_up1",
-    path = "charge_up1.ogg"
+	key = "charge_up1",
+	path = "charge_up1.ogg"
 })
 
 SMODS.Sound({
-    key = "charge_up2",
-    path = "charge_up2.ogg"
+	key = "charge_up2",
+	path = "charge_up2.ogg"
 })
 
 SMODS.Sound({
-    key = "charge_up3",
-    path = "charge_up3.ogg"
+	key = "charge_up3",
+	path = "charge_up3.ogg"
 })
 
 SMODS.Sound({
-    key = "overcharge",
-    path = "overcharge.ogg"
+	key = "overcharge",
+	path = "overcharge.ogg"
 })
 
 SMODS.Sound({
-    key = "music_tokens_boosterpack", 
-    path = "music_tokens_boosterpack.ogg",
-    pitch = 1,
-    volume = 0.6,
-    select_music_track = function()
-        if G.STATE == G.STATES.SMODS_BOOSTER_OPENED then
-            if G.pack_cards
-                and G.pack_cards.cards
-                and G.pack_cards.cards[1]
-                and G.pack_cards.cards[1].config
-                and G.pack_cards.cards[1].config.center
-                and G.pack_cards.cards[1].config.center.mod
-                and G.pack_cards.cards[1].config.center.mod.id 
-                and G.pack_cards.cards[1].config.center.mod.id == "Chipstorm" then
-		        return true 
-            end
-        end
+	key = "music_tokens_boosterpack",
+	path = "music_tokens_boosterpack.ogg",
+	pitch = 1,
+	volume = 0.6,
+	select_music_track = function()
+		if G.STATE == G.STATES.SMODS_BOOSTER_OPENED then
+			if G.pack_cards
+				and G.pack_cards.cards
+				and G.pack_cards.cards[1]
+				and G.pack_cards.cards[1].config
+				and G.pack_cards.cards[1].config.center
+				and G.pack_cards.cards[1].config.center.mod
+				and G.pack_cards.cards[1].config.center.mod.id
+				and G.pack_cards.cards[1].config.center.mod.id == "Chipstorm" then
+				return true
+			end
+		end
 	end,
 })
 
 SMODS.Sound({
-    key = "rippingPaper",
-    path = "rippingPaper.ogg"
+	key = "rippingPaper",
+	path = "rippingPaper.ogg"
 })
 
 SMODS.Sound({
-    key = "music_main_menu",
-    path = "music_main_menu.ogg",
-    pitch = 1,
-    sync = false,
+	key = "music6",
+	path = "main_menu_theme.ogg",
+	pitch = 1,
+	sync = false,
 
-    select_music_track = function (self)
-        if G.STATE == 11 then
-            return 6
-        end
-    end
+	select_music_track = function(self)
+		if G.STAGE == G.STAGES.MAIN_MENU then
+			return 6
+		end
+	end
 })

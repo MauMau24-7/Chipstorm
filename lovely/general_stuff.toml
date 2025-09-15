@@ -1,0 +1,42 @@
+[manifest]
+version = "0.1.0"
+priority = 0
+
+
+#Change card destroy sound
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = '''
+play_sound('whoosh2', math.random()*0.2 + 0.9,0.5)
+play_sound('crumple'..math.random(1, 5), math.random()*0.2 + 0.9,0.5)
+'''
+position = "at"
+payload = '''
+play_sound('cstorm_rippingPaper', math.random()*0.2 + 0.9,0.5)
+'''
+match_indent = true
+
+
+# Add the astro_area to the joker evaluation
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = "-- TARGET: add your own CardAreas for joker evaluation"
+position = 'before'
+match_indent = true
+payload = '''
+if Chipstorm and Chipstorm.astro_card_area then table.insert(t, Chipstorm.astro_card_area) end
+'''
+
+
+# Add the astro_area to the joker evaluation
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = 'for _, v in ipairs(info_queue) do'
+position = "before"
+match_indent = true
+payload = '''
+if card and card.c_cstorm_scorpio then info_queue[#info_queue+1] = { set = "Other", key = "scorpio_ability" } end
+'''

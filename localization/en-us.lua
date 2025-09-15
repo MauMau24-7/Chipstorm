@@ -191,7 +191,7 @@ return {
                 name = "Cosmic Joker",
                 text = {
                     "Has a {C:green}5% chance{} to give",
-                    "all planet cards when a {C:attention}King is scored",
+                    "all planet cards when a {C:attention}King{} is scored",
                 },
             },
         },
@@ -321,6 +321,143 @@ return {
                 }
             },
         },
+        cstorm_astro = {
+            c_cstorm_aries = {
+                name = "{C:cstorm_astro}Aries",
+                text = {
+                    {
+                        "{C:attention}Saves you if the blind requirement",
+                        "is not met at the {C:attention}cost of a random joker"
+                    },
+                    {
+                        "{s:0.8,C:inactive} No Jokers, no saving"
+                    }
+                }
+            },
+            c_cstorm_taurus = {
+                name = "{C:cstorm_astro}Taurus",
+                text = {
+                    {
+                        "Gives {C:money}+#1#$",
+                        "every {C:attention}#2# seconds"
+                    },
+                    {
+                        "Money given: {C:money}#3#$"
+                    }
+                }
+            },
+            c_cstorm_gemini = {
+                name = "{C:cstorm_astro}Gemini",
+                text = {
+                    {
+                        "Picks a {E:1,C:green}random{} Joker",
+                        "at the end of a round",
+                        "to copy but with {C:attention}double",
+                        "values if possible"
+                    },
+                    {
+                        "Currently copying {E:1,C:attention}#1#",
+                        "{s:0.8,C:inactive}(Chooses from your current Jokers)"
+                    }
+                }
+            },
+            c_cstorm_cancer = {
+                name = "{C:cstorm_astro}Cancer",
+                text = {
+                    {
+                        "Gives either a {E:1,C:green}Consumable slot",
+                        "or {E:1,C:green}Joker slot{} when a maximum",
+                        "of {C:attention}3% over blind requirement"
+                    },
+                    {
+                        "{C:inactive}Joker: 1 in 4",
+                        "{C:inactive}Consumable: 3 in 4"
+                    }
+                }
+            },
+            c_cstorm_leo = {
+                name = "{C:cstorm_astro}Leo",
+                text = {
+                    {
+                        "Gives {X:dark_edition,C:white}^#1#{} {C:mult}Mult"
+                    },
+                }
+            },
+            c_cstorm_virgo = {
+                name = "{C:cstorm_astro}Virgo",
+                text = {
+                    {
+                        "Rounds {C:mult}Mult{} upward to the next power of {C:attention}6"
+                    },
+                }
+            },
+            c_cstorm_libra = {
+                name = "{C:cstorm_astro}Libra",
+                text = {
+                    {
+                        "Gives either {X:chips,C:white}X#1#{} {C:chips}Chips{}",
+                        "or {X:mult,C:white}X#1#{} {C:mult}Mult{}"
+                    },
+                }
+            },
+            c_cstorm_scorpio = {
+                name = "{C:cstorm_astro}Scorpio",
+                text = {
+                    {
+                        "Changes into a {E:1,C:green}random{} Joker",
+                        "{C:attention}every time{} a blind is selected",
+                        "{C:inactive} Changes back after every round"
+                    },
+                    {
+                        "{s:0.8,C:inactive}(Chooses the Joker from the collection)"
+                    }
+                }
+            },
+            c_cstorm_sagittarius = {
+                name = "{C:cstorm_astro}Sagittarius",
+                text = {
+                    {
+                        "Depending on it's {C:attention}position{} it'll",
+                        "give either {C:mult}+#1# Mult{}, {C:chips}+#2# Chips",
+                        "or {C:chips}b{C:mult}o{C:chips}t{C:mult}h",
+                        "{s:0.8,C:inactive}Currently #3#"
+                    },
+                    {
+                        "{s:0.8,C:inactive}Changes it's position every time",
+                        "{s:0.8,C:inactive}a blind gets selected"
+                    },
+                }
+            },
+            c_cstorm_capricorn = {
+                name = "{C:cstorm_astro}Capricorn",
+                text = {
+                    {
+                        "Gives {C:mult}+#1# Mult",
+                        "{C:mult}-#2#{} after {C:attention}every hand"
+                    },
+                }
+            },
+            c_cstorm_aquarius = {
+                name = "{C:cstorm_astro}Aquarius",
+                text = {
+                    {
+                        "{C:cstorm_plasma}Balances{} the {C:chips}Chips{} and {C:mult}Mult",
+                        "by {C:attention}#2#%{} for each Joker",
+                        "{C:inactive}Currently #1#%"
+                    },
+                }
+            },
+            c_cstorm_pisces = {
+                name = "{C:cstorm_astro}Pisces",
+                text = {
+                    {
+                        "Adds the remaining {C:money}dollars",
+                        "at the start of a shop to reach {C:money}#2#$",
+                        "{C:inactive}Would currently add #1#$"
+                    },
+                }
+            },
+        },
         Blind = {
             bl_cstorm_green_light_red_light = {
                 name = "TESTING",
@@ -381,8 +518,8 @@ return {
                 name = " ",
                 text = {
                     -- "{C:cstorm_mod}Booster Art:{} IcyEthics",
-                    " ",
-                    "{C:cstorm_mod}Localization:{}",
+                    -- " ",
+                    -- "{C:cstorm_mod}Localization:{}",
                     -- "{C:attention}French:{} Keraloon",
                     -- "{C:attention}Simplified Chinese:{} Alophrine",
                     " ",
@@ -391,11 +528,13 @@ return {
                     " ",
                     "Some ideas taken from these mods:",
                     --Add Mod names here
+                    "{C:attention}All in Jest",
                     " ",
                     "{C:cstorm_mod}Special Thanks{} to the",
                     "{C:attention}Balatro{} Discord server <3"
                 }
             },
+
             idea_credits = {
                 name = "Idea:",
                 text = {
@@ -428,7 +567,21 @@ return {
                     "{s:0.8,C:inactive}3 | 9 through 15",
                     "{s:0.8,C:inactive}and so on"
                 }
-            }
+            },
+            scorpio_ability = {
+                name = "Scorpio's ability",
+                text = {
+                    "Scorpio transformed",
+                    "into this Joker"
+                }
+            },
+            astro_planets = {
+                name = "How to get",
+                text = {
+                    "Use {C:chips}#1#",
+                    "after each other"
+                }
+            },
         },
     },
     misc = {
@@ -439,6 +592,8 @@ return {
 
             k_cstorm_tokens = "Token",
             b_cstorm_tokens_cards = "Tokens",
+            k_cstorm_astro = "Astro",
+            b_cstorm_astro_cards = "Astro Cards",
 
             k_chip_stack = "Gambler's Thing",
 
@@ -463,12 +618,17 @@ return {
             k_cstorm_booster_packs = "Booster Packs",
             k_cstorm_tags = "Tags",
             k_cstorm_blinds = "Blinds",
-            k_cstorm_others = "Other"
+            k_cstorm_others = "Other",
 
             -- ["$"] = "BOB"
+
+            chipstorm_none = "None",
+
+            ph_cstorm_aries = "Saved by the ambition of Aries"
         },
         labels = {
             cstorm_tokens = "Tokens",
+            cstorm_astro = "Astro",
 
             cstorm_rock = "Rock",
 
