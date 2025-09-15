@@ -37,7 +37,7 @@ SMODS.Joker {
             card.ability.extra.active = false
         end
 
-        if context.ante_end or G.GAME.current_round.cstorm_captcha_card == nil then
+        if context.ante_end then
             G.GAME.current_round.cstorm_captcha_card = { rank = 'Ace', suit = 'Spades' }
             local valid_captcha_cards = {}
             for _, playing_card in ipairs(G.playing_cards) do
@@ -62,6 +62,21 @@ SMODS.Joker {
     end,
 
     update = function(self, card, dt)
+        if G.GAME.current_round.cstorm_captcha_card == nil and G.STAGE == G.STAGES.RUN then
+            G.GAME.current_round.cstorm_captcha_card = { rank = 'Ace', suit = 'Spades' }
+            local valid_captcha_cards = {}
+            for _, playing_card in ipairs(G.playing_cards) do
+                if not SMODS.has_no_suit(playing_card) and not SMODS.has_no_rank(playing_card) then
+                    valid_captcha_cards[#valid_captcha_cards + 1] = playing_card
+                end
+            end
+            local captcha_card = pseudorandom_element(valid_captcha_cards, 'cstorm_captcha' .. G.GAME.round_resets.ante)
+            if captcha_card then
+                G.GAME.current_round.cstorm_captcha_card.rank = captcha_card.base.value
+                G.GAME.current_round.cstorm_captcha_card.suit = captcha_card.base.suit
+                G.GAME.current_round.cstorm_captcha_card.id = captcha_card.base.id
+            end
+        end
         if card.ability.extra.animation == true then
             card.children.center:set_sprite_pos({ x = math.floor(G.TIMERS.REAL * 7) % 15, y = 0 })
 

@@ -285,7 +285,7 @@ SMODS.Joker {
         return { vars = { card.ability.extra.chips }, key = self.key }
     end,
 
-    update =function (self, card, dt)
+    update = function (self, card, dt)
         card.children.center:set_sprite_pos({ x = math.floor(G.TIMERS.REAL * 2) % 2, y = 2 })
     end,
 }

@@ -1,14 +1,14 @@
 SMODS.Joker{
     key = "shnack",
     config = { extra = { chips = 0, chipsMod = 0.1 } },
-    pos = { x = 5, y = 0 },
+    pos = { x = 0, y = 0 },
     rarity = "cstorm_chatter",
     cost = 0,
     blueprint_compat = false,
     eternal_compat = false,
     unlocked = true,
     discovered = false,
-    atlas = 'chatters',
+    atlas = 'jokers_SPACEHOLDER',
 
     calculate = function (self, card, context)
         if context.joker_main then

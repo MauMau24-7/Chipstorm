@@ -29,6 +29,7 @@ SMODS.Consumable{
         self.config.active = true
 
         G.hand.config.card_limit = G.hand.config.card_limit + 2
+        SMODS.draw_cards(2)
     end,
 
     can_use = function(self, card)

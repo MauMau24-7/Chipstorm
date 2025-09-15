@@ -136,7 +136,7 @@ SMODS.Blind {
 			if RNGesus == 1 then
 				return {
 					chips = self.config.jackpot_chips,
-					dollars = self.config.jacjpot_dollars
+					dollars = self.config.jackpot_dollars
 				}
 			--chipsMult
 			elseif RNGesus >= 165 and RNGesus <= 358 then

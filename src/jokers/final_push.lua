@@ -7,7 +7,7 @@ SMODS.Joker{
     blueprint_compat = true,
     eternal_compat = true,
     unlocked = true,
-    discovered = false,
+    discovered = true,
     atlas = 'jokers',
 
     calculate = function(self, card, context)
