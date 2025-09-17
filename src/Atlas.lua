@@ -37,12 +37,12 @@ SMODS.Atlas({
 	py = 95
 })
 
-SMODS.Atlas({
-	key = "halfRanks",
-	path = "Ranks.png",
-	px = 71,
-	py = 95
-})
+-- SMODS.Atlas({
+-- 	key = "halfRanks",
+-- 	path = "Ranks.png",
+-- 	px = 71,
+-- 	py = 95
+-- })
 
 SMODS.Atlas({
 	key = "rock",
@@ -75,6 +75,27 @@ SMODS.Atlas {
 SMODS.Atlas({
 	key = "astro",
 	path = "Astro.png",
+	px = 71,
+	py = 95
+})
+
+SMODS.UndiscoveredSprite({
+    key = "cstorm_astro",
+    atlas = "astro",
+    pos = { x = 5, y = 1 },
+    no_overlay = false
+})
+
+SMODS.UndiscoveredSprite({
+    key = "cstorm_astro_hints",
+    atlas = "astro",
+    pos = { x = 5, y = 1 },
+    no_overlay = true
+})
+
+SMODS.Atlas({
+	key = "booster",
+	path = "Booster.png",
 	px = 71,
 	py = 95
 })

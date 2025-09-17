@@ -332,7 +332,22 @@ return {
                     {
                         "{s:0.8,C:inactive} No Jokers, no saving"
                     }
-                }
+                },
+                unlock = {
+                    "Find the corresponding {C:attention}hint card",
+                    "to know how to unlock this card",
+                },
+            },
+             c_cstorm_aries_hint = {
+                name = "",
+                text = {
+                    {
+                        ""
+                    },
+                },
+                unlock = {
+                    "Use {C:chips}Mars and Eris{} in a row",
+                },
             },
             c_cstorm_taurus = {
                 name = "{C:cstorm_astro}Taurus",
@@ -344,7 +359,22 @@ return {
                     {
                         "Money given: {C:money}#3#$"
                     }
-                }
+                },
+                unlock = {
+                    "Find the corresponding {C:attention}hint card",
+                    "to know how to unlock this card",
+                },
+            },
+            c_cstorm_taurus_hint = {
+                name = "",
+                text = {
+                    {
+                        ""
+                    },
+                },
+                unlock = {
+                    "Use {C:chips}Venus and Earth{} in a row",
+                },
             },
             c_cstorm_gemini = {
                 name = "{C:cstorm_astro}Gemini",
@@ -359,7 +389,22 @@ return {
                         "Currently copying {E:1,C:attention}#1#",
                         "{s:0.8,C:inactive}(Chooses from your current Jokers)"
                     }
-                }
+                },
+                unlock = {
+                    "Find the corresponding {C:attention}hint card",
+                    "to know how to unlock this card",
+                },
+            },
+            c_cstorm_gemini_hint = {
+                name = "",
+                text = {
+                    {
+                        ""
+                    },
+                },
+                unlock = {
+                    "Use {C:chips}Mercury and Planet X{} in a row",
+                },
             },
             c_cstorm_cancer = {
                 name = "{C:cstorm_astro}Cancer",
@@ -373,7 +418,22 @@ return {
                         "{C:inactive}Joker: 1 in 4",
                         "{C:inactive}Consumable: 3 in 4"
                     }
-                }
+                },
+                unlock = {
+                    "Find the corresponding {C:attention}hint card",
+                    "to know how to unlock this card",
+                },
+            },
+            c_cstorm_cancer_hint = {
+                name = "",
+                text = {
+                    {
+                        ""
+                    },
+                },
+                unlock = {
+                    "Use {C:chips}Ceres and Neptune{} in a row",
+                },
             },
             c_cstorm_leo = {
                 name = "{C:cstorm_astro}Leo",
@@ -381,7 +441,22 @@ return {
                     {
                         "Gives {X:dark_edition,C:white}^#1#{} {C:mult}Mult"
                     },
-                }
+                },
+                unlock = {
+                    "Find the corresponding {C:attention}hint card",
+                    "to know how to unlock this card",
+                },
+            },
+            c_cstorm_leo_hint = {
+                name = "",
+                text = {
+                    {
+                        ""
+                    },
+                },
+                unlock = {
+                    "Use {C:chips}Jupiter and Pluto{} in a row",
+                },
             },
             c_cstorm_virgo = {
                 name = "{C:cstorm_astro}Virgo",
@@ -389,7 +464,22 @@ return {
                     {
                         "Rounds {C:mult}Mult{} upward to the next power of {C:attention}6"
                     },
-                }
+                },
+                unlock = {
+                    "Find the corresponding {C:attention}hint card",
+                    "to know how to unlock this card",
+                },
+            },
+            c_cstorm_virgo_hint = {
+                name = "",
+                text = {
+                    {
+                        ""
+                    },
+                },
+                unlock = {
+                    "Use {C:chips}Mercury and Ceres{} in a row",
+                },
             },
             c_cstorm_libra = {
                 name = "{C:cstorm_astro}Libra",
@@ -398,7 +488,22 @@ return {
                         "Gives either {X:chips,C:white}X#1#{} {C:chips}Chips{}",
                         "or {X:mult,C:white}X#1#{} {C:mult}Mult{}"
                     },
-                }
+                },
+                unlock = {
+                    "Find the corresponding {C:attention}hint card",
+                    "to know how to unlock this card",
+                },
+            },
+            c_cstorm_libra_hint = {
+                name = "",
+                text = {
+                    {
+                        ""
+                    },
+                },
+                unlock = {
+                    "Use {C:chips}Venus and Saturn{} in a row",
+                },
             },
             c_cstorm_scorpio = {
                 name = "{C:cstorm_astro}Scorpio",
@@ -411,7 +516,22 @@ return {
                     {
                         "{s:0.8,C:inactive}(Chooses the Joker from the collection)"
                     }
-                }
+                },
+                unlock = {
+                    "Find the corresponding {C:attention}hint card",
+                    "to know how to unlock this card",
+                },
+            },
+            c_cstorm_scorpio_hint = {
+                name = "",
+                text = {
+                    {
+                        ""
+                    },
+                },
+                unlock = {
+                    "Use {C:chips}Mars and Pluto{} in a row",
+                },
             },
             c_cstorm_sagittarius = {
                 name = "{C:cstorm_astro}Sagittarius",
@@ -426,7 +546,22 @@ return {
                         "{s:0.8,C:inactive}Changes it's position every time",
                         "{s:0.8,C:inactive}a blind gets selected"
                     },
-                }
+                },
+                unlock = {
+                    "Find the corresponding {C:attention}hint card",
+                    "to know how to unlock this card",
+                },
+            },
+            c_cstorm_sagittarius_hint = {
+                name = "",
+                text = {
+                    {
+                        ""
+                    },
+                },
+                unlock = {
+                    "Use {C:chips}Jupiter and Uranus{} in a row",
+                },
             },
             c_cstorm_capricorn = {
                 name = "{C:cstorm_astro}Capricorn",
@@ -435,7 +570,22 @@ return {
                         "Gives {C:mult}+#1# Mult",
                         "{C:mult}-#2#{} after {C:attention}every hand"
                     },
-                }
+                },
+                unlock = {
+                    "Find the corresponding {C:attention}hint card",
+                    "to know how to unlock this card",
+                },
+            },
+            c_cstorm_capricorn_hint = {
+                name = "",
+                text = {
+                    {
+                        ""
+                    },
+                },
+                unlock = {
+                    "Use {C:chips}Earth and Saturn{} in a row",
+                },
             },
             c_cstorm_aquarius = {
                 name = "{C:cstorm_astro}Aquarius",
@@ -445,7 +595,22 @@ return {
                         "by {C:attention}#2#%{} for each Joker",
                         "{C:inactive}Currently #1#%"
                     },
-                }
+                },
+                unlock = {
+                    "Find the corresponding {C:attention}hint card",
+                    "to know how to unlock this card",
+                },
+            },
+            c_cstorm_aquarius_hint = {
+                name = "",
+                text = {
+                    {
+                        ""
+                    },
+                },
+                unlock = {
+                    "Use {C:chips}Uranus and Saturn{} in a row",
+                },
             },
             c_cstorm_pisces = {
                 name = "{C:cstorm_astro}Pisces",
@@ -455,7 +620,120 @@ return {
                         "at the start of a shop to reach {C:money}#2#$",
                         "{C:inactive}Would currently add #1#$"
                     },
+                },
+                unlock = {
+                    "Find the corresponding {C:attention}hint card",
+                    "to know how to unlock this card",
+                },
+            },
+            c_cstorm_pisces_hint = {
+                name = "",
+                text = {
+                    {
+                        ""
+                    },
+                },
+                unlock = {
+                    "Use {C:chips}Jupiter and Neptune{} in a row",
+                },
+            },
+        },
+        cstorm_astro_hints = {
+            c_cstorm_hint_aries = {
+                name = "{C:cstorm_astro}Hint 1",
+                text = {
+                    {
+                        "Use {C:chips}Mars and Eris{} in a row"
+                    },
+                },
+            },
+            c_cstorm_hint_taurus = {
+                name = "{C:cstorm_astro}Hint 2",
+                text = {
+                    {
+                        "Use {C:chips}Venus and Earth{} in a row"
+                    },
                 }
+            },
+            c_cstorm_hint_gemini = {
+                name = "{C:cstorm_astro}Hint 3",
+                text = {
+                    {
+                        "Use {C:chips}Mercury and Planet X{} in a row"
+                    },
+                }
+            },
+            c_cstorm_hint_cancer = {
+                name = "{C:cstorm_astro}Hint 4",
+                text = {
+                    {
+                        "Use {C:chips}Ceres and Neptune{} in a row"
+                    },
+                }
+            },
+            c_cstorm_hint_leo = {
+                name = "{C:cstorm_astro}Hint 5",
+                text = {
+                    {
+                        "Use {C:chips}Jupiter and Pluto{} in a row"
+                    },
+                },
+            },
+            c_cstorm_hint_virgo = {
+                name = "{C:cstorm_astro}Hint 6",
+                text = {
+                    {
+                        "Use {C:chips}Mercury and Ceres{} in a row"
+                    },
+                },
+            },
+            c_cstorm_hint_libra = {
+                name = "{C:cstorm_astro}Hint 7",
+                text = {
+                    {
+                        "Use {C:chips}Venus and Saturn{} in a row"
+                    },
+                },
+            },
+            c_cstorm_hint_scorpio = {
+                name = "{C:cstorm_astro}Hint 8",
+                text = {
+                    {
+                        "Use {C:chips}Mars and Pluto{} in a row"
+                    },
+                }
+            },
+            c_cstorm_hint_sagittarius = {
+                name = "{C:cstorm_astro}Hint 9",
+                text = {
+                    {
+                        "Use {C:chips}Jupiter and Uranus{} in a row"
+                    },
+                }
+            },
+            c_cstorm_hint_capricorn = {
+                name = "{C:cstorm_astro}Hint 10",
+                text = {
+                    {
+                        "Use {C:chips}Earth and Saturn{} in a row"
+                    },
+                },
+            },
+            c_cstorm_hint_aquarius = {
+                name = "{C:cstorm_astro}Hint 11",
+                text = {
+                    {
+                        "Use {C:chips}Uranus and Saturn{} in a row"
+                    },
+                },
+            },
+            c_cstorm_hint_pisces = {
+                name = "{C:cstorm_astro}Hint 12",
+                text = {
+                    {
+                        "Use {C:chips}Jupiter and Neptune{} in a row"
+                    },
+                },
             },
         },
         Blind = {
@@ -503,6 +781,13 @@ return {
                     "Choose {C:attention}#1#{} of up to",
                     "{C:attention}#2#{} {C:purple}Tokens",
                     "{C:inactive}(Doesn't get used immediately)"
+                }
+            },
+            p_cstorm_hint_pack = {
+                name = "Astro Pack",
+                text = {
+                    "Get a {C:attention}Hint Card",
+                    "for {C:cstorm_astro}Astro Cards"
                 }
             },
             cstorm_death = {
@@ -582,6 +867,20 @@ return {
                     "after each other"
                 }
             },
+            undiscovered_cstorm_astro_hints = {
+                name = 'Unknown Astro Hint',
+                text = {
+                    'Use this card in an unseeded',
+                    'run to find out how to get a {C:cstorm_astro}Astro Card'
+                }
+            },
+            undiscovered_cstorm_astro = {
+                name = 'Unknown Astro Card',
+                text = {
+                    'Summon this card in an unseeded',
+                    'run to find out what it does'
+                }
+            },
         },
     },
     misc = {
@@ -594,6 +893,8 @@ return {
             b_cstorm_tokens_cards = "Tokens",
             k_cstorm_astro = "Astro",
             b_cstorm_astro_cards = "Astro Cards",
+            k_cstorm_astro_hints = "Astro Hint",
+            b_cstorm_astro_hints_cards = "Astro Hints",
 
             k_chip_stack = "Gambler's Thing",
 
@@ -601,6 +902,8 @@ return {
             k_cstorm_credits = "Credits",
 
             k_cstorm_chatter = "Chatter",
+
+            k_cstorm_consumable = "Consumable",
 
             -- "NEW STUFF" Tab thingies
             k_cstorm_new_stuff = "NEW STUFF!",
@@ -629,6 +932,7 @@ return {
         labels = {
             cstorm_tokens = "Tokens",
             cstorm_astro = "Astro",
+            cstorm_astro_hints = "Astro Hints",
 
             cstorm_rock = "Rock",
 

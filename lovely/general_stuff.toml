@@ -40,3 +40,41 @@ match_indent = true
 payload = '''
 if card and card.c_cstorm_scorpio then info_queue[#info_queue+1] = { set = "Other", key = "scorpio_ability" } end
 '''
+
+
+# Change unlock Text to consumable
+[[patches]]
+[patches.pattern]
+target = 'functions/UI_definitions.lua'
+pattern = "{n=G.UIT.O, config={object = DynaText({string = {card_center.set == 'Voucher' and localize('k_voucher') or localize('k_joker')}, colours = {G.C.BLUE},shadow = true, rotate = true, bump = true, pop_in = 0.3, pop_in_rate = 2, scale = 1.2})}}"
+position = "at"
+match_indent = true
+payload = '''
+{n=G.UIT.O, config={object = DynaText({string = {card_center.set == 'Voucher' and localize('k_voucher') or card_center.set == 'Joker' and localize('k_joker') or localize('k_cstorm_consumable')}, colours = {G.C.BLUE},shadow = true, rotate = true, bump = true, pop_in = 0.3, pop_in_rate = 2, scale = 1.2})}}
+'''
+
+
+# Change pop-up Text to consumable
+# [[patches]]
+# [patches.pattern]
+# target = 'functions/UI_definitions.lua'
+# pattern = """   _type == 'Back' and G.ASSET_ATLAS["centers"] or
+#     G.ASSET_ATLAS["icons"]"""
+# position = "at"
+# match_indent = true
+# payload = '''
+#     _type == 'Back' and G.ASSET_ATLAS["centers"] or
+#     _type == 'Consumeable' and print("1") or
+#     G.ASSET_ATLAS["icons"]
+# '''
+
+
+[[patches]]
+[patches.pattern]
+target = 'functions/UI_definitions.lua'
+pattern = "_type == 'Back' and localize('k_deck') or 'ERROR'"
+position = "at"
+match_indent = true
+payload = '''
+_type == 'Back' and localize('k_deck') or 'Consumable'
+'''
