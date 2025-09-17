@@ -1,16 +1,9 @@
-SMODS.Atlas({
-    key = "chip_stack",
-    path = "j_SPACEHOLDER.png",
-    px = 71,
-    py = 95
-})
-
 SMODS.Booster {
     key = "chip_stack",
     group_key = "k_chip_stack",
     config = { extra = 2, choose = 1 },
-    pos = { x = 0, y = 0 },
-    atlas = 'chip_stack',
+    pos = { x = 1, y = 0 },
+    atlas = 'booster',
     discovered = true,
     cost = 4,
     weight = 1,
