@@ -6,6 +6,7 @@ SMODS.Consumable {
 	set = "cstorm_astro",
 	atlas = "astro",
     discovered = false,
+    unlocked = false,
 	pos = { x = 2, y = 0 },
 
 	calculate = function(self, card, context)
@@ -47,8 +48,15 @@ SMODS.Consumable {
 		local copying = card.config.copying
 
 		info_queue[#info_queue + 1] = { set = "Other", key = "astro_planets", specific_vars = { "Mercury & Planet X" } }
-		return { vars = { copying and G.localization.descriptions.Joker[copying].name or localize('chipstorm_none') }, key = card.key }
+		return { vars = { copying and G.localization.descriptions.Joker[copying].name or localize('chipstorm_none') }, key = self.key }
 	end,
+
+	locked_loc_vars = function (self, info_queue, card)
+        if G.PROFILES[G.SETTINGS.profile].geminiHint == true then
+            return { key = self.key .. "_hint" }
+        end
+        return { key = self.key }
+    end,
 
 	set_ability = function(self, card, initial, delay_sprites)
 		card.states.click.can = false
@@ -59,13 +67,16 @@ SMODS.Consumable {
 }
 
 CSTORM_UTIL.gemini_valid_effects = {
-	-- The list of all effects can be found in smods/src/utils.lua:1121
+	-- The list of all effects: https://github.com/Steamodded/smods/blob/d89903a71d6ef5a13c0f624f87dc50c8f68129a6/src/utils.lua#L1432
 	'chips', 'h_chips', 'chip_mod',
 	'x_chips', 'xchips', 'Xchip_mod',
 	'mult', 'h_mult', 'mult_mod',
 	'x_mult', 'Xmult', 'xmult', 'x_mult_mod', 'Xmult_mod',
 	'p_dollars', 'dollars', 'h_dollars',
-	'balance',
+	'add_to_hand', 'remove_from_hand',
+	'level_up',
+	'numerator',
+	'repetitions',
 }
 
 CSTORM_UTIL.gemini_mod_effects = {
@@ -74,7 +85,6 @@ CSTORM_UTIL.gemini_mod_effects = {
 	mult_mod = 'mult',
 	x_mult_mod = 'x_mult',
 	Xmult_mod = 'x_mult',
-	dollars = 'dollars'
 }
 
 function CSTORM_UTIL.modify_gemini_effect(card, effects)

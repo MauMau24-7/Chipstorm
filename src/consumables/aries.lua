@@ -3,6 +3,7 @@ SMODS.Consumable {
     set = "cstorm_astro",
     atlas = "astro",
     discovered = false,
+    unlocked = false,
     pos = { x = 0, y = 0 },
 
     calculate = function(self, card, context)
@@ -33,8 +34,16 @@ SMODS.Consumable {
         return false
     end,
 
-    loc_vars =function (self, info_queue, card)
+    loc_vars = function (self, info_queue, card)
         info_queue[#info_queue + 1] = { set = "Other", key = "astro_planets", specific_vars = { "Mars & Eris" } }
+        return { key = self.key }
+    end,
+
+    locked_loc_vars = function (self, info_queue, card)
+        if G.PROFILES[G.SETTINGS.profile].ariesHint == true then
+            return { key = self.key .. "_hint" }
+        end
+        return { key = self.key }
     end,
 
     set_ability = function (self, card, initial, delay_sprites)
