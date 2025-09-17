@@ -85,7 +85,6 @@ end
 position = "before"
 payload = '''
 if G.CSTORM_SPLASH_LOGO then
-    print("test true") 
     G.CSTORM_SPLASH_LOGO.states.visible = true
 end
 '''

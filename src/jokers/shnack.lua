@@ -1,6 +1,6 @@
 SMODS.Joker{
     key = "shnack",
-    config = { extra = { chips = 0, chipsMod = 0.1 } },
+    config = { extra = { chips = 0, chipsMod = 0.2 } },
     pos = { x = 0, y = 0 },
     rarity = "cstorm_chatter",
     cost = 0,

@@ -71,7 +71,8 @@ function destroy_and_spawn_astros(astro_key)
 	delay(0.05)
 	G.E_MANAGER:add_event(Event({
 		func = function()
-			SMODS.add_card { key = astro_key, area = G.cstorm_astro_card_area }
+			local card = SMODS.add_card { key = astro_key, area = G.cstorm_astro_card_area }
+			card:set_sprites(card.config.center)
 			return true
 		end
 	}))

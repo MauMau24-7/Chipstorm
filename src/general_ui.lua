@@ -4,7 +4,7 @@ function Game:main_menu(change_context)
     local ret = game_main_menu_ref(self, change_context)
 
     if not Chipstorm.config.disable_main_menu then
-        local newcard = SMODS.create_card { key = "j_cstorm_final_push", area = G.title_top, no_edition = true }
+        local newcard = SMODS.create_card { key = "j_cstorm_animation", area = G.title_top, no_edition = true }
 
         self.title_top.T.w = self.title_top.T.w * 1.7675
         self.title_top.T.x = self.title_top.T.x - 0.8
