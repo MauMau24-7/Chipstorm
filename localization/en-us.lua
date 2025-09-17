@@ -194,6 +194,14 @@ return {
                     "all planet cards when a {C:attention}King{} is scored",
                 },
             },
+            j_cstorm_broken_odds = {
+                name = "Broken Odds",
+                text = {
+                    "Adds 1 to all {C:attention}numerators and",
+                    "{C:attention}denominators {C:green,E:1,S:1.1}probabilities",
+                    "{C:inactive}(ex: {C:green}1 in 3{C:inactive} -> {C:green}2 in 4{C:inactive} = {C:green}1 in 2)",
+                },
+            },
         },
         Edition = {
             e_cstorm_ionized = {
