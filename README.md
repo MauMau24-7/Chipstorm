@@ -2,10 +2,11 @@
 
 Chipstorm is a mod that focuses on adding more Chip-based stuff, like Jokers, Enhancements, Boss Blinds, Tags and much more!
 
-![20B80F~1](https://github.com/user-attachments/assets/6b7177a5-596d-40fc-9800-dd1ae0a37928)
+![208422~1](https://github.com/user-attachments/assets/ee12eb4b-954f-49a0-afce-659fbc089014)
 
 
 ## Currently adds:
+![20B80F~1](https://github.com/user-attachments/assets/6b7177a5-596d-40fc-9800-dd1ae0a37928)
 
 
 **- 22 Jokers**
