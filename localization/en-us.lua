@@ -144,7 +144,7 @@ return {
                 name = "Human Captcha",
                 text = {
                     {
-                        "Each played {C:attention}#2#{} of {V:1}#3#{}",
+                        "Each played {C:attention}#2#{}",
                         "gets{C:green} retriggered #1#",
                         "times when scored",
                         "{s:0.8}Card changes every ante",
@@ -153,7 +153,7 @@ return {
                         "{s:0.8,C:inactive}(Retriggers depend on",
                         "{s:0.8,C:inactive}the amount of times",
                         "{s:0.8,C:inactive}the card is played",
-                        "{s:0.8,C:inactive}in a row per hand)"
+                        "{s:0.8,C:inactive}in a row)"
                     }
                 },
             },
@@ -190,8 +190,8 @@ return {
             j_cstorm_cosmic_joker = {
                 name = "Cosmic Joker",
                 text = {
-                    "Has a {C:green}5% chance{} to give",
-                    "all planet cards when a {C:attention}King{} is scored",
+                    "{C:green}#1# in #2#{} to give all planet",
+                    "cards when a {C:attention}King{} is scored",
                 },
             },
             j_cstorm_broken_odds = {
@@ -200,6 +200,18 @@ return {
                     "Adds 1 to all {C:attention}numerators and",
                     "{C:attention}denominators {C:green,E:1,S:1.1}probabilities",
                     "{C:inactive}(ex: {C:green}1 in 3{C:inactive} -> {C:green}2 in 4{C:inactive} = {C:green}1 in 2)",
+                },
+            },
+            j_cstorm_joker_the_riveter = {
+                name = "Joker The Riveter",
+                text = {
+                    {
+                        "Makes every {C:attention}scored card",
+                        "count as a {C:spades}Spade{}",
+                    },
+                    {
+                        "{s:0.8,C:inactive}Keeps it's suit"
+                    }
                 },
             },
         },
@@ -810,7 +822,7 @@ return {
             cstorm_credits = {
                 name = " ",
                 text = {
-                    -- "{C:cstorm_mod}Booster Art:{} IcyEthics",
+                    "{C:cstorm_mod}Custom Music:{} Myself :3",
                     -- " ",
                     -- "{C:cstorm_mod}Localization:{}",
                     -- "{C:attention}French:{} Keraloon",
