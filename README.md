@@ -31,7 +31,7 @@ Chipstorm is a mod that focuses on adding more Chip-based stuff, like Jokers, En
 ![astro_cards](https://github.com/user-attachments/assets/03e7c08e-7868-42b3-ace3-a85e646dbd24)
 
 Astro Cards are a new mechanic that allow for different strategies during a run.
-Be it going for more risky, high scoring or funny strats, Astro Cards got you covered! They can be unlocked by finding a hint card and the doing what the hint tells you to.
+Be it going for more risky, high scoring or funny strats, Astro Cards got you covered! They can be unlocked by finding a hint card and then doing what the hint tells you to.
 
 
 **More content in the near future, so stay tuned!**
