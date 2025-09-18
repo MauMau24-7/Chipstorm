@@ -102,9 +102,9 @@ SMODS.current_mod.extra_tabs = function()
                 }
             end
         },
-        {
-            label = localize("k_cstorm_new_stuff"),
-            tab_definition_function = CSTORM.NEW.get_UI_definition
-        },
+        -- {
+        --     label = localize("k_cstorm_new_stuff"),
+        --     tab_definition_function = CSTORM.NEW.get_UI_definition
+        -- },
     }
 end

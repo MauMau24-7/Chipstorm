@@ -13,12 +13,13 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.repetition and context.cardarea == G.play and
             G.GAME.current_round.cstorm_captcha_card then
-            if context.other_card:get_id() == G.GAME.current_round.cstorm_captcha_card.id and
-                context.other_card:is_suit(G.GAME.current_round.cstorm_captcha_card.suit) then
-                    if card.ability.extra.active == false then
+            if context.other_card:get_id() == G.GAME.current_round.cstorm_captcha_card.id
+                --and context.other_card:is_suit(G.GAME.current_round.cstorm_captcha_card.suit)
+                then
+                    --if card.ability.extra.active == false then
                         card.ability.extra.inRow = card.ability.extra.inRow + 1
-                        card.ability.extra.active = true
-                    end
+                        --card.ability.extra.active = true
+                    --end
 
                     -- Retriggers = Square Root of right hands played after each other (per hand)
                     card.ability.extra.repetitions = math.floor(math.sqrt(card.ability.extra.inRow))
@@ -33,9 +34,9 @@ SMODS.Joker {
             end
         end
 
-        if context.after and card.ability.extra.active == true then
-            card.ability.extra.active = false
-        end
+        -- if context.after and card.ability.extra.active == true then
+        --     card.ability.extra.active = false
+        -- end
 
         if context.ante_end then
             G.GAME.current_round.cstorm_captcha_card = { rank = 'Ace', suit = 'Spades' }

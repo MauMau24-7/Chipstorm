@@ -1,10 +1,10 @@
-SMODS.Blind{
-    key = "blackjack",
-    --atlas = "blinds",
-	pos = { x = 9, y = 0 },
-	dollars = 5,
-	mult = 1,
-	boss = { min = 1, max = 10 },
-	boss_colour = HEX('0E571A'),
-	config = {},
-}
+-- SMODS.Blind{
+--     key = "blackjack",
+--     --atlas = "blinds",
+-- 	pos = { x = 9, y = 0 },
+-- 	dollars = 5,
+-- 	mult = 1,
+-- 	boss = { min = 1, max = 10 },
+-- 	boss_colour = HEX('0E571A'),
+-- 	config = {},
+-- }

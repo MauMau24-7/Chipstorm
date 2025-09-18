@@ -20,8 +20,8 @@ local rarity_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/rarities
 
 assert(SMODS.load_file("src/globals.lua"))()
 assert(SMODS.load_file("src/Atlas.lua"))()
-assert(SMODS.load_file("src/newStuff_UI.lua"))()
-assert(SMODS.load_file("src/newStuff_functions.lua"))()
+-- assert(SMODS.load_file("src/newStuff_UI.lua"))()
+-- assert(SMODS.load_file("src/newStuff_functions.lua"))()
 assert(SMODS.load_file("src/mod_info.lua"))()
 assert(SMODS.load_file("src/general_ui.lua"))()
 assert(SMODS.load_file("src/astro_area.lua"))()
@@ -37,9 +37,9 @@ for _, file in ipairs(enhancement_src) do
     assert(SMODS.load_file("src/enhancements/" .. file ))()
 end
 
-for _, file in ipairs(edition_src) do
-    assert(SMODS.load_file("src/editions/" .. file ))()
-end
+-- for _, file in ipairs(edition_src) do
+--     assert(SMODS.load_file("src/editions/" .. file ))()
+-- end
 
 for _, file in ipairs(consumable_src) do
     assert(SMODS.load_file("src/consumables/" .. file ))()
@@ -61,9 +61,9 @@ end
 --     assert(SMODS.load_file("src/stickers/" .. file ))()
 -- end
 
-for _, file in ipairs(shader_src) do
-    assert(SMODS.load_file("src/shaders/" .. file ))()
-end
+-- for _, file in ipairs(shader_src) do
+--     assert(SMODS.load_file("src/shaders/" .. file ))()
+-- end
 
 for _, file in ipairs(tag_src) do
     assert(SMODS.load_file("src/tags/" .. file ))()

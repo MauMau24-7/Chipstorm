@@ -13,7 +13,7 @@ end
 
 SMODS.Joker {
     key = "washed_card",
-    config = { extra = { chips = 100, mult = 5, chipsJoker = false, multJoker = false },
+    config = { extra = { chips = 100, mult = 12, chipsJoker = false, multJoker = false },
         custom_buttons = {
             {
                 id = "chips_joker",

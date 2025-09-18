@@ -1,5 +1,5 @@
-SMODS.Back{
-    key = "law_of_chaos",
-    atlas = "jokers_SPACEHOLDER",
+-- SMODS.Back{
+--     key = "law_of_chaos",
+--     atlas = "jokers_SPACEHOLDER",
 
-}
+-- }
