@@ -2,13 +2,17 @@ SMODS.Consumable {
     key = "aquarius",
     config = { percent = 0, multFactor = 10 },
     set = "cstorm_astro",
-    atlas = "astro",
+    atlas = "consumables",
     discovered = false,
     unlocked = false,
     pos = { x = 1, y = 1 },
 
     calculate = function(self, card, context)
         self.config.percent = #G.jokers.cards * self.config.multFactor
+
+        if self.config.percent > 100 then
+            self.config.percent = 100
+        end
 
         if context.joker_main then
             balance_percent(card, (self.config.percent * 0.01))

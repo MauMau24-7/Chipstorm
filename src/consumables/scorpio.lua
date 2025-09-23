@@ -1,7 +1,7 @@
 SMODS.Consumable {
     key = "scorpio",
     set = "cstorm_astro",
-    atlas = "astro",
+    atlas = "consumables",
     discovered = false,
     unlocked = false,
     pos = { x = 7, y = 0 },
@@ -33,8 +33,4 @@ SMODS.Consumable {
     set_ability = function (self, card, initial, delay_sprites)
         card.states.click.can = false
     end,
-
-    check_for_unlock = function (self, args)
-        
-    end
 }

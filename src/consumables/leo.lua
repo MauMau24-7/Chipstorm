@@ -2,7 +2,7 @@ SMODS.Consumable {
     key = "leo",
     config = { emult = 1.05 },
     set = "cstorm_astro",
-    atlas = "astro",
+    atlas = "consumables",
     discovered = false,
     unlocked = false,
     pos = { x = 4, y = 0 },

@@ -50,41 +50,65 @@ SMODS.current_mod.calculate = function(self, context)
 		--Astro Hints
 		if context.consumeable.ability.set == "cstorm_astro_hints" then
 			--Aries
-			if context.consumeable.config.center.key == "c_cstorm_hint_aries" then
-				G.PROFILES[G.SETTINGS.profile].ariesHint = true
+			if context.consumeable.config.center.key == "c_cstorm_hint_aries" or G.P_CENTERS.c_cstorm_aries.unlocked then
+				if not G.P_CENTERS.c_cstorm_aries.discovered then
+					G.PROFILES[G.SETTINGS.profile].ariesHint = true
+				end
 			--Taurus
-			elseif context.consumeable.config.center.key == "c_cstorm_hint_taurus" then
-				G.PROFILES[G.SETTINGS.profile].taurusHint = true
+			elseif context.consumeable.config.center.key == "c_cstorm_hint_taurus" or G.P_CENTERS.c_cstorm_taurus.unlocked then
+				if not G.P_CENTERS.c_cstorm_taurus.discovered then
+					G.PROFILES[G.SETTINGS.profile].taurusHint = true
+				end
 			--Gemini
-			elseif context.consumeable.config.center.key == "c_cstorm_hint_gemini" then
-				G.PROFILES[G.SETTINGS.profile].geminiHint = true
+			elseif context.consumeable.config.center.key == "c_cstorm_hint_gemini" or G.P_CENTERS.c_cstorm_gemini.unlocked then
+				if not G.P_CENTERS.c_cstorm_gemini.discovered then
+					G.PROFILES[G.SETTINGS.profile].geminiHint = true
+				end
 			--Cancer
-			elseif context.consumeable.config.center.key == "c_cstorm_hint_cancer" then
-				G.PROFILES[G.SETTINGS.profile].cancerHint = true
+			elseif context.consumeable.config.center.key == "c_cstorm_hint_cancer" or G.P_CENTERS.c_cstorm_cancer.unlocked then
+				if not G.P_CENTERS.c_cstorm_cancer.discovered then
+					G.PROFILES[G.SETTINGS.profile].cancerHint = true
+				end
 			--Leo
-			elseif context.consumeable.config.center.key == "c_cstorm_hint_leo" then
-				G.PROFILES[G.SETTINGS.profile].leoHint = true
+			elseif context.consumeable.config.center.key == "c_cstorm_hint_leo" or G.P_CENTERS.c_cstorm_leo.unlocked then
+				if not G.P_CENTERS.c_cstorm_leo.discovered then
+					G.PROFILES[G.SETTINGS.profile].leoHint = true
+				end
 			--Virgo
-			elseif context.consumeable.config.center.key == "c_cstorm_hint_virgo" then
-				G.PROFILES[G.SETTINGS.profile].virgoHint = true
+			elseif context.consumeable.config.center.key == "c_cstorm_hint_virgo" or G.P_CENTERS.c_cstorm_virgo.unlocked then
+				if not G.P_CENTERS.c_cstorm_virgo.discovered then
+					G.PROFILES[G.SETTINGS.profile].virgoHint = true
+				end
 			--Libra
-			elseif context.consumeable.config.center.key == "c_cstorm_hint_libra" then
-				G.PROFILES[G.SETTINGS.profile].libraHint = true
+			elseif context.consumeable.config.center.key == "c_cstorm_hint_libra" or G.P_CENTERS.c_cstorm_libra.unlocked then
+				if not G.P_CENTERS.c_cstorm_libra.discovered then
+					G.PROFILES[G.SETTINGS.profile].libraHint = true
+				end
 			--Scorpio
-			elseif context.consumeable.config.center.key == "c_cstorm_hint_scorpio" then
-				G.PROFILES[G.SETTINGS.profile].scorpioHint = true
+			elseif context.consumeable.config.center.key == "c_cstorm_hint_scorpio" or G.P_CENTERS.c_cstorm_scorpio.unlocked then
+				if not G.P_CENTERS.c_cstorm_scorpio.discovered then
+					G.PROFILES[G.SETTINGS.profile].scorpioHint = true
+				end
 			--Sagittarius
-			elseif context.consumeable.config.center.key == "c_cstorm_hint_sagittarius" then
-				G.PROFILES[G.SETTINGS.profile].sagittariusHint = true
+			elseif context.consumeable.config.center.key == "c_cstorm_hint_sagittarius" or G.P_CENTERS.c_cstorm_sagittarius.unlocked then
+				if not G.P_CENTERS.c_cstorm_sagittarius.discovered then
+					G.PROFILES[G.SETTINGS.profile].sagittariusHint = true
+				end
 			--Capricorn
-			elseif context.consumeable.config.center.key == "c_cstorm_hint_capricorn" then
-				G.PROFILES[G.SETTINGS.profile].capricornHint = true
+			elseif context.consumeable.config.center.key == "c_cstorm_hint_capricorn" or G.P_CENTERS.c_cstorm_capricorn.unlocked then
+				if not G.P_CENTERS.c_cstorm_capricorn.discovered then
+					G.PROFILES[G.SETTINGS.profile].capricornHint = true
+				end
 			--Aquarius
-			elseif context.consumeable.config.center.key == "c_cstorm_hint_aquarius" then
-				G.PROFILES[G.SETTINGS.profile].aquariusHint = true
+			elseif context.consumeable.config.center.key == "c_cstorm_hint_aquarius" or G.P_CENTERS.c_cstorm_aquarius.unlocked then
+				if not G.P_CENTERS.c_cstorm_aquarius.discovered then
+					G.PROFILES[G.SETTINGS.profile].aquariusHint = true
+				end
 			--Pisces
-			elseif context.consumeable.config.center.key == "c_cstorm_hint_pisces" then
-				G.PROFILES[G.SETTINGS.profile].piscesHint = true
+			elseif context.consumeable.config.center.key == "c_cstorm_hint_pisces" or G.P_CENTERS.c_cstorm_pisces.unlocked then
+				if not G.P_CENTERS.c_cstorm_pisces.discovered then
+					G.PROFILES[G.SETTINGS.profile].piscesHint = true
+				end
 			end
 		end
 	end
@@ -94,7 +118,10 @@ SMODS.current_mod.calculate = function(self, context)
 		G.GAME.cstorm_processing = true
 		if not G.P_CENTERS.c_cstorm_scorpio.unlocked then
 			unlock_card(G.P_CENTERS.c_cstorm_scorpio)
-			destroy_and_spawn_astros("c_cstorm_scorpio")
+		end
+		destroy_and_spawn_astros("c_cstorm_scorpio")
+		if not G.P_CENTERS.c_cstorm_scorpio.discovered then
+			discover_card(G.P_CENTERS.c_cstorm_scorpio)
 		end
 		G.GAME.cstorm_processing = false
 
@@ -106,6 +133,9 @@ SMODS.current_mod.calculate = function(self, context)
 			unlock_card(G.P_CENTERS.c_cstorm_aquarius)
 		end
 		destroy_and_spawn_astros("c_cstorm_aquarius")
+		if not G.P_CENTERS.c_cstorm_aquarius.discovered then
+			discover_card(G.P_CENTERS.c_cstorm_aquarius)
+		end
 		G.GAME.cstorm_processing = false
 
 		G.GAME.cstorm_firstPlanet = nil
@@ -116,6 +146,9 @@ SMODS.current_mod.calculate = function(self, context)
 			unlock_card(G.P_CENTERS.c_cstorm_pisces)
 		end
 		destroy_and_spawn_astros("c_cstorm_pisces")
+		if not G.P_CENTERS.c_cstorm_pisces.discovered then
+			discover_card(G.P_CENTERS.c_cstorm_pisces)
+		end
 		G.GAME.cstorm_processing = false
 
 		G.GAME.cstorm_firstPlanet = nil
@@ -126,6 +159,9 @@ SMODS.current_mod.calculate = function(self, context)
 			unlock_card(G.P_CENTERS.c_cstorm_aries)
 		end
 		destroy_and_spawn_astros("c_cstorm_aries")
+		if not G.P_CENTERS.c_cstorm_aries.discovered then
+			discover_card(G.P_CENTERS.c_cstorm_aries)
+		end
 		G.GAME.cstorm_processing = false
 
 		G.GAME.cstorm_firstPlanet = nil
@@ -136,6 +172,9 @@ SMODS.current_mod.calculate = function(self, context)
 			unlock_card(G.P_CENTERS.c_cstorm_taurus)
 		end
 		destroy_and_spawn_astros("c_cstorm_taurus")
+		if not G.P_CENTERS.c_cstorm_taurus.discovered then
+			discover_card(G.P_CENTERS.c_cstorm_taurus)
+		end
 		G.GAME.cstorm_processing = false
 
 		G.GAME.cstorm_firstPlanet = nil
@@ -146,6 +185,9 @@ SMODS.current_mod.calculate = function(self, context)
 			unlock_card(G.P_CENTERS.c_cstorm_cancer)
 		end
 		destroy_and_spawn_astros("c_cstorm_cancer")
+		if not G.P_CENTERS.c_cstorm_cancer.discovered then
+			discover_card(G.P_CENTERS.c_cstorm_cancer)
+		end
 		G.GAME.cstorm_processing = false
 
 		G.GAME.cstorm_firstPlanet = nil
@@ -156,6 +198,9 @@ SMODS.current_mod.calculate = function(self, context)
 			unlock_card(G.P_CENTERS.c_cstorm_leo)
 		end
 		destroy_and_spawn_astros("c_cstorm_leo")
+		if not G.P_CENTERS.c_cstorm_leo.discovered then
+			discover_card(G.P_CENTERS.c_cstorm_leo)
+		end
 		G.GAME.cstorm_processing = false
 
 		G.GAME.cstorm_firstPlanet = nil
@@ -166,6 +211,9 @@ SMODS.current_mod.calculate = function(self, context)
 			unlock_card(G.P_CENTERS.c_cstorm_virgo)
 		end
 		destroy_and_spawn_astros("c_cstorm_virgo")
+		if not G.P_CENTERS.c_cstorm_virgo.discovered then
+			discover_card(G.P_CENTERS.c_cstorm_virgo)
+		end
 		G.GAME.cstorm_processing = false
 
 		G.GAME.cstorm_firstPlanet = nil
@@ -176,6 +224,9 @@ SMODS.current_mod.calculate = function(self, context)
 			unlock_card(G.P_CENTERS.c_cstorm_libra)
 		end
 		destroy_and_spawn_astros("c_cstorm_libra")
+		if not G.P_CENTERS.c_cstorm_libra.discovered then
+			discover_card(G.P_CENTERS.c_cstorm_libra)
+		end
 		G.GAME.cstorm_processing = false
 
 		G.GAME.cstorm_firstPlanet = nil
@@ -186,6 +237,9 @@ SMODS.current_mod.calculate = function(self, context)
 			unlock_card(G.P_CENTERS.c_cstorm_sagittarius)
 		end
 		destroy_and_spawn_astros("c_cstorm_sagittarius")
+		if not G.P_CENTERS.c_cstorm_sagittarius.discovered then
+			discover_card(G.P_CENTERS.c_cstorm_sagittarius)
+		end
 		G.GAME.cstorm_processing = false
 
 		G.GAME.cstorm_firstPlanet = nil
@@ -196,6 +250,9 @@ SMODS.current_mod.calculate = function(self, context)
 			unlock_card(G.P_CENTERS.c_cstorm_capricorn)
 		end
 		destroy_and_spawn_astros("c_cstorm_capricorn")
+		if not G.P_CENTERS.c_cstorm_capricorn.discovered then
+			discover_card(G.P_CENTERS.c_cstorm_capricorn)
+		end
 		G.GAME.cstorm_processing = false
 
 		G.GAME.cstorm_firstPlanet = nil
@@ -206,6 +263,9 @@ SMODS.current_mod.calculate = function(self, context)
 			unlock_card(G.P_CENTERS.c_cstorm_gemini)
 		end
 		destroy_and_spawn_astros("c_cstorm_gemini")
+		if not G.P_CENTERS.c_cstorm_gemini.discovered then
+			discover_card(G.P_CENTERS.c_cstorm_gemini)
+		end
 		G.GAME.cstorm_processing = false
 
 		G.GAME.cstorm_firstPlanet = nil
@@ -219,5 +279,32 @@ SMODS.current_mod.calculate = function(self, context)
 				v.c_cstorm_scorpio = false
 			end
 		end
+	end
+
+	local unlocked = true
+	for k, v in pairs(G.P_CENTER_POOLS.cstorm_astro) do
+		if not v.unlocked then
+			unlocked = false
+			break
+		end
+	end
+	if unlocked then
+		for k, v in ipairs(G.P_CENTER_POOLS.cstorm_astro_hints) do
+			if not v.discovered then
+				discover_card(v)
+			end
+		end
+		G.PROFILES[G.SETTINGS.profile].geminiHint = true
+		G.PROFILES[G.SETTINGS.profile].ariesHint = true
+		G.PROFILES[G.SETTINGS.profile].aquariusHint = true
+		G.PROFILES[G.SETTINGS.profile].piscesHint = true
+		G.PROFILES[G.SETTINGS.profile].taurusHint = true
+		G.PROFILES[G.SETTINGS.profile].sagittariusHint = true
+		G.PROFILES[G.SETTINGS.profile].virgoHint = true
+		G.PROFILES[G.SETTINGS.profile].leoHint = true
+		G.PROFILES[G.SETTINGS.profile].libraHint = true
+		G.PROFILES[G.SETTINGS.profile].capricornHint = true
+		G.PROFILES[G.SETTINGS.profile].scorpioHint = true
+		G.PROFILES[G.SETTINGS.profile].cancerHint = true
 	end
 end

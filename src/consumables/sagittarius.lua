@@ -2,7 +2,7 @@ SMODS.Consumable {
     key = "sagittarius",
     config = { mult = 15, chips = 150, currentBonus = "+15 Mult & +150 Chips" },
     set = "cstorm_astro",
-    atlas = "astro",
+    atlas = "consumables",
     discovered = false,
     unlocked = false,
     pos = { x = 8, y = 0 },

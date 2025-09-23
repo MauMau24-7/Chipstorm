@@ -2,7 +2,7 @@ SMODS.Consumable {
     key = "pisces",
     config = { dollars = 0, limit = 15 },
     set = "cstorm_astro",
-    atlas = "astro",
+    atlas = "consumables",
     discovered = false,
     unlocked = false,
     pos = { x = 2, y = 1 },

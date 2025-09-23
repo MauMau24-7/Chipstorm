@@ -2,7 +2,7 @@ SMODS.Consumable {
     key = "libra",
     config = { multiplier = 2 },
     set = "cstorm_astro",
-    atlas = "astro",
+    atlas = "consumables",
     discovered = false,
     unlocked = false,
     pos = { x = 6, y = 0 },

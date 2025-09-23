@@ -2,7 +2,7 @@ SMODS.Consumable {
     key = "capricorn",
     config = { startMult = 30, minusMult = 2 },
     set = "cstorm_astro",
-    atlas = "astro",
+    atlas = "consumables",
     discovered = false,
     unlocked = false,
     pos = { x = 0, y = 1 },

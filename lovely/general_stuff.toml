@@ -54,21 +54,6 @@ payload = '''
 '''
 
 
-# Change pop-up Text to consumable
-# [[patches]]
-# [patches.pattern]
-# target = 'functions/UI_definitions.lua'
-# pattern = """   _type == 'Back' and G.ASSET_ATLAS["centers"] or
-#     G.ASSET_ATLAS["icons"]"""
-# position = "at"
-# match_indent = true
-# payload = '''
-#     _type == 'Back' and G.ASSET_ATLAS["centers"] or
-#     _type == 'Consumeable' and print("1") or
-#     G.ASSET_ATLAS["icons"]
-# '''
-
-
 [[patches]]
 [patches.pattern]
 target = 'functions/UI_definitions.lua'

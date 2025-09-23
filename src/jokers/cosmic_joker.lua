@@ -1,6 +1,6 @@
 SMODS.Joker {
     key = "cosmic_joker",
-    config = { extra = { animation = false, frame = 0, timer = 0, odds = 20 } },
+    config = { extra = { animation = false, frame = 0, timer = 0, odds = 20, activated = false } },
     pos = { x = 0, y = 1 },
     rarity = "cstorm_chatter",
     cost = 20,
@@ -12,8 +12,9 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
-            if context.other_card:get_id() == 13 and SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'cstorm_cosmic_joker') then
+            if context.other_card:get_id() == 13 and SMODS.pseudorandom_probability(card, 'cstorm_cosmic_joker', 1, card.ability.extra.odds) then
 
+                card.ability.extra.activated = true
                 for _, planets in ipairs(G.P_CENTER_POOLS.Planet) do
                     delay(0.15)
                     G.E_MANAGER:add_event(Event({
@@ -26,13 +27,12 @@ SMODS.Joker {
             end
         end
 
-        if context.after then
-            if SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'cstorm_cosmic_joker') then
-                card.ability.extra.animation = true
-                return {
-                    extra = { focus = context.self, colour = G.C.CHIPS, message = "Planets appear" },
-                }
-            end
+        if context.after and card.ability.extra.activated == true then
+            card.ability.extra.activated = false
+            card.ability.extra.animation = true
+            return {
+                extra = { focus = context.self, colour = G.C.CHIPS, message = "Planets appear" },
+            }
         end
     end,
 

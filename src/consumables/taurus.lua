@@ -2,7 +2,7 @@ SMODS.Consumable {
     key = "taurus",
     config = { dollars = 1, timer = 0, elapsed_time = 0, reset_timer = 10, moneyEarned = 0 },
     set = "cstorm_astro",
-    atlas = "astro",
+    atlas = "consumables",
     discovered = false,
     unlocked = false,
     pos = { x = 1, y = 0 },

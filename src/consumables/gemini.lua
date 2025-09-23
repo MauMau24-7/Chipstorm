@@ -4,7 +4,7 @@ SMODS.Consumable {
 	key = "gemini",
 	config = { copying = nil, multiplier = 2, },
 	set = "cstorm_astro",
-	atlas = "astro",
+	atlas = "consumables",
     discovered = false,
     unlocked = false,
 	pos = { x = 2, y = 0 },

@@ -97,3 +97,8 @@ function my_pow(base, exponent)
         return math.exp(exponent * math.log(base))
     end
 end
+
+function get_random_riddle()
+    local index = math.random(1, #CSTORM.riddles)
+    return CSTORM.riddles[index]
+end

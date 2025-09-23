@@ -14,7 +14,7 @@ return {
                 name = "Miscount",
                 text = {
                     {
-                        "Gives {X:dark_edition,C:white}random{} {C:chips}Chips",
+                        "Gives {X:dark_edition,C:white}random{} Chips",
                         "after every {C:attention}hand",
                         "{C:inactive} (between #2# and #3#)"
                     }
@@ -33,7 +33,7 @@ return {
                 name = "Final Push",
                 text = {
                     {
-                        "{X:chips,C:white} X#1# {} the {C:chips}Chips",
+                        "{X:chips,C:white} X#1#{} the Chips",
                         "when it's your",
                         "{C:red}last hand"
                     }
@@ -45,7 +45,7 @@ return {
                     {
                         "Gives {C:chips}+#1#{} Chips per",
                         "card with edition when",
-                        "{C:red}only {C:black}scoring edition cards"
+                        "{C:red}only{} scoring edition cards"
                     }
                 },
             },
@@ -98,9 +98,9 @@ return {
                 text = {
                     "{s:1.2}Choose if you want...",
                     "",
-                    "{C:chips}+#1# Chips",
+                    "{C:chips}+#1#{} Chips",
                     "or",
-                    "{C:mult}+#2# Mult"
+                    "{C:mult}+#2#{} Mult"
                 },
             },
             j_cstorm_arcana_hunter = {
@@ -127,10 +127,10 @@ return {
                 },
             },
             j_cstorm_second_thoughts = {
-                name = "{C:cstorm_red}Second {C:cstorm_black}Thoughts",
+                name = "{C:cstorm_pure_red}Second {C:cstorm_pure_black}Thoughts",
                 text = {
-                    "{C:cstorm_red}Second {C:cstorm_black}Thoughts{} grants half the",
-                    "score of the {C:cstorm_red}strongest{} possible hand",
+                    "{C:cstorm_pure_red}Second {C:cstorm_pure_black}Thoughts{} grants half the",
+                    "score of the {C:cstorm_pure_red}strongest{} possible hand",
                     "if it is left {C:attention}unplayed{}"
                 },
             },
@@ -161,9 +161,9 @@ return {
                 name = "Shnack",
                 text = { 
                     {
-                        "Gains {C:chips}+#2# chips{} at",
+                        "Gains {C:chips}+#2# Chips{} at",
                         "the end of every round",
-                        "{C:inactive} Currently gives #1# Chips",
+                        "{C:inactive} Currently +#1#",
                     },
                     {
                         "{s:0.8}Dogs like these snacks very much",
@@ -175,8 +175,8 @@ return {
                 text = {
                     "Eats all {C:green}Shnack Jokers",
                     "at the start of a round and",
-                    "gains it's chips as {C:attention}#2#x Mult",
-                    "{C:inactive} Currently gives #1# Mult",
+                    "gains it's chips as {C:attention}#2#x{} Mult",
+                    "{C:inactive} Currently #1#",
                 },
             },
             j_cstorm_suns_power = {
@@ -212,6 +212,48 @@ return {
                     {
                         "{s:0.8,C:inactive}Keeps it's suit"
                     }
+                },
+            },
+            j_cstorm_ethereal_joker = {
+                name = "Ethereal Joker",
+                text = {
+                    {
+                        "Gives {C:chips}+#1#{} Chips",
+                    },
+                    {
+                        "{C:dark_edition}Pulsar{} boosts this Joker by {C:green}150%",
+                        "and has a {C:green}1 in 10{} to not get used"
+                    }
+                },
+            },
+            j_cstorm_bargain_hunter = {
+                name = "Bargain Hunter",
+                text = {
+                    {
+                        "{C:attention}Reduces{} the costs in the",
+                        "shop by {C:money}#1#%"
+                    },
+                },
+            },
+            j_cstorm_the_converter = {
+                name = "The Converter",
+                text = {
+                    {
+                        "Converts {C:mult}#1#{} Mult",
+                        "to {C:chips}+#2#{} Chips"
+                    },
+                },
+            },
+            j_cstorm_riddle_joker = {
+                name = "Riddle Joker",
+                text = {
+                    {
+                        "{s:1.5}Riddle:",
+                    },
+                    {
+                        "Gives either {C:mult}+#1#{} discard",
+                        "or {C:chips}+#1#{} hand"
+                    },
                 },
             },
         },
@@ -298,6 +340,17 @@ return {
                 }
             }
         },
+        Spectral = {
+            c_cstorm_pulsar = {
+                name = "Pulsar",
+                text = {
+                    {
+                        "{C:attention}Boost{} the selected Joker's",
+                        "{C:chips}Chips{} by {C:green}50%"
+                    }
+                }
+            }
+        },
         cstorm_tokens = {
             c_cstorm_void_chip = {
                 name = "Void Chip",
@@ -311,12 +364,12 @@ return {
                 name = "Neon Chip",
                 text = {
                     {
-                        "Get {C:chips}+#1# Chips{} for",
+                        "Get {C:chips}+#1#{} Chips for",
                         "{C:attention}every Joker{} you have on use",
                         "Activated: #3#"
                     },
                     {
-                        "Would currently give {C:chips}#2# Chips"
+                        "Would currently give {C:chips}+#2#"
                     }
                 }
             },
@@ -505,8 +558,8 @@ return {
                 name = "{C:cstorm_astro}Libra",
                 text = {
                     {
-                        "Gives either {X:chips,C:white}X#1#{} {C:chips}Chips{}",
-                        "or {X:mult,C:white}X#1#{} {C:mult}Mult{}"
+                        "Gives either {X:chips,C:white}X#1#{} Chips",
+                        "or {X:mult,C:white}X#1#{} Mult"
                     },
                 },
                 unlock = {
@@ -558,7 +611,7 @@ return {
                 text = {
                     {
                         "Depending on it's {C:attention}position{} it'll",
-                        "give either {C:mult}+#1# Mult{}, {C:chips}+#2# Chips",
+                        "give either {C:mult}+#1#{} Mult, {C:chips}+#2#{} Chips",
                         "or {C:chips}b{C:mult}o{C:chips}t{C:mult}h",
                         "{s:0.8,C:inactive}Currently #3#"
                     },

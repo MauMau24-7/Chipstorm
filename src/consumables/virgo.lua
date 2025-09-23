@@ -2,7 +2,7 @@
 SMODS.Consumable {
     key = "virgo",
     set = "cstorm_astro",
-    atlas = "astro",
+    atlas = "consumables",
     discovered = false,
     unlocked = false,
     pos = { x = 5, y = 0 },

@@ -1,7 +1,7 @@
 SMODS.Consumable {
     key = "cancer",
     set = "cstorm_astro",
-    atlas = "astro",
+    atlas = "consumables",
     discovered = false,
     unlocked = false,
     pos = { x = 3, y = 0 },

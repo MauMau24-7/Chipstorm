@@ -286,6 +286,8 @@ SMODS.Joker {
     end,
 
     update = function (self, card, dt)
-        card.children.center:set_sprite_pos({ x = math.floor(G.TIMERS.REAL * 2) % 2, y = 2 })
+        if G.P_CENTERS.j_cstorm_second_thoughts.discovered then
+            card.children.center:set_sprite_pos({ x = math.floor(G.TIMERS.REAL * 2) % 2, y = 2 })
+        end
     end,
 }

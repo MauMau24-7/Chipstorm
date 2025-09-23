@@ -73,22 +73,22 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas({
-	key = "astro",
-	path = "Astro.png",
+	key = "consumables",
+	path = "Consumables.png",
 	px = 71,
 	py = 95
 })
 
 SMODS.UndiscoveredSprite({
     key = "cstorm_astro",
-    atlas = "astro",
+    atlas = "consumables",
     pos = { x = 5, y = 1 },
     no_overlay = false
 })
 
 SMODS.UndiscoveredSprite({
     key = "cstorm_astro_hints",
-    atlas = "astro",
+    atlas = "consumables",
     pos = { x = 5, y = 1 },
     no_overlay = true
 })
