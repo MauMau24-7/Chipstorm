@@ -10,7 +10,7 @@ function create_UIBox_custom_video1(name, buttonname)
 	video_file:play()
 
 	local t = create_UIBox_generic_options({
-		back_delay = 15,
+		back_delay = 3,
 		back_label = buttonname,
 		colour = G.C.BLACK,
 		padding = 0,
@@ -18,18 +18,6 @@ function create_UIBox_custom_video1(name, buttonname)
 			{ n = G.UIT.O, config = { object = vid_sprite } } }
 	})
 	return t
-end
-get_vo = function()
-	local voucher_pool = get_current_pool('Voucher')
-	local selected_voucher = pseudorandom_element(voucher_pool, 'cstorm')
-	local it = 1
-	while selected_voucher == 'UNAVAILABLE' do
-		it = it + 1
-		selected_voucher = pseudorandom_element(voucher_pool, 'giveVoucher' .. it)
-	end
-	local voucher = SMODS.add_card { key = selected_voucher, area = G.play }
-	voucher.cost = 0
-	voucher:redeem()
 end
 
 local function stopScoring()
@@ -68,63 +56,63 @@ SMODS.Blind {
 		if RNGesus == 1 then
 			stopScoring()
 			G.FUNCS.overlay_menu {
-				definition = create_UIBox_custom_video1("slotsMeme", "Continue..."),
+				definition = create_UIBox_custom_video1("slotsMeme", "Skip"),
 				config = { no_esc = true },
 			}
 			--Death
 		elseif RNGesus >= 2 and RNGesus <= 6 then
 			stopScoring()
 			G.FUNCS.overlay_menu {
-				definition = create_UIBox_custom_video1("slotsMeme", "Continue..."),
+				definition = create_UIBox_custom_video1("slotsMeme", "Skip"),
 				config = { no_esc = true },
 			}
 			--burnCard
 		elseif RNGesus >= 7 and RNGesus <= 40 then
 			stopScoring()
 			G.FUNCS.overlay_menu {
-				definition = create_UIBox_custom_video1("slotsMeme", "Continue..."),
+				definition = create_UIBox_custom_video1("slotsMeme", "Skip"),
 				config = { no_esc = true },
 			}
 			--destroyJoker
 		elseif RNGesus >= 41 and RNGesus <= 85 then
 			stopScoring()
 			G.FUNCS.overlay_menu {
-				definition = create_UIBox_custom_video1("slotsMeme", "Continue..."),
+				definition = create_UIBox_custom_video1("slotsMeme", "Skip"),
 				config = { no_esc = true },
 			}
 			--getTarot
 		elseif RNGesus >= 86 and RNGesus <= 164 then
 			stopScoring()
 			G.FUNCS.overlay_menu {
-				definition = create_UIBox_custom_video1("slotsMeme", "Continue..."),
+				definition = create_UIBox_custom_video1("slotsMeme", "Skip"),
 				config = { no_esc = true },
 			}
 			--chipsMult
 		elseif RNGesus >= 165 and RNGesus <= 358 then
 			stopScoring()
 			G.FUNCS.overlay_menu {
-				definition = create_UIBox_custom_video1("slotsMeme", "Continue..."),
+				definition = create_UIBox_custom_video1("slotsMeme", "Skip"),
 				config = { no_esc = true },
 			}
 			--multMult
 		elseif RNGesus >= 359 and RNGesus <= 627 then
 			stopScoring()
 			G.FUNCS.overlay_menu {
-				definition = create_UIBox_custom_video1("slotsMeme", "Continue..."),
+				definition = create_UIBox_custom_video1("slotsMeme", "Skip"),
 				config = { no_esc = true },
 			}
 			--$5
 		elseif RNGesus >= 628 and RNGesus <= 965 then
 			stopScoring()
 			G.FUNCS.overlay_menu {
-				definition = create_UIBox_custom_video1("slotsMeme", "Continue..."),
+				definition = create_UIBox_custom_video1("slotsMeme", "Skip"),
 				config = { no_esc = true },
 			}
 			--Voucher
 		elseif RNGesus >= 966 and RNGesus <= 1000 then
 			stopScoring()
 			G.FUNCS.overlay_menu {
-				definition = create_UIBox_custom_video1("slotsVoucher", "Continue..."),
+				definition = create_UIBox_custom_video1("slotsVoucher", "Skip"),
 				config = { no_esc = true },
 			}
 		end
@@ -185,7 +173,22 @@ SMODS.Blind {
 				SMODS.add_card({ set = 'Tarot' })
 			--getVoucher
 			elseif RNGesus >= 966 and RNGesus <= 1000 then
-				get_vo()
+				G.E_MANAGER:add_event(Event({
+                    func = function() 
+						local voucher_key = get_next_voucher_key(false)
+						local voucher = SMODS.create_card({key = voucher_key})
+						voucher:start_materialize()
+						G.play:emplace(voucher)
+						voucher.cost = 0
+						voucher:redeem()
+						G.E_MANAGER:add_event(Event({
+							trigger = 'after',
+							func = function() 
+								voucher:start_dissolve()
+								return true
+							end}))
+                        return true
+                    end}))
 			end
 		end
 	end
