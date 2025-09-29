@@ -8,3 +8,4 @@ templates/
 .vs/
 /.vscode
 .vscode/
+.lovelyignore
