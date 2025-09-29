@@ -1000,7 +1000,11 @@ return {
 
             chipstorm_none = "None",
 
-            ph_cstorm_aries = "Saved by the ambition of Aries"
+            ph_cstorm_aries = "Saved by the ambition of Aries",
+
+            -- Blackjack
+            b_hit = "Hit",
+            b_stand = "Stand",
         },
         labels = {
             cstorm_tokens = "Tokens",

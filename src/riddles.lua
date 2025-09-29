@@ -114,6 +114,6 @@ CSTORM.boss_riddles = {
 		{ question = { "" }, answer = "" },
 		{ question = { "" }, answer = "" },
 		{ question = { "" }, answer = "" },
-		{ question = { "I'm royal by birth", "but I multiply your worth.", "The more crowns I see,", "the richer you'll be.", "What am I?" }, answer = "The Baron" },
+		{ question = { "I'm royal by birth", "but I multiply your worth.", "The more crowns I see,", "the stronger you'll be.", "What am I?" }, answer = "The Baron" },
 	},
 }
