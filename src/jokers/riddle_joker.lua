@@ -15,7 +15,7 @@ SMODS.Joker {
 			already_done = false
 			local RNGesus = pseudorandom("riddle_joker_hand_discard", 1, 2)
 			if not context.blueprint then
-				Riddle_all = get_random_riddle()
+				Riddle_all = get_random_riddle("riddle_joker")
 				Riddle = Riddle_all.question
 				for i, text in ipairs(Riddle) do
 					SMODS.calculate_effect({ message = text, colour = G.C.PURPLE }, card)
@@ -58,7 +58,7 @@ SMODS.Joker {
 					})
 				end
 			else
-				-- Falls kein Riddle vorhanden -> "chipstorm_none"
+				--If no riddle available -> "chipstorm_none"
 				table.insert(rows, {
 					n = G.UIT.R,
 					config = { ref_table = card, align = "m", colour = G.C.GREY, r = 0.05, padding = 0.06 },

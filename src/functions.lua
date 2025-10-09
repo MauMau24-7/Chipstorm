@@ -98,7 +98,71 @@ function my_pow(base, exponent)
     end
 end
 
-function get_random_riddle()
-    local index = math.random(1, #CSTORM.riddles)
-    return CSTORM.riddles[index]
+function level_up_hand_mult(card, hand, instant, amount)
+    if (G.GAME.hands[hand].level and G.GAME.hands[hand].mult) then
+        amount = amount or 1
+        G.GAME.hands[hand].level = math.max(0, G.GAME.hands[hand].level + amount)
+
+        G.GAME.hands[hand].mult = math.max(1, G.GAME.hands[hand].mult + (G.GAME.hands[hand].l_mult * amount * 2))
+        if not instant then
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.2,
+                func = function()
+                    play_sound('tarot1')
+                    if card then card:juice_up(0.8, 0.5) end
+                    G.TAROT_INTERRUPT_PULSE = true
+                    return true
+                end
+            }))
+            update_hand_text({ delay = 0 }, { mult = G.GAME.hands[hand].mult, StatusText = true })
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.9,
+                func = function()
+                    play_sound('tarot1')
+                    if card then card:juice_up(0.8, 0.5) end
+                    G.TAROT_INTERRUPT_PULSE = nil
+                    return true
+                end
+            }))
+            update_hand_text({ sound = 'button', volume = 0.7, pitch = 0.9, delay = 0 }, { level = G.GAME.hands[hand]
+            .level })
+            delay(1.3)
+        end
+        G.E_MANAGER:add_event(Event({
+            trigger = 'immediate',
+            func = (function()
+                check_for_unlock { type = 'upgrade_hand', hand = hand, level = G.GAME.hands[hand].level }
+                return true
+            end)
+        }))
+    end
+end
+
+function get_random_riddle(object)
+	if tostring(object) == "riddle_joker" then
+		local index = math.random(1, #CSTORM.riddles)
+		return CSTORM.riddles[index]
+	elseif tostring(object) == "the_riddler" then
+		-- Array with keys
+		local keys = {"Jokers",}
+
+		-- get random key
+		local randomKey = keys[math.random(#keys)]
+
+		-- random element from array
+		local pool = CSTORM.boss_riddles[randomKey]
+		local randomElement = pool[math.random(#pool)]
+
+		return randomElement
+	end
+end
+
+function check_riddle_answer(user_answer, riddle_answer)
+	if user_answer == riddle_answer then
+		return true
+	else
+		return false
+	end
 end
