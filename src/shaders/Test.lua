@@ -49,11 +49,6 @@ SMODS.Shader {
 }
 
 SMODS.Shader {
-	key = "monochromeShader",
-	path = "monochromeShader.fs"
-}
-
-SMODS.Shader {
 	key = "sepiaShader",
 	path = "sepiaShader.fs"
 }
