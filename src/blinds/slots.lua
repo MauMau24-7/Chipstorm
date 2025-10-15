@@ -10,7 +10,7 @@ function create_UIBox_custom_video1(name, buttonname)
 	video_file:play()
 
 	local t = create_UIBox_generic_options({
-		back_delay = 15,
+		back_delay = 3,
 		back_label = buttonname,
 		colour = G.C.BLACK,
 		padding = 0,
