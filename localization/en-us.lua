@@ -159,7 +159,7 @@ return {
             },
             j_cstorm_shnack = {
                 name = "Shnack",
-                text = { 
+                text = {
                     {
                         "Gains {C:chips}+#2# Chips{} at",
                         "the end of every round",
@@ -315,7 +315,7 @@ return {
             e_cstorm_monochrome = {
                 name = "Monochrome",
                 text = {
-                    "Monochrome"
+                    "{X:chips,C:white}X#1# Chips"
                 }
             },
             e_cstorm_sepia = {
@@ -411,7 +411,7 @@ return {
                     "to know how to unlock this card",
                 },
             },
-             c_cstorm_aries_hint = {
+            c_cstorm_aries_hint = {
                 name = "",
                 text = {
                     {
@@ -866,7 +866,7 @@ return {
             cstorm_death = {
                 name = "Death",
                 text = {
-                    
+
                     "If you still have this card",
                     "after #1# rounds, immediately lose",
                     "{C:red}#2# rounds left..."
@@ -906,7 +906,7 @@ return {
                     "when scored"
                 },
             },
-            chatter_name =  {
+            chatter_name = {
                 name = "Chatter:",
                 text = {
                     "{C:purple}#1#"
@@ -1006,6 +1006,12 @@ return {
             b_hit = "Hit",
             b_stand = "Stand",
         },
+        challenge_names = {
+            c_cstorm_death_challenge = "Death..."
+        },
+        v_text = {
+            ch_c_cstorm_death1 = { "All cards are Death" }
+        },
         labels = {
             cstorm_tokens = "Tokens",
             cstorm_astro = "Astro",
@@ -1016,6 +1022,7 @@ return {
             cstorm_death = "Death",
 
             cstorm_chatter = "Chatter",
+            cstorm_monochrome = "Monochrome"
         },
         ranks = {
             cstorm_HalfJack = "Half Jack",

@@ -1,3 +1,8 @@
+SMODS.Shader{
+	key = "testing",
+	path = "testing.fs"
+}
+
 SMODS.Shader {
 	key = "ionizedShader",
 	path = "ionizedShader.fs"

@@ -4,109 +4,46 @@
 	#define PRECISION mediump
 #endif
 
-// Look ionized.fs for explanation
+//monochromeShader of shader
 extern PRECISION vec2 monochromeShader;
 
 extern PRECISION number dissolve;
 extern PRECISION number time;
-// (sprite_pos_x, sprite_pos_y, sprite_width, sprite_height) [not normalized]
 extern PRECISION vec4 texture_details;
-// (width, height) for atlas texture [not normalized]
 extern PRECISION vec2 image_details;
 extern bool shadow;
 extern PRECISION vec4 burn_colour_1;
 extern PRECISION vec4 burn_colour_2;
 
-// [Util]
-// Transform color from HSL to RGB 
-vec4 RGB(vec4 c);
-
-// [Util]
-// Transform color from RGB to HSL
-vec4 HSL(vec4 c);
-
-// [Required] 
-// Apply dissolve effect (when card is being "burnt", e.g. when consumable is used)
 vec4 dissolve_mask(vec4 tex, vec2 texture_coords, vec2 uv);
 
-// This is what actually changes the look of card
 vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords )
 {
-    // Take pixel color (rgba) from `texture` at `texture_coords`, equivalent of texture2D in GLSL
     vec4 tex = Texel(texture, texture_coords);
-    // Position of a pixel within the sprite
-	vec2 uv = (((texture_coords)*(image_details)) - texture_details.xy*texture_details.ba)/texture_details.ba;
-    float t = monochromeShader.y + time;
-    float adjust_value = fract(0.08*t);
 
-    vec3 linear = tex.rgb;
-    vec4 hslSuit = HSL(vec4(1,0,0,1));
-    vec4 hsl = HSL(tex); // convert texture to HSL values
+    vec2 uv = (((texture_coords)*(image_details)) - texture_details.xy*texture_details.ba)/texture_details.ba;
 
-    if (monochromeShader.y > 0.0 || monochromeShader.y < 0.0) {
-        if (hsl.z == 1) {
-            tex.a = 0;
-        }
-    }
+    number low = min(tex.r, min(tex.g, tex.b));
+    number high = max(tex.r, max(tex.g, tex.b));
+    number delta = high-low -0.1;
 
-    linear.r = pow(linear.r, 2.2);
-    linear.g = pow(linear.g, 2.2);
-    linear.b = pow(linear.b, 2.2);
-    hslSuit.z = (linear.r + linear.g + linear.b)/3;
-    hslSuit = RGB(hslSuit);
-    tex = vec4(hslSuit.rgb, tex.a);
+    number fac = 0.8 + 0.9*sin(11.*uv.x+4.32*uv.y + monochromeShader.r*12. + cos(monochromeShader.r*5.3 + uv.y*4.2 - uv.x*4.));
+    number fac2 = 0.5 + 0.5*sin(8.*uv.x+2.32*uv.y + monochromeShader.r*5. - cos(monochromeShader.r*2.3 + uv.x*8.2));
+    number fac3 = 0.5 + 0.5*sin(10.*uv.x+5.32*uv.y + monochromeShader.r*6.111 + sin(monochromeShader.r*5.3 + uv.y*3.2));
+    number fac4 = 0.5 + 0.5*sin(3.*uv.x+2.32*uv.y + monochromeShader.r*8.111 + sin(monochromeShader.r*1.3 + uv.y*11.2));
+    number fac5 = sin(0.9*16.*uv.x+5.32*uv.y + monochromeShader.r*12. + cos(monochromeShader.r*5.3 + uv.y*4.2 - uv.x*4.));
 
-    vec4 temp = HSL(tex);
-    temp.r = adjust_value;
-    tex = RGB(temp);
+    number maxfac = 0.7*max(max(fac, max(fac2, max(fac3,0.0))) + (fac+fac2+fac3*fac4), 0.);
 
-    // required
-	return dissolve_mask(tex*colour, texture_coords, uv);
+    number average = (tex.r + tex.g + tex.b) / 3;
+    tex.r = average;
+    tex.g = average;
+    tex.b = average;
+
+    return dissolve_mask(tex*colour, texture_coords, uv);
 }
 
-number hue(number s, number t, number h)
-{
-	number hs = mod(h, 1.)*6.;
-	if (hs < 1.) return (t-s) * hs + s;
-	if (hs < 3.) return t;
-	if (hs < 4.) return (t-s) * (4.-hs) + s;
-	return s;
-}
-
-vec4 RGB(vec4 c)
-{
-	if (c.y < 0.0001)
-		return vec4(vec3(c.z), c.a);
-
-	number t = (c.z < .5) ? c.y*c.z + c.z : -c.y*c.z + (c.y+c.z);
-	number s = 2.0 * c.z - t;
-	return vec4(hue(s,t,c.x + 1./3.), hue(s,t,c.x), hue(s,t,c.x - 1./3.), c.w);
-}
-
-vec4 HSL(vec4 c)
-{
-	number low = min(c.r, min(c.g, c.b));
-	number high = max(c.r, max(c.g, c.b));
-	number delta = high - low;
-	number sum = high+low;
-
-	vec4 hsl = vec4(.0, .0, .5 * sum, c.a);
-	if (delta == .0)
-		return hsl;
-
-	hsl.y = (hsl.z < .5) ? delta / sum : delta / (2.0 - sum);
-
-	if (high == c.r)
-		hsl.x = (c.g - c.b) / delta;
-	else if (high == c.g)
-		hsl.x = (c.b - c.r) / delta + 2.0;
-	else
-		hsl.x = (c.r - c.g) / delta + 4.0;
-
-	hsl.x = mod(hsl.x / 6., 1.);
-	return hsl;
-}
-
+//Don't touch anything here, I don't fucking know what this does
 vec4 dissolve_mask(vec4 tex, vec2 texture_coords, vec2 uv)
 {
     if (dissolve < 0.001) {
@@ -145,7 +82,6 @@ vec4 dissolve_mask(vec4 tex, vec2 texture_coords, vec2 uv)
     return vec4(shadow ? vec3(0.,0.,0.) : tex.xyz, res > adjusted_dissolve ? (shadow ? tex.a*0.3: tex.a) : .0);
 }
 
-// for transforming the card while your mouse is on it
 extern PRECISION vec2 mouse_screen_pos;
 extern PRECISION float hovering;
 extern PRECISION float screen_scale;

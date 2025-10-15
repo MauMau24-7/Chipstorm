@@ -10,7 +10,8 @@ G.C.CSTORM = {
     BUTTONS = HEX("FF463C"),
     CON_BUTTON = HEX("FF8700"),
     TOKENS = HEX("06540b"),
-    ASTRO = HEX("230049")
+    ASTRO = HEX("230049"),
+    GREY = HEX("424744"),
 }
 
 -- Hooks
@@ -30,5 +31,6 @@ function loc_colour(_c, _default)
     G.ARGS.LOC_COLOURS.cstorm_con_buttons = G.C.CSTORM.CON_BUTTONS
     G.ARGS.LOC_COLOURS.cstorm_tokens = G.C.CSTORM.TOKENS
     G.ARGS.LOC_COLOURS.cstorm_astro = G.C.CSTORM.ASTRO
+    G.ARGS.LOC_COLOURS.cstorm_grey = G.C.CSTORM.GREY
     return loc_colour_ref(_c, _default)
 end
