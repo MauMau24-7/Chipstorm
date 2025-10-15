@@ -1,0 +1,150 @@
+-- Chipstorm.create_riddles_tab = function()
+--     user_answer = nil
+--     local rows = {}
+--     Answers = Answers or {}
+--     Answers.answer = Answers.answer or ""
+
+--     if G.PROFILES[G.SETTINGS.profile].bossRiddle ~= nil then
+--         if Riddle == nil then
+--             Riddle = G.PROFILES[G.SETTINGS.profile].bossRiddle
+--         end
+--         local scale_by_amount = 2 / #Riddle.question
+
+--         for i, text in ipairs(Riddle.question) do
+--             table.insert(rows, {
+--                 n = G.UIT.R,
+--                 config = { ref_table = card, align = "m", r = 0.05, padding = 0.06 },
+--                 nodes = {
+--                     { n = G.UIT.T, config = { text = ' ' .. text .. ' ', colour = G.C.UI.TEXT_LIGHT, scale = scale_by_amount } },
+--                 }
+--             })
+--         end
+--     else
+--         --If no riddle available -> "chipstorm_none"
+--         table.insert(rows, {
+--             n = G.UIT.R,
+--             config = { ref_table = card, align = "m", colour = G.C.GREY, r = 0.05, padding = 0.06 },
+--             nodes = {
+--                 { n = G.UIT.T, config = { text = ' ' .. localize('chipstorm_none') .. ' ', colour = G.C.UI.TEXT_LIGHT, scale = scale_by_amount } },
+--             }
+--         })
+--     end
+
+--     return {
+--         n = G.UIT.ROOT, config = {r = 0.1, minw = 8, minh = 6, align = "tm", padding = 0.2, colour = G.C.BLACK}, nodes = {
+--             {n = G.UIT.R, config = {minw=1, minh=1, colour = G.C.MONEY, padding = 0.15}, nodes = rows },
+--             {n = G.UIT.R, config = {minw=1, minh=1, colour = G.C.CSTORM.GIT, padding = 0.15}, nodes = {
+
+--                 {n = G.UIT.R, config = {align = "cm", padding = 0.05}, nodes = {
+--                     create_text_input{
+--                         max_length = 30,
+--                         all_caps = true,
+--                         ref_table = Answers,
+--                         ref_value = "answer",
+--                         align = "cm",
+--                         callback = function()
+--                             if Answers.answer and Riddle.answer then
+--                                 User_answer = check_riddle_answer(Answers.answer:lower(), Riddle.answer:lower())
+--                             end
+--                         end
+--                     }
+--                 }}
+--             }}
+--         }
+--     }
+-- end
+
+-- Chipstorm.create_overlay_riddle = function()
+--     G.FUNCS.overlay_menu({
+--         definition = create_UIBox_generic_options({
+--             back_colour = G.C.CSTORM.CON_BUTTON,
+--             contents = {
+--                 {
+--                     n = G.UIT.R,
+--                     nodes = {
+--                         create_tabs({
+--                             snap_to_nav = true,
+--                             colour = G.C.CSTORM.CON_BUTTON,
+--                             tabs = {
+--                                 {
+--                                     label = "Riddle",
+--                                     chosen = true,
+--                                     tab_definition_function = Chipstorm.create_riddles_tab
+--                                 },
+--                             }
+--                         }),
+--                     }
+--                 },
+--             }
+--         })
+--     })
+-- end
+
+-- G.FUNCS.cstorm_open_riddle = function(e)
+--     Chipstorm.create_overlay_riddle()
+-- end
+
+-- function G.FUNCS.destroy_a_card(e)
+--     local index = math.random(1, #G.hand.cards)
+--     SMODS.destroy_cards(G.hand.cards[index])
+-- end
+
+-- local old_buttons = create_UIBox_buttons
+-- function create_UIBox_buttons()
+--     local t = old_buttons()
+--     if G and G.GAME and G.GAME.blind.config.blind.key == 'bl_cstorm_the_riddler' then
+--         local index = 3
+--         if G.SETTINGS.play_button_pos ~= 1 then
+--             index = 1
+--         end
+--         local button = t.nodes[index]
+--         button.nodes[1].nodes[1].config.text = "Riddle"
+--         button.nodes[1].nodes[1].config.ref_value = nil
+--         button.nodes[1].nodes[1].config.ref_table = G.GAME
+--         button.config.button = 'cstorm_open_riddle'
+--         button.config.func = nil
+--         button.config.one_press = false
+--     end
+--     if G and G.GAME and G.GAME.blind.config.blind.key == 'bl_cstorm_the_riddler' then
+--         local index = 1
+--         if G.SETTINGS.play_button_pos ~= 1 then
+--             index = 3
+--         end
+--         local button = t.nodes[index]
+--         button.nodes[1].nodes[1].config.text = "Test2"
+--         button.nodes[1].nodes[1].config.ref_value = nil
+--         button.nodes[1].nodes[1].config.ref_table = G.GAME
+--         button.config.button = 'destroy_a_card'
+--         button.config.func = nil
+--         button.config.one_press = false
+--     end
+--     return t
+-- end
+
+-- SMODS.Blind {
+--     key = "the_riddler",
+--     atlas = "blinds",
+--     pos = { x = 0, y = 2 },
+--     dollars = 7,
+--     mult = 1,
+--     boss = { min = 1, max = 10 },
+--     boss_colour = HEX("F3840D"),
+--     config = { score = nil },
+
+--     calculate = function(self, blind, context)
+--         if self.config.score == 0 then
+--             self.config.score = G.GAME.blind.chips / ( G.GAME.current_round.hands_left + 2 )
+--         end
+--         if G.PROFILES[G.SETTINGS.profile].bossRiddle == nil then
+--             Riddle = get_random_riddle("the_riddler")
+--             G.PROFILES[G.SETTINGS.profile].bossRiddle = Riddle
+--         end
+--         if User_answer == true then
+--             User_answer = nil
+--             G.PROFILES[G.SETTINGS.profile].bossRiddle = nil
+--         elseif User_answer == false then
+--             User_answer = nil
+--             G.GAME.current_round.hands_left = G.GAME.current_round.hands_left - 1
+--         end
+--     end
+-- }
