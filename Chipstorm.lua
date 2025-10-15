@@ -9,6 +9,7 @@ local joker_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/jokers" )
 local enhancement_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/enhancements" )
 local edition_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/editions" )
 local consumable_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/consumables" )
+local challenge_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/challenges" )
 local boosterpack_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/boosterpacks" )
 local blind_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/blinds" )
 local back_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/backs" )
@@ -38,12 +39,16 @@ for _, file in ipairs(enhancement_src) do
     assert(SMODS.load_file("src/enhancements/" .. file ))()
 end
 
--- for _, file in ipairs(edition_src) do
---     assert(SMODS.load_file("src/editions/" .. file ))()
--- end
+for _, file in ipairs(edition_src) do
+    assert(SMODS.load_file("src/editions/" .. file ))()
+end
 
 for _, file in ipairs(consumable_src) do
     assert(SMODS.load_file("src/consumables/" .. file ))()
+end
+
+for _, file in ipairs(challenge_src) do
+    assert(SMODS.load_file("src/challenges/" .. file ))()
 end
 
 for _, file in ipairs(boosterpack_src) do
@@ -58,13 +63,13 @@ for _, file in ipairs(back_src) do
     assert(SMODS.load_file("src/backs/" .. file ))()
 end
 
--- for _, file in ipairs(sticker_src) do
---     assert(SMODS.load_file("src/stickers/" .. file ))()
--- end
+for _, file in ipairs(sticker_src) do
+    assert(SMODS.load_file("src/stickers/" .. file ))()
+end
 
--- for _, file in ipairs(shader_src) do
---     assert(SMODS.load_file("src/shaders/" .. file ))()
--- end
+for _, file in ipairs(shader_src) do
+    assert(SMODS.load_file("src/shaders/" .. file ))()
+end
 
 for _, file in ipairs(tag_src) do
     assert(SMODS.load_file("src/tags/" .. file ))()
