@@ -7,3 +7,8 @@ SMODS.Shader{
 	key = "monochromeShader",
 	path = "monochromeShader.fs",
 }
+
+SMODS.Shader{
+	key = "neonShader",
+	path = "neonShader.fs",
+}

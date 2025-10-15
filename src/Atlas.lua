@@ -188,3 +188,8 @@ SMODS.Sound({
 	key = "monochrome1",
 	path = "monochrome1.ogg"
 })
+
+SMODS.Sound({
+	key = "neon1",
+	path = "neon1.ogg"
+})

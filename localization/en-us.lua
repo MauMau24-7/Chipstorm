@@ -315,7 +315,7 @@ return {
             e_cstorm_monochrome = {
                 name = "Monochrome",
                 text = {
-                    "{X:chips,C:white}X#1# Chips"
+                    "{X:chips,C:white}X#1#{} Chips"
                 }
             },
             e_cstorm_sepia = {
@@ -328,6 +328,13 @@ return {
                 name = "Overexposed",
                 text = {
                     "Overexposed"
+                }
+            },
+            e_cstorm_neon = {
+                name = "Neon",
+                text = {
+                    "{X:chips,C:white}X#1#{} Chips",
+                    "{X:mult,C:white}X#2#{} Mult"
                 }
             },
         },
@@ -1022,7 +1029,8 @@ return {
             cstorm_death = "Death",
 
             cstorm_chatter = "Chatter",
-            cstorm_monochrome = "Monochrome"
+            cstorm_monochrome = "Monochrome",
+            cstorm_neon = "Neon",
         },
         ranks = {
             cstorm_HalfJack = "Half Jack",
