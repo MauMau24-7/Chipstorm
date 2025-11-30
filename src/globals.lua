@@ -11,7 +11,7 @@ G.C.CSTORM = {
     CON_BUTTON = HEX("FF8700"),
     TOKENS = HEX("06540b"),
     ASTRO = HEX("230049"),
-    GREY = HEX("424744"),
+    GREY = HEX("87928B"),
 }
 
 -- Hooks

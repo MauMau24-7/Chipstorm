@@ -103,7 +103,7 @@ function level_up_hand_mult(card, hand, instant, amount)
         amount = amount or 1
         G.GAME.hands[hand].level = math.max(0, G.GAME.hands[hand].level + amount)
 
-        G.GAME.hands[hand].mult = math.max(1, G.GAME.hands[hand].mult + (G.GAME.hands[hand].l_mult * amount * 2))
+        G.GAME.hands[hand].mult = math.max(1, G.GAME.hands[hand].mult + G.GAME.hands[hand].l_mult)
         if not instant then
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',

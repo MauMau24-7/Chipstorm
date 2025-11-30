@@ -5,7 +5,7 @@
 #endif
 
 //name of shader
-extern PRECISION vec2 name;
+extern PRECISION vec2 atlasShader;
 
 extern PRECISION number dissolve;
 extern PRECISION number time;
@@ -19,19 +19,19 @@ vec4 dissolve_mask(vec4 tex, vec2 texture_coords, vec2 uv);
 
 vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords )
 {
-    vec4 tex = Texel(texture, texture_coords);
-
     vec2 uv = (((texture_coords)*(image_details)) - texture_details.xy*texture_details.ba)/texture_details.ba;
+
+    vec4 tex = Texel(texture, uv);
 
     number low = min(tex.r, min(tex.g, tex.b));
     number high = max(tex.r, max(tex.g, tex.b));
     number delta = high-low -0.1;
 
-    number fac = 0.8 + 0.9*sin(11.*uv.x+4.32*uv.y + name.r*12. + cos(name.r*5.3 + uv.y*4.2 - uv.x*4.));
-    number fac2 = 0.5 + 0.5*sin(8.*uv.x+2.32*uv.y + name.r*5. - cos(name.r*2.3 + uv.x*8.2));
-    number fac3 = 0.5 + 0.5*sin(10.*uv.x+5.32*uv.y + name.r*6.111 + sin(name.r*5.3 + uv.y*3.2));
-    number fac4 = 0.5 + 0.5*sin(3.*uv.x+2.32*uv.y + name.r*8.111 + sin(name.r*1.3 + uv.y*11.2));
-    number fac5 = sin(0.9*16.*uv.x+5.32*uv.y + name.r*12. + cos(name.r*5.3 + uv.y*4.2 - uv.x*4.));
+    number fac = 0.8 + 0.9*sin(11.*uv.x+4.32*uv.y + atlasShader.r*12. + cos(atlasShader.r*5.3 + uv.y*4.2 - uv.x*4.));
+    number fac2 = 0.5 + 0.5*sin(8.*uv.x+2.32*uv.y + atlasShader.r*5. - cos(atlasShader.r*2.3 + uv.x*8.2));
+    number fac3 = 0.5 + 0.5*sin(10.*uv.x+5.32*uv.y + atlasShader.r*6.111 + sin(atlasShader.r*5.3 + uv.y*3.2));
+    number fac4 = 0.5 + 0.5*sin(3.*uv.x+2.32*uv.y + atlasShader.r*8.111 + sin(atlasShader.r*1.3 + uv.y*11.2));
+    number fac5 = sin(0.9*16.*uv.x+5.32*uv.y + atlasShader.r*12. + cos(atlasShader.r*5.3 + uv.y*4.2 - uv.x*4.));
 
     number maxfac = 0.7*max(max(fac, max(fac2, max(fac3,0.0))) + (fac+fac2+fac3*fac4), 0.);
 

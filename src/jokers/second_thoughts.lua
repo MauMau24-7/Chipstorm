@@ -54,7 +54,7 @@ SMODS.Joker {
                 elseif context.blueprint_card then
                     if playedPokerHand > strongestHand then
                         return {
-                            extra = { focus = context.self, colour = G.C.RED, message = "What Second Thoughts said..."},
+                            extra = { focus = context.self, colour = G.C.RED, message = "What Second Thoughts says..."},
                             chips = card.ability.extra.chips
                         }
                     end

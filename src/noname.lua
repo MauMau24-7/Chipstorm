@@ -292,7 +292,7 @@ SMODS.current_mod.calculate = function(self, context)
 
 	if context.end_of_round then
 		-- Turn joker back to scorpio
-		for k, v in pairs(G.I.CARD) do
+		for _, v in pairs(G.I.CARD) do
 			if v.c_cstorm_scorpio then
 				v:set_ability("c_cstorm_scorpio")
 				v.c_cstorm_scorpio = false

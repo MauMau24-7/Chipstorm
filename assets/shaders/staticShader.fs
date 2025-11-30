@@ -5,7 +5,7 @@
 #endif
 
 //name of shader
-extern PRECISION vec2 name;
+extern PRECISION vec2 staticShader;
 
 extern PRECISION number dissolve;
 extern PRECISION number time;
@@ -14,6 +14,10 @@ extern PRECISION vec2 image_details;
 extern bool shadow;
 extern PRECISION vec4 burn_colour_1;
 extern PRECISION vec4 burn_colour_2;
+
+float noise(vec2 n) { 
+	return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
+}
 
 vec4 dissolve_mask(vec4 tex, vec2 texture_coords, vec2 uv);
 
@@ -27,24 +31,24 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
     number high = max(tex.r, max(tex.g, tex.b));
     number delta = high-low -0.1;
 
-    number fac = 0.8 + 0.9*sin(11.*uv.x+4.32*uv.y + name.r*12. + cos(name.r*5.3 + uv.y*4.2 - uv.x*4.));
-    number fac2 = 0.5 + 0.5*sin(8.*uv.x+2.32*uv.y + name.r*5. - cos(name.r*2.3 + uv.x*8.2));
-    number fac3 = 0.5 + 0.5*sin(10.*uv.x+5.32*uv.y + name.r*6.111 + sin(name.r*5.3 + uv.y*3.2));
-    number fac4 = 0.5 + 0.5*sin(3.*uv.x+2.32*uv.y + name.r*8.111 + sin(name.r*1.3 + uv.y*11.2));
-    number fac5 = sin(0.9*16.*uv.x+5.32*uv.y + name.r*12. + cos(name.r*5.3 + uv.y*4.2 - uv.x*4.));
+    number fac = 0.8 + 0.9*sin(11.*uv.x+4.32*uv.y + staticShader.r*12. + cos(staticShader.r*5.3 + uv.y*4.2 - uv.x*4.));
+    number fac2 = 0.5 + 0.5*sin(8.*uv.x+2.32*uv.y + staticShader.r*5. - cos(staticShader.r*2.3 + uv.x*8.2));
+    number fac3 = 0.5 + 0.5*sin(10.*uv.x+5.32*uv.y + staticShader.r*6.111 + sin(staticShader.r*5.3 + uv.y*3.2));
+    number fac4 = 0.5 + 0.5*sin(3.*uv.x+2.32*uv.y + staticShader.r*8.111 + sin(staticShader.r*1.3 + uv.y*11.2));
+    number fac5 = sin(0.9*16.*uv.x+5.32*uv.y + staticShader.r*12. + cos(staticShader.r*5.3 + uv.y*4.2 - uv.x*4.));
 
     number maxfac = 0.7*max(max(fac, max(fac2, max(fac3,0.0))) + (fac+fac2+fac3*fac4), 0.);
 
     float t = time;
 
     //red channel
-    tex.r = tex.r;
+    tex.r = tex.r * noise(t * texture_coords);
     //green channel
-    tex.g = tex.g;
+    tex.g = tex.g * noise(t * texture_coords);
     //blue channel
-    tex.b = tex.b;
+    tex.b = tex.b * noise(t * texture_coords);
     //alpha channel (transparency)
-    tex.a = tex.a;
+    tex.a = tex.a / 2 * t;
 
     return dissolve_mask(tex*colour, texture_coords, uv);
 }
