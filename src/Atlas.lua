@@ -80,17 +80,17 @@ SMODS.Atlas({
 })
 
 SMODS.UndiscoveredSprite({
-    key = "cstorm_astro",
-    atlas = "consumables",
-    pos = { x = 5, y = 1 },
-    no_overlay = false
+	key = "cstorm_astro",
+	atlas = "consumables",
+	pos = { x = 5, y = 1 },
+	no_overlay = false
 })
 
 SMODS.UndiscoveredSprite({
-    key = "cstorm_astro_hints",
-    atlas = "consumables",
-    pos = { x = 5, y = 1 },
-    no_overlay = true
+	key = "cstorm_astro_hints",
+	atlas = "consumables",
+	pos = { x = 5, y = 1 },
+	no_overlay = true
 })
 
 SMODS.Atlas({
@@ -193,3 +193,27 @@ SMODS.Sound({
 	key = "neon1",
 	path = "neon1.ogg"
 })
+
+SMODS.Sound({
+	key = "static1",
+	path = "static1.ogg"
+})
+
+SMODS.Sound({
+	key = "mirror1",
+	path = "mirror1.ogg"
+})
+
+-- Gradients
+
+SMODS.Gradient {
+	key = "staticGradient",
+	colours = { G.C.BLACK, G.C.CSTORM.GREY },
+	cycle = 5,
+}
+
+SMODS.Gradient {
+	key = "mirrorGradient",
+	colours = { HEX("E5E5E5"), HEX("A9A9A9"), HEX("EEEEEE") },
+	cycle = 7,
+}

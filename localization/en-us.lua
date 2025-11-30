@@ -337,6 +337,18 @@ return {
                     "{X:mult,C:white}X#2#{} Mult"
                 }
             },
+            e_cstorm_static = {
+                name = "Static",
+                text = {
+                    "Can't be debuffed"
+                }
+            },
+            e_cstorm_mirror = {
+                name = "Mirror",
+                text = {
+                    "{C:attention}Reflects{} debuffs"
+                }
+            },
         },
         Enhanced = {
             m_cstorm_rock = {
@@ -1031,6 +1043,8 @@ return {
             cstorm_chatter = "Chatter",
             cstorm_monochrome = "Monochrome",
             cstorm_neon = "Neon",
+            cstorm_static = "Static",
+            cstorm_mirror = "Mirror",
         },
         ranks = {
             cstorm_HalfJack = "Half Jack",
