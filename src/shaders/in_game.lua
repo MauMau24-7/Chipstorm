@@ -22,3 +22,8 @@ SMODS.Shader{
 	key = "mirrorShader",
 	path = "mirrorShader.fs",
 }
+
+SMODS.Shader{
+	key = "fractalShader",
+	path = "fractalShader.fs",
+}

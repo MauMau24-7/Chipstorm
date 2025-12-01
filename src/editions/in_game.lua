@@ -111,3 +111,18 @@ SMODS.Edition {
         end
     end
 }
+
+SMODS.Edition{
+    key = "fractal",
+    config = { retrigger = 1 },
+    shader = "cstorm_fractalShader",
+    in_shop = true,
+    weight = 3,
+    extra_cost = 5,
+    badge_colour = HEX("000000"),
+    --sound = { sound = "cstorm_mirror1", --[[vol = 0.7]] },
+
+    calculate = function (self, card, context)
+        
+    end
+}
