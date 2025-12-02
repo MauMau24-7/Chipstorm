@@ -233,7 +233,9 @@ return {
             cstorm_credits = {
                 name = " ",
                 text = {
-                    "{C:cstorm_mod}Custom Music:{} Myself :3",
+                    "{C:cstorm_mod}Also play the full Mod with",
+                    "{C:cstorm_mod}new mechanics, consumables,",
+                    "{C:cstorm_mod}blinds, tags and more!",
                     -- " ",
                     -- "{C:cstorm_mod}Localization:{}",
                     -- "{C:attention}French:{} Keraloon",
@@ -242,9 +244,9 @@ return {
                     -- "{C:cstorm_mod}Archetype Ideas:{}",
                     -- "{C:cstorm_link}@Ignister{}: gyro/rina",
                     " ",
-                    "Some ideas taken from these mods:",
+                    --"Some ideas taken from these mods:",
                     --Add Mod names here
-                    "{C:attention}All in Jest",
+                    --"{C:attention}All in Jest",
                     " ",
                     "{C:cstorm_mod}Special Thanks{} to the",
                     "{C:attention}Balatro{} Discord server <3"

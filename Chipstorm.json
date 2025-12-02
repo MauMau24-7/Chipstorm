@@ -3,7 +3,7 @@
   "name": "Chipstorm",
   "display_name": "Chipstorm",
   "author": [ "gigachad_of_earth" ],
-  "description": "Chipstorm, a mod that focuses on adding chip-based stuff!",
+  "description": "Chipstorm, a mod that focuses on adding chip-based stuff! (JokersOnly version)",
   "prefix": "cstorm",
   "prefixcomment": "ABOVE PREFIX IS ADDED TO E.G. LOCALIZATION!",
   "main_file": "Chipstorm.lua",
