@@ -19,7 +19,7 @@ SMODS.Joker{
             card.ability.extra.stone = false
 
             for _, c in ipairs(context.scoring_hand) do
-                if SMODS.has_enhancement(c, 'm_stone') or SMODS.has_enhancement(c, 'm_cstorm_rock') then
+                if SMODS.has_enhancement(c, 'm_stone') then
                     card.ability.extra.stone_card = card.ability.extra.stone_card + 1
                     card.ability.extra.stone = true
                 end
