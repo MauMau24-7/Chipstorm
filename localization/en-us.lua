@@ -349,6 +349,16 @@ return {
                     "{C:attention}Reflects{} debuffs"
                 }
             },
+            e_cstorm_fractal = {
+                name = "Fractal",
+                text = {
+                    "Retriggers once",
+                    "{s:0.8}Retriggers once",
+                    "{s:0.6}Retriggers once",
+                    "{s:0.4}Retriggers once",
+                    "{s:0.2}Retriggers once",
+                }
+            },
         },
         Enhanced = {
             m_cstorm_rock = {
@@ -1045,6 +1055,7 @@ return {
             cstorm_neon = "Neon",
             cstorm_static = "Static",
             cstorm_mirror = "Mirror",
+            cstorm_fractal = "Fractal",
         },
         ranks = {
             cstorm_HalfJack = "Half Jack",

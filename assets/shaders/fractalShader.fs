@@ -35,18 +35,66 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
 
     number maxfac = 0.7*max(max(fac, max(fac2, max(fac3,0.0))) + (fac+fac2+fac3*fac4), 0.);
 
-    float t = time;
+    float t = fractalShader.g + time;
 
-    //red channel
-    tex.r = tex.r;
-    //green channel
-    tex.g = tex.g;
-    //blue channel
-    tex.b = tex.b;
-    //alpha channel (transparency)
-    tex.a = tex.a;
+    float loopDuration = 12.0;
+    float zoomCycle = mod(t * 0.25, loopDuration);
+    float loopProgress = zoomCycle / loopDuration; // 0 bis 1
 
-    return dissolve_mask(tex*colour, texture_coords, uv);
+    // Smooth Transition at End/Start
+    float smoothProgress = smoothstep(0.0, 0.05, loopProgress) * (1.0 - smoothstep(0.95, 1.0, loopProgress));
+    float zoom = exp(-zoomCycle * 0.7) * 2.5 * smoothProgress + 2.5 * (1.0 - smoothProgress);
+
+
+    //Classic Zoom Point
+    vec2 center = vec2(-0.7463, 0.1102);
+
+    //Small rotation during zoom
+    float angle = t * 0.1;
+    float cosA = cos(angle);
+    float sinA = sin(angle);
+
+    vec2 centered = vec2(uv.x - 0.5, uv.y - 0.5);
+    vec2 rotated = vec2(
+        centered.x * cosA - centered.y * sinA,
+        centered.x * sinA + centered.y * cosA
+    );
+
+    number xc = rotated.x * zoom + center.x;
+    number yc = rotated.y * zoom + center.y;
+
+    vec2 c = vec2(xc, yc);
+    vec2 z = vec2(0.0, 0.0);
+
+    int maxIterations = 200;
+    int i = 0;
+    float tmp;
+
+    for(i = 0; i < maxIterations; i++)
+    {
+        tmp = (z.x * z.x) - (z.y * z.y) + c.x;
+        z.y = (2.0 * z.x * z.y) + c.y;
+        z.x = tmp;
+
+        if(dot(z, z) > 4.0)
+            break;
+    }
+
+    float normValue = float(i) / float(maxIterations);
+
+    //Dynamic Colors
+    float colorSpeed = t * 0.5;
+    tex.r = 0.5 + 0.5 * sin(normValue * 15.0 + colorSpeed);
+    tex.g = 0.5 + 0.5 * sin(normValue * 12.0 + colorSpeed + 2.0);
+    tex.b = 0.5 + 0.5 * sin(normValue * 9.0 + colorSpeed + 4.0);
+
+    //Insides = black
+    if (i >= maxIterations) {
+        tex.rgb = vec3(0.0, 0.0, 0.0);
+    }
+    tex.a = tex.a * 0.75;
+
+    return dissolve_mask(tex * colour, texture_coords, uv);
 }
 
 //Don't touch anything here, I don't fucking know what this does
