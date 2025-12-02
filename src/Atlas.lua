@@ -204,6 +204,11 @@ SMODS.Sound({
 	path = "mirror1.ogg"
 })
 
+SMODS.Sound({
+	key = "fractal1",
+	path = "fractal1.ogg"
+})
+
 -- Gradients
 
 SMODS.Gradient {
@@ -216,4 +221,10 @@ SMODS.Gradient {
 	key = "mirrorGradient",
 	colours = { HEX("E5E5E5"), HEX("A9A9A9"), HEX("EEEEEE") },
 	cycle = 7,
+}
+
+SMODS.Gradient {
+	key = "fractalGradient",
+	colours = { HEX("EB57DC"), HEX("00FBFF"), HEX("FF5900") },
+	cycle = 5,
 }
