@@ -5,7 +5,7 @@
 #endif
 
 //name of shader
-extern PRECISION vec2 name;
+extern PRECISION vec2 glitchShader;
 
 extern PRECISION number dissolve;
 extern PRECISION number time;
@@ -15,10 +15,14 @@ extern bool shadow;
 extern PRECISION vec4 burn_colour_1;
 extern PRECISION vec4 burn_colour_2;
 
+float pseudoRandom(float n) {
+    return fract(sin(n) * 43758.5453);
+}
+
 vec4 dissolve_mask(vec4 tex, vec2 texture_coords, vec2 uv);
 
 vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords )
-{
+{   
     vec4 tex = Texel(texture, texture_coords);
 
     vec2 uv = (((texture_coords)*(image_details)) - texture_details.xy*texture_details.ba)/texture_details.ba;
@@ -27,23 +31,48 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
     number high = max(tex.r, max(tex.g, tex.b));
     number delta = high-low -0.1;
 
-    number fac = 0.8 + 0.9*sin(11.*uv.x+4.32*uv.y + name.r*12. + cos(name.r*5.3 + uv.y*4.2 - uv.x*4.));
-    number fac2 = 0.5 + 0.5*sin(8.*uv.x+2.32*uv.y + name.r*5. - cos(name.r*2.3 + uv.x*8.2));
-    number fac3 = 0.5 + 0.5*sin(10.*uv.x+5.32*uv.y + name.r*6.111 + sin(name.r*5.3 + uv.y*3.2));
-    number fac4 = 0.5 + 0.5*sin(3.*uv.x+2.32*uv.y + name.r*8.111 + sin(name.r*1.3 + uv.y*11.2));
-    number fac5 = sin(0.9*16.*uv.x+5.32*uv.y + name.r*12. + cos(name.r*5.3 + uv.y*4.2 - uv.x*4.));
+    number fac = 0.8 + 0.9*sin(11.*uv.x+4.32*uv.y + glitchShader.r*12. + cos(glitchShader.r*5.3 + uv.y*4.2 - uv.x*4.));
+    number fac2 = 0.5 + 0.5*sin(8.*uv.x+2.32*uv.y + glitchShader.r*5. - cos(glitchShader.r*2.3 + uv.x*8.2));
+    number fac3 = 0.5 + 0.5*sin(10.*uv.x+5.32*uv.y + glitchShader.r*6.111 + sin(glitchShader.r*5.3 + uv.y*3.2));
+    number fac4 = 0.5 + 0.5*sin(3.*uv.x+2.32*uv.y + glitchShader.r*8.111 + sin(glitchShader.r*1.3 + uv.y*11.2));
+    number fac5 = sin(0.9*16.*uv.x+5.32*uv.y + glitchShader.r*12. + cos(glitchShader.r*5.3 + uv.y*4.2 - uv.x*4.));
 
     number maxfac = 0.7*max(max(fac, max(fac2, max(fac3,0.0))) + (fac+fac2+fac3*fac4), 0.);
 
-    //a variable needed to always refresh the shader(time alone doesn't work)
-    float t = name.g + time;
+    float t = glitchShader.g + time;
+
+    number glitchRows = 20;
+    number spriteRows = 7;
+
+    float maxGlitchOffset = 0.02;
+    float maxSpriteOffset = 0.002;
+    vec2 glitchOffset = vec2(0, 0);
+    vec2 spriteOffset = vec2(0, 0);
+
+    float glitchIndex = floor(uv.y * glitchRows);
+    float randGlitchVal = pseudoRandom(glitchIndex + floor(t * 5) * glitchRows);
+
+    float spriteIndex = floor(uv.y * spriteRows);
+    float randSpriteVal = pseudoRandom(spriteIndex + floor(t * 5) * spriteRows);
+
+    if (randGlitchVal > 0.7)
+    {
+        glitchOffset.x = (randGlitchVal - 0.5) * 2 * maxGlitchOffset;
+        glitchOffset.y = (pseudoRandom(glitchIndex + uv.x * 10.0 + floor(t * 7) * glitchRows) - 0.5) * 0.01;
+    }
+
+    if (randSpriteVal > 0.3)
+    {
+        spriteOffset.x = (randSpriteVal - 0.5) * 2 * maxSpriteOffset;
+        spriteOffset.y = (pseudoRandom(spriteIndex + uv.x * 10.0 + floor(t * 3) * spriteRows) - 0.5) * 0.005;
+    }
 
     //red channel
-    tex.r = tex.r;
+    tex.r = Texel(texture, texture_coords + glitchOffset + spriteOffset).r;
     //green channel
-    tex.g = tex.g;
+    tex.g = Texel(texture, texture_coords + spriteOffset).g;
     //blue channel
-    tex.b = tex.b;
+    tex.b = Texel(texture, texture_coords - glitchOffset + spriteOffset).b;
     //alpha channel (transparency)
     tex.a = tex.a;
 

@@ -5,11 +5,11 @@ CSTORM_UTIL = {}
 
 Chipstorm.config = SMODS.current_mod.config
 
--- SMODS.current_mod.optional_features = function()
---     return {
---         post_trigger = true,
---     }
--- end
+SMODS.current_mod.optional_features = function()
+    return {
+        retrigger_joker = true,
+    }
+end
 
 local joker_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/jokers" )
 local enhancement_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/enhancements" )

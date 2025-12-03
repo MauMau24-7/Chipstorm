@@ -50,7 +50,7 @@ SMODS.Edition {
     key = "static",
     shader = "cstorm_staticShader",
     in_shop = true,
-    weight = 3,
+    weight = 2.5,
     extra_cost = 5,
     badge_colour = SMODS.Gradients["cstorm_staticGradient"],
     sound = { sound = "cstorm_static1", vol = 0.7 },
@@ -64,13 +64,12 @@ SMODS.Edition {
 
 SMODS.Edition {
     key = "mirror",
-    config = { chips = 0, mult = 0, x_mult = 1, x_chips = 1, active = false },
     shader = "cstorm_mirrorShader",
     in_shop = true,
     weight = 3,
     extra_cost = 5,
     badge_colour = SMODS.Gradients["cstorm_mirrorGradient"],
-    sound = { sound = "cstorm_mirror1", --[[vol = 0.7]] },
+    sound = { sound = "cstorm_mirror1" },
 
     calculate = function(self, card, context)
         if card.debuff then
@@ -114,15 +113,46 @@ SMODS.Edition {
 
 SMODS.Edition{
     key = "fractal",
-    config = { retrigger = 1 },
+    config = { repetitions  = 1 },
     shader = "cstorm_fractalShader",
     in_shop = true,
-    weight = 3,
+    weight = 2,
     extra_cost = 5,
-    badge_colour = HEX("000000"),
-    --sound = { sound = "cstorm_mirror1", --[[vol = 0.7]] },
+    badge_colour = SMODS.Gradients["cstorm_fractalGradient"],
+    sound = { sound = "cstorm_fractal1", --[[vol = 0.7]] },
 
     calculate = function (self, card, context)
-        
+        if card.ability.set == "Joker" then
+            if context.retrigger_joker_check and self then
+                return {
+                    repetitions = card.edition.repetitions
+                }
+            end
+        elseif card.ability.set == "Default" or card.ability.set == "Enhanced" then
+            if context.repetition then
+                return{
+                    repetitions = card.edition.repetitions
+                }
+            end
+        end
+    end
+}
+
+SMODS.Edition{
+    key = "glitch",
+    config = { odds = 4 },
+    shader = "cstorm_glitchShader",
+    in_shop = true,
+    weight = 0,
+    extra_cost = 5,
+    badge_colour = SMODS.Gradients["cstorm_glitchGradient"],
+    sound = { sound = "cstorm_glitch1", vol = 0.7 },
+
+    calculate = function (self, card, context)
+        --Add the 1 in 4 to not trigger
+    end,
+
+    in_pool = function (self, args)
+        return false
     end
 }

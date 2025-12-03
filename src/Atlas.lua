@@ -209,6 +209,11 @@ SMODS.Sound({
 	path = "fractal1.ogg"
 })
 
+SMODS.Sound({
+	key = "glitch1",
+	path = "glitch1.ogg"
+})
+
 -- Gradients
 
 SMODS.Gradient {
