@@ -2,14 +2,14 @@
 SMODS.Joker{
     key = "bargain_hunter",
     config = { extra = { discount_percent = 50 } },
-    pos = { x = 0, y = 0 },
+    pos = { x = 5, y = 2 },
     rarity = 3,
     cost = 8,
     blueprint_compat = false,
     eternal_compat = true,
     unlocked = true,
     discovered = false,
-    atlas = 'jokers_SPACEHOLDER',
+    atlas = 'jokers',
 
     calculate = function (self, card, context)
         if (context.dollars_modified or context.first_hand_drawn) and not context.blueprint then

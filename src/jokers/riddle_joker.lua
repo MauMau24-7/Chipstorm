@@ -1,14 +1,14 @@
 SMODS.Joker {
 	key = "riddle_joker",
 	config = { extra = { hand_or_discard = 1 } },
-	pos = { x = 0, y = 0 },
+	pos = { x = 6, y = 2 },
 	rarity = 2,
 	cost = 5,
 	blueprint_compat = true,
 	eternal_compat = true,
 	unlocked = true,
 	discovered = false,
-	atlas = 'jokers_SPACEHOLDER',
+	atlas = 'jokers',
 
 	calculate = function(self, card, context)
 		if context.blind then
