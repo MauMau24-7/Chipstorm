@@ -17,6 +17,9 @@ extern PRECISION vec4 burn_colour_2;
 
 vec4 dissolve_mask(vec4 tex, vec2 texture_coords, vec2 uv);
 
+// COORDINATE SYSTEMS:
+// uv              = Object space (0-1 for this sprite)
+// texture_coords  = Atlas space (position in packed texture sheet)
 vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords )
 {
     vec4 tex = Texel(texture, texture_coords);
