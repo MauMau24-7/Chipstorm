@@ -123,7 +123,7 @@ SMODS.Edition{
 
     calculate = function (self, card, context)
         if card.ability.set == "Joker" then
-            if context.retrigger_joker_check and self then
+            if context.retrigger_joker_check and context.other_card == card then
                 return {
                     repetitions = card.edition.repetitions
                 }
@@ -140,19 +140,63 @@ SMODS.Edition{
 
 SMODS.Edition{
     key = "glitch",
-    config = { odds = 4 },
+    config = { numerator = 1, denominator = 4, already_rolled = true },
     shader = "cstorm_glitchShader",
-    in_shop = true,
-    weight = 0,
+    in_shop = false,
+    weight = 2,
     extra_cost = 5,
     badge_colour = SMODS.Gradients["cstorm_glitchGradient"],
     sound = { sound = "cstorm_glitch1", vol = 0.7 },
 
     calculate = function (self, card, context)
-        --Add the 1 in 4 to not trigger
+        if context.pre_joker or (context.main_scoring and context.cardarea == G.play) then
+            card.edition.already_rolled = false
+        end
     end,
 
     in_pool = function (self, args)
         return false
+    end
+}
+
+local eval_card_ref = eval_card
+function eval_card(card, context)
+    if card.edition and card.edition.cstorm_glitch and not card.edition.already_rolled then
+        local RNGesus = pseudorandom("cstorm_glitch", 1, card.edition.denominator)
+        card.edition.already_rolled = true
+        if RNGesus <= card.edition.numerator then
+            card.edition.already_rolled = false
+        end
+        print(RNGesus)
+    end
+    local ret, post = eval_card_ref(card, context)
+
+    return ret, post
+end
+
+SMODS.Edition{
+    key = "curse",
+    config = { mult = 5 },
+    shader = "cstorm_curseShader",
+    in_shop = false,
+    weight = 2,
+    extra_cost = 5,
+    badge_colour = HEX("8000CC"),
+    --sound = { sound = "cstorm_curse1", vol = 0.7 },
+
+    calculate = function (self, card, context)
+        if context.post_joker or (context.main_scoring and context.cardarea == G.play) then
+            return{
+                mult = -card.edition.mult
+            }
+        end
+    end,
+
+    in_pool = function (self, args)
+        return false
+    end,
+
+    loc_vars = function (self, info_queue, card)
+        return { vars = { card.edition.mult }, key = self.key }
     end
 }

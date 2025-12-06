@@ -32,3 +32,8 @@ SMODS.Shader{
 	key = "glitchShader",
 	path = "glitchShader.fs",
 }
+
+SMODS.Shader{
+	key = "curseShader",
+	path = "curseShader.fs",
+}

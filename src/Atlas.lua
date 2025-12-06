@@ -233,3 +233,9 @@ SMODS.Gradient {
 	colours = { HEX("EB57DC"), HEX("00FBFF"), HEX("FF5900") },
 	cycle = 5,
 }
+
+SMODS.Gradient {
+	key = "glitchGradient",
+	colours = { HEX("EEEEEE"), HEX("F9FB00"), HEX("02FEFF"), HEX("01FF00"), HEX("FD00FB"), HEX("FB0102"), HEX("0301FC"), HEX("000000") },
+	cycle = 2,
+}

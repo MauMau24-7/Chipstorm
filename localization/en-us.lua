@@ -359,6 +359,19 @@ return {
                     "{s:0.2}Retriggers once",
                 }
             },
+            e_cstorm_glitch = {
+                name = "Glitch",
+                text = {
+                    "Fixed {C:green}1 in 4 chance",
+                    "to not trigger",
+                }
+            },
+            e_cstorm_curse = {
+                name = "Curse",
+                text = {
+                    "{C:mult}-#1#{} Mult",
+                }
+            },
         },
         Enhanced = {
             m_cstorm_rock = {
@@ -1051,11 +1064,15 @@ return {
             cstorm_death = "Death",
 
             cstorm_chatter = "Chatter",
+
+            --Editions
             cstorm_monochrome = "Monochrome",
             cstorm_neon = "Neon",
             cstorm_static = "Static",
             cstorm_mirror = "Mirror",
             cstorm_fractal = "Fractal",
+            cstorm_glitch = "Glitch",
+            cstorm_curse = "Curse",
         },
         ranks = {
             cstorm_HalfJack = "Half Jack",
