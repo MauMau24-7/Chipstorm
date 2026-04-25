@@ -111,9 +111,9 @@ SMODS.Edition {
     end
 }
 
-SMODS.Edition{
+SMODS.Edition {
     key = "fractal",
-    config = { repetitions  = 1 },
+    config = { repetitions = 1 },
     shader = "cstorm_fractalShader",
     in_shop = true,
     weight = 2,
@@ -121,7 +121,7 @@ SMODS.Edition{
     badge_colour = SMODS.Gradients["cstorm_fractalGradient"],
     sound = { sound = "cstorm_fractal1", --[[vol = 0.7]] },
 
-    calculate = function (self, card, context)
+    calculate = function(self, card, context)
         if card.ability.set == "Joker" then
             if context.retrigger_joker_check and context.other_card == card then
                 return {
@@ -130,7 +130,7 @@ SMODS.Edition{
             end
         elseif card.ability.set == "Default" or card.ability.set == "Enhanced" then
             if context.repetition then
-                return{
+                return {
                     repetitions = card.edition.repetitions
                 }
             end
@@ -138,65 +138,157 @@ SMODS.Edition{
     end
 }
 
-SMODS.Edition{
+SMODS.Edition {
     key = "glitch",
-    config = { numerator = 1, denominator = 4, already_rolled = true },
+    config = { odds = 8 },
     shader = "cstorm_glitchShader",
     in_shop = false,
     weight = 2,
-    extra_cost = 5,
+    extra_cost = 0,
     badge_colour = SMODS.Gradients["cstorm_glitchGradient"],
     sound = { sound = "cstorm_glitch1", vol = 0.7 },
 
-    calculate = function (self, card, context)
-        if context.pre_joker or (context.main_scoring and context.cardarea == G.play) then
-            card.edition.already_rolled = false
+    calculate = function(self, card, context)
+        if context.after and SMODS.pseudorandom_probability(card, 'cstorm_glitch', 1, card.edition.odds) then
+            return {
+                func = function()
+                    local destroyed_cards = {}
+                    local temp_hand = SMODS.shallow_copy(G.hand.cards)
+                    table.sort(temp_hand,
+                        function(a, b) return not a.playing_card or not b.playing_card or a.playing_card < b
+                            .playing_card end)
+                    pseudoshuffle(temp_hand, 'seed')
+                    for i = 1, pseudorandom('seed', 1, #G.hand.cards) do table.insert(destroyed_cards, temp_hand[i]) end
+                    SMODS.destroy_cards(destroyed_cards)
+                end
+            }
         end
     end,
 
-    in_pool = function (self, args)
+    in_pool = function(self, args)
         return false
+    end,
+
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.edition.odds }, key = self.key }
     end
 }
 
-local eval_card_ref = eval_card
-function eval_card(card, context)
-    if card.edition and card.edition.cstorm_glitch and not card.edition.already_rolled then
-        local RNGesus = pseudorandom("cstorm_glitch", 1, card.edition.denominator)
-        card.edition.already_rolled = true
-        if RNGesus <= card.edition.numerator then
-            card.edition.already_rolled = false
-        end
-        print(RNGesus)
-    end
-    local ret, post = eval_card_ref(card, context)
-
-    return ret, post
-end
-
-SMODS.Edition{
+SMODS.Edition {
     key = "curse",
     config = { mult = 5 },
     shader = "cstorm_curseShader",
     in_shop = false,
     weight = 2,
-    extra_cost = 5,
+    extra_cost = 0,
     badge_colour = HEX("8000CC"),
-    --sound = { sound = "cstorm_curse1", vol = 0.7 },
+    sound = { sound = "cstorm_curse1", --[[vol = 0.7]] },
 
-    calculate = function (self, card, context)
+    calculate = function(self, card, context)
         if context.post_joker or (context.main_scoring and context.cardarea == G.play) then
-            return{
+            return {
                 mult = -card.edition.mult
             }
         end
     end,
 
-    in_pool = function (self, args)
+    in_pool = function(self, args)
         return false
     end,
 
-    loc_vars = function (self, info_queue, card)
+    loc_vars = function(self, info_queue, card)
         return { vars = { card.edition.mult }, key = self.key }
     end
+}
+
+SMODS.Edition {
+    key = "chaotic",
+    config = { mult = 5 },
+    shader = "cstorm_chaoticShader",
+    in_shop = false,
+    weight = 2,
+    extra_cost = 0,
+    badge_colour = HEX("8000CC"),
+    disable_base_shader = true,
+    --sound = { sound = "cstorm_chaotic1", vol = 0.7 },
+
+    calculate = function(self, card, context)
+        if context.press_play and card.ability.set == "Joker" then
+            local my_pos = nil
+            for i = 1, #G.jokers.cards do
+                if G.jokers.cards[i] == card then
+                    my_pos = i
+                    break
+                end
+            end
+
+            local RNGesus = pseudorandom("cstorm_chaotic", 1, #G.jokers.cards)
+            local swapped_joker = G.jokers.cards[RNGesus]
+            G.jokers.cards[RNGesus] = G.jokers.cards[my_pos]
+            G.jokers.cards[my_pos] = swapped_joker
+        end
+    end,
+
+    in_pool = function(self, args)
+        return false
+    end
+}
+
+SMODS.Edition {
+    key = "void",
+    config = {},
+    shader = "cstorm_voidShader",
+    in_shop = false,
+    weight = 2,
+    extra_cost = 0,
+    badge_colour = HEX("000000"),
+    disable_base_shader = true, --needed if form of object needs to be distorted
+    disable_shadow = true,
+    --sound = { sound = "cstorm_void1", vol = 0.7 },
+
+    calculate = function(self, card, context)
+        if (context.main_scoring and context.cardarea == G.play) or context.pre_joker then
+            return { mult_mod = -mult }
+        end
+    end,
+
+    in_pool = function(self, args)
+        return false
+    end
+}
+
+SMODS.Edition {
+    key = "forgotten",
+    config = { odds = 60, changedOdds = false },
+    shader = "cstorm_forgottenShader",
+    in_shop = false,
+    weight = 2,
+    extra_cost = 0,
+    badge_colour = HEX("4B0082"),
+    disable_base_shader = true,
+    disable_shadow = true,
+    --sound = { sound = "cstorm_forgotten1", vol = 0.7 },
+
+    calculate = function(self, card, context)
+        if context.after then
+            card.edition.changedOdds = false
+            if SMODS.pseudorandom_probability(card, 'cstorm_forgotten', 1, card.edition.odds) then
+                card:remove()
+            else
+                card.edition.odds = math.floor(card.edition.odds / 2)
+            end
+        end
+        if context.end_of_round and not card.edition.changedOdds then
+            card.edition.changedOdds = true
+            card.edition.odds = card.edition.odds * math.random(5)
+        end
+    end,
+
+    in_pool = function(self, args)
+        return false
+    end,
+
+    on_apply(card) {
+        print("test")
+    }
 }

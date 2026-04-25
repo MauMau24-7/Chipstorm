@@ -258,76 +258,10 @@ return {
             },
         },
         Edition = {
-            e_cstorm_ionized = {
-                name = "Ionized",
-                text = {
-                    "Ionized"
-                }
-            },
-            e_cstorm_gilded = {
-                name = "Gilded",
-                text = {
-                    "Gilded"
-                }
-            },
-            e_cstorm_anaglyphic = {
-                name = "Anaglyphic",
-                text = {
-                    "Anaglyphic"
-                }
-            },
-            e_cstorm_flipped = {
-                name = "Flipped",
-                text = {
-                    "Flipped"
-                }
-            },
-            e_cstorm_laminated = {
-                name = "Laminated",
-                text = {
-                    "Laminated"
-                }
-            },
-            e_cstorm_fluorescent = {
-                name = "Fluorescent",
-                text = {
-                    "Fluorescent"
-                }
-            },
-            e_cstorm_foil = {
-                name = "Foil",
-                text = {
-                    "Foil"
-                }
-            },
-            e_cstorm_gold = {
-                name = "Gold",
-                text = {
-                    "Gold"
-                }
-            },
-            e_cstorm_greyscale = {
-                name = "Greyscale",
-                text = {
-                    "Greyscale"
-                }
-            },
             e_cstorm_monochrome = {
                 name = "Monochrome",
                 text = {
                     "{X:chips,C:white}X#1#{} Chips"
-                }
-            },
-            e_cstorm_sepia = {
-                name = "Sepia",
-                text = {
-                    "Sepia"
-                }
-            },
-            e_cstorm_overexposed = {
-                name = "Overexposed",
-                text = {
-                    "Overexposed"
                 }
             },
             e_cstorm_neon = {
@@ -362,14 +296,37 @@ return {
             e_cstorm_glitch = {
                 name = "Glitch",
                 text = {
-                    "Fixed {C:green}1 in 4 chance",
-                    "to not trigger",
+                    "{C:green}1 in #1# chance",
+                    "to {C:attention}delete cards",
                 }
             },
             e_cstorm_curse = {
                 name = "Curse",
                 text = {
                     "{C:mult}-#1#{} Mult",
+                }
+            },
+            e_cstorm_chaotic = {
+                name = "Chaotic",
+                text = {
+                    "Switches positions with",
+                    "a {C:green}random card",
+                }
+            },
+            e_cstorm_forgotten = {
+                name = "Forgotten",
+                text = {
+                    "It'll be forgotten...",
+                    -- " ",
+                    -- " ",
+                    -- "{s:0.8,C:green}Random{}{s:0.8} chance to be forgotten",
+                    -- "{s:0.8}after every hand",
+                }
+            },
+            e_cstorm_void = {
+                name = "Void",
+                text = {
+                    "Sets {C:mult}Mult to 0",
                 }
             },
         },
@@ -1073,6 +1030,9 @@ return {
             cstorm_fractal = "Fractal",
             cstorm_glitch = "Glitch",
             cstorm_curse = "Curse",
+            cstorm_chaotic = "Chaotic",
+            cstorm_forgotten = "Forgotten",
+            cstorm_void = "Void",
         },
         ranks = {
             cstorm_HalfJack = "Half Jack",

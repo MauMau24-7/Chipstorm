@@ -37,3 +37,18 @@ SMODS.Shader{
 	key = "curseShader",
 	path = "curseShader.fs",
 }
+
+SMODS.Shader{
+	key = "chaoticShader",
+	path = "chaoticShader.fs",
+}
+
+SMODS.Shader{
+	key = "voidShader",
+	path = "voidShader.fs",
+}
+
+SMODS.Shader{
+	key = "forgottenShader",
+	path = "forgottenShader.fs",
+}

@@ -214,7 +214,22 @@ SMODS.Sound({
 	path = "glitch1.ogg"
 })
 
+SMODS.Sound({
+	key = "curse1",
+	path = "curse1.ogg"
+})
+
 -- Gradients
+
+--Credits to All in Jest
+SMODS.Gradient {
+    key = 'plasma',
+    colours = {
+        HEX('F9A2E6'), HEX('b288bc')
+    },
+    cycle = 5,
+    interpolation = 'trig'
+}
 
 SMODS.Gradient {
 	key = "staticGradient",
