@@ -62,7 +62,7 @@ SMODS.Blind {
 	},
 
 	press_play = function(self)
-		RNGesus = pseudorandom("GAMBLING", 1, 1000)
+		RNGesus = pseudorandom("GAMBLING", 1, 965)
 
 		--Jackpot
 		if RNGesus == 1 then
@@ -121,12 +121,12 @@ SMODS.Blind {
 				config = { no_esc = true },
 			}
 			--Voucher
-		elseif RNGesus >= 966 and RNGesus <= 1000 then
-			stopScoring()
-			G.FUNCS.overlay_menu {
-				definition = create_UIBox_custom_video1("slotsVoucher", "Continue..."),
-				config = { no_esc = true },
-			}
+		-- elseif RNGesus >= 966 and RNGesus <= 1000 then
+		-- 	stopScoring()
+		-- 	G.FUNCS.overlay_menu {
+		-- 		definition = create_UIBox_custom_video1("slotsVoucher", "Continue..."),		// HACK: Deactivated Voucher, softlock needs preventing
+		-- 		config = { no_esc = true },
+		-- 	}
 		end
 	end,
 

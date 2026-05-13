@@ -3,7 +3,7 @@ version = "0.1.0"
 priority = 0
 
 
-#Change areas for jokers
+#Change areas for jokers for Law of Chaos
 [[patches]]
 [patches.pattern]
 target = 'functions/button_callbacks.lua'

@@ -1,14 +1,14 @@
 SMODS.Joker{
     key = "ethereal_joker",
     config = { extra = { chips = 20 } },
-    pos = { x = 0, y = 0 },
+    pos = { x = 8, y = 2 },
     rarity = 2,
     cost = 6,
     blueprint_compat = true,
     eternal_compat = true,
     unlocked = true,
     discovered = false,
-    atlas = 'jokers_SPACEHOLDER',
+    atlas = 'jokers',
 
     calculate = function (self, card, context)
         if context.joker_main then

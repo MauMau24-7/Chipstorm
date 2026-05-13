@@ -827,7 +827,13 @@ return {
                     "Not more than 3 different",
                     "ranks in the same hand allowed"
                 }
-            }
+            },
+            bl_cstorm_the_riddler = {
+                name = "The Riddler",
+                text = {
+                    "PLACEHOLDER",
+                }
+            },
         },
         Back = {
             b_cstorm_gambler_deck = {
@@ -976,6 +982,8 @@ return {
             k_cstorm_chatter = "Chatter",
 
             k_cstorm_consumable = "Consumable",
+
+            k_close_riddle_ui = 'X',
 
             -- "NEW STUFF" Tab thingies
             k_cstorm_new_stuff = "NEW STUFF!",

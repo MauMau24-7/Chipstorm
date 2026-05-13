@@ -20,8 +20,8 @@ function Game:start_run(args)
     self.cstorm_astro_card_area = CardArea(
         0,
         0,
-        self.CARD_W * 1.2,
-        self.CARD_H * 1.2,
+        (self.CARD_W or 71) * 1.2,
+        (self.CARD_H or 95) * 1.2,
         {
             card_limit = 1,
             type = 'joker',

@@ -33,7 +33,7 @@ assert(SMODS.load_file("src/mod_info.lua"))()
 assert(SMODS.load_file("src/general_ui.lua"))()
 assert(SMODS.load_file("src/astro_area.lua"))()
 assert(SMODS.load_file("src/functions.lua"))()
-assert(SMODS.load_file("src/noname.lua"))()
+assert(SMODS.load_file("src/mod_calculate.lua"))()
 assert(SMODS.load_file("src/riddles.lua"))()
 
 

@@ -19,10 +19,10 @@
 SMODS.current_mod.calculate = function(self, context)
 	if G.GAME.cstorm_processing then return end -- to prevent recursion and with that stack overflow
 
-	if G.PROFILES[G.SETTINGS.profile].bossRiddle ~= nil and Game:start_run() then
-		print("Test")
-		G.PROFILES[G.SETTINGS.profile].bossRiddle = nil
-	end
+	-- if G.PROFILES[G.SETTINGS.profile].bossRiddle ~= nil and Game:start_run() then
+	-- 	print("Test")
+	-- 	G.PROFILES[G.SETTINGS.profile].bossRiddle = nil
+	-- end
 
 	-- if G and G.GAME and G.GAME.blind.config.blind.key == 'bl_cstorm_the_riddler' then
 	-- 	if G.PROFILES[G.SETTINGS.profile].bossRiddle == nil then

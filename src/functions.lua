@@ -140,11 +140,11 @@ function level_up_hand_mult(card, hand, instant, amount)
     end
 end
 
-function get_random_riddle(object)
-	if tostring(object) == "riddle_joker" then
+function get_random_riddle(caller)
+	if tostring(caller) == "riddle_joker" then
 		local index = math.random(1, #CSTORM.riddles)
 		return CSTORM.riddles[index]
-	elseif tostring(object) == "the_riddler" then
+	elseif tostring(caller) == "the_riddler" then
 		-- Array with keys
 		local keys = {"Jokers",}
 
@@ -160,9 +160,7 @@ function get_random_riddle(object)
 end
 
 function check_riddle_answer(user_answer, riddle_answer)
-	if user_answer == riddle_answer then
-		return true
-	else
-		return false
-	end
+	riddle_answer = riddle_answer:upper()
+	user_answer = user_answer:upper()
+	return user_answer == riddle_answer
 end

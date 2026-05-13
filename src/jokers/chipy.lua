@@ -17,7 +17,7 @@ SMODS.Joker{
             }
         end
 
-        if context.buying_card and not context.blueprint_card then
+        if not context.buying_self and context.buying_card and not context.blueprint_card then
            if context.card.ability.set == "Joker" then
             card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipsMod
             return {

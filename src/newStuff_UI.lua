@@ -4,15 +4,17 @@ CSTORM.NEW.get_UI_definition = function(params)
     local height = params.height or 6
 
     return {
-        n = G.UIT.ROOT, 
+        n = G.UIT.ROOT,
         config = {
-            minw = width, minh = height,
+            minw = width,
+            minh = height,
             r = 0.1,
             colour = G.C.BLACK
         },
         nodes = {
             {
-                n = G.UIT.R, config = {
+                n = G.UIT.R,
+                config = {
                     align = "tm",
                     padding = 0.4,
                     h = 0.1,
@@ -20,7 +22,8 @@ CSTORM.NEW.get_UI_definition = function(params)
                 },
                 nodes = {
                     {
-                        n = G.UIT.C, config = {
+                        n = G.UIT.C,
+                        config = {
                             align = "cm",
                             padding = 0.1,
                             h = 0.1,
@@ -50,7 +53,8 @@ CSTORM.NEW.get_UI_definition = function(params)
                                 label = { localize('k_cstorm_vouchers') }
                             }),
                             {
-                                n = G.UIT.R, config = {
+                                n = G.UIT.R,
+                                config = {
                                     align = "cm",
                                     colour = G.C.BLACK,
                                     padding = 0.1,
@@ -59,13 +63,15 @@ CSTORM.NEW.get_UI_definition = function(params)
                                 },
                                 nodes = {
                                     {
-                                        n = G.UIT.C, config = {
+                                        n = G.UIT.C,
+                                        config = {
                                             align = "cm",
                                             h = 0.1,
                                         },
                                         nodes = {
                                             {
-                                                n = G.UIT.T, config = {
+                                                n = G.UIT.T,
+                                                config = {
                                                     text = "CONSUMABLES",
                                                     colour = G.C.RED,
                                                     scale = 0.5,
@@ -86,7 +92,8 @@ CSTORM.NEW.get_UI_definition = function(params)
                         },
                     },
                     {
-                        n = G.UIT.C, config = {
+                        n = G.UIT.C,
+                        config = {
                             align = "tr",
                             padding = 0.1,
                             h = 1,
@@ -153,11 +160,11 @@ end
 --C1
 function G.FUNCS.cstorm_jokers(e)
     local new_jokers = {
-    "j_cstorm_one_hand_wonder", -- put the key for your new cards here
-    "j_cstorm_fast_draw",
-    "j_cstorm_washed_card",
-    "j_cstorm_arcana_hunter",
-    "j_cstorm_second_thoughts",
+        "j_cstorm_one_hand_wonder", -- put the key for your new cards here
+        "j_cstorm_fast_draw",
+        "j_cstorm_washed_card",
+        "j_cstorm_arcana_hunter",
+        "j_cstorm_second_thoughts",
     }
 
     local new_pool = {}
@@ -167,16 +174,17 @@ function G.FUNCS.cstorm_jokers(e)
     end
 
     G.FUNCS.overlay_menu {
-        definition = SMODS.card_collection_UIBox(new_pool, {5,5,5}, {
-            no_materialize = true, 
+        definition = SMODS.card_collection_UIBox(new_pool, { 5, 5, 5 }, {
+            no_materialize = true,
             modify_card = function(card, center) card.sticker = get_joker_win_sticker(center) end,
             h_mod = 0.95,
         })
     }
 end
+
 function G.FUNCS.cstorm_decks(e)
     local new_decks = {
-    "b_cstorm_gambler_deck", -- put the key for your new cards here
+        "b_cstorm_gambler_deck", -- put the key for your new cards here
     }
 
     local new_pool = {}
@@ -186,18 +194,18 @@ function G.FUNCS.cstorm_decks(e)
     end
 
     G.FUNCS.overlay_menu {
-        definition = SMODS.card_collection_UIBox(new_pool, {5,5,5}, {
-            no_materialize = true, 
+        definition = SMODS.card_collection_UIBox(new_pool, { 5, 5, 5 }, {
+            no_materialize = true,
             modify_card = function(card, center) card.sticker = get_joker_win_sticker(center) end,
             h_mod = 0.95,
         })
     }
-    
 end
+
 function G.FUNCS.cstorm_vouchers(e)
     local new_vouchers = {
-    "j_cstorm_final_push", -- put the key for your new cards here
-    "j_cstorm_juggling_jack",
+        "j_cstorm_final_push", -- put the key for your new cards here
+        "j_cstorm_juggling_jack",
     }
 
     local new_pool = {}
@@ -207,21 +215,22 @@ function G.FUNCS.cstorm_vouchers(e)
     end
 
     G.FUNCS.overlay_menu {
-        definition = SMODS.card_collection_UIBox(new_pool, {4,4}, {
+        definition = SMODS.card_collection_UIBox(new_pool, { 4, 4 }, {
             area_type = 'voucher',
             modify_card = function(card, center, i, j)
-                card.ability.order = i+(j-1)*4
+                card.ability.order = i + (j - 1) * 4
             end,
         })
     }
 end
+
 function G.FUNCS.cstorm_consumables(e)
     local new_consumables = {
-    --"c_cstorm_focus_strike", -- put the key for your new cards here
-    "c_cstorm_void_chip",
-    "c_cstorm_neon_chip",
-    "c_cstorm_lucky_chip",
-    "c_cstorm_split_chip",
+        --"c_cstorm_focus_strike", -- put the key for your new cards here
+        "c_cstorm_void_chip",
+        "c_cstorm_neon_chip",
+        "c_cstorm_lucky_chip",
+        "c_cstorm_split_chip",
     }
 
     local new_pool = {}
@@ -231,8 +240,8 @@ function G.FUNCS.cstorm_consumables(e)
     end
 
     G.FUNCS.overlay_menu {
-        definition = SMODS.card_collection_UIBox(new_pool, {5,5,5}, {
-            no_materialize = true, 
+        definition = SMODS.card_collection_UIBox(new_pool, { 5, 5, 5 }, {
+            no_materialize = true,
             modify_card = function(card, center) card.sticker = get_joker_win_sticker(center) end,
             h_mod = 0.95,
         })
@@ -242,7 +251,7 @@ end
 --C2
 function G.FUNCS.cstorm_enhancements(e)
     local new_enhancements = {
-    "m_cstorm_rock", -- put the key for your new cards here
+        "m_cstorm_rock", -- put the key for your new cards here
     }
 
     local new_pool = {}
@@ -252,7 +261,7 @@ function G.FUNCS.cstorm_enhancements(e)
     end
 
     G.FUNCS.overlay_menu {
-        definition = SMODS.card_collection_UIBox(new_pool, {4,4}, {
+        definition = SMODS.card_collection_UIBox(new_pool, { 4, 4 }, {
             no_materialize = true,
             snap_back = true,
             h_mod = 1.03,
@@ -261,10 +270,11 @@ function G.FUNCS.cstorm_enhancements(e)
         })
     }
 end
+
 function G.FUNCS.cstorm_seals(e) -- Don't work
     local new_seals = {
-    "j_cstorm_final_push", -- put the key for your new cards here
-    "j_cstorm_juggling_jack",
+        "j_cstorm_final_push",   -- put the key for your new cards here
+        "j_cstorm_juggling_jack",
     }
 
     local new_pool = {}
@@ -274,7 +284,7 @@ function G.FUNCS.cstorm_seals(e) -- Don't work
     end
 
     G.FUNCS.overlay_menu {
-        definition = SMODS.card_collection_UIBox(new_pool, {5,5}, {
+        definition = SMODS.card_collection_UIBox(new_pool, { 5, 5 }, {
             snap_back = true,
             infotip = localize('ml_edition_seal_enhancement_explanation'),
             hide_single_page = true,
@@ -286,10 +296,11 @@ function G.FUNCS.cstorm_seals(e) -- Don't work
             end,
         })
     }
-end 
+end
+
 function G.FUNCS.cstorm_editions(e)
     local new_editions = {
-    "cstorm_test", -- put the key for your new cards here
+        "cstorm_test", -- put the key for your new cards here
     }
 
     local new_pool = {}
@@ -299,7 +310,7 @@ function G.FUNCS.cstorm_editions(e)
     end
 
     G.FUNCS.overlay_menu {
-        definition = SMODS.card_collection_UIBox(new_pool, {5,5}, {
+        definition = SMODS.card_collection_UIBox(new_pool, { 5, 5 }, {
             snap_back = true,
             h_mod = 1.03,
             infotip = localize('ml_edition_seal_enhancement_explanation'),
@@ -311,9 +322,10 @@ function G.FUNCS.cstorm_editions(e)
         })
     }
 end
+
 function G.FUNCS.cstorm_booster_packs(e)
     local new_booster_packs = {
-    "p_cstorm_chip_stack", -- put the key for your new cards here
+        "p_cstorm_chip_stack", -- put the key for your new cards here
     }
 
     local new_pool = {}
@@ -323,16 +335,17 @@ function G.FUNCS.cstorm_booster_packs(e)
     end
 
     G.FUNCS.overlay_menu {
-        definition = SMODS.card_collection_UIBox(new_pool, {4,4}, {
+        definition = SMODS.card_collection_UIBox(new_pool, { 4, 4 }, {
             h_mod = 1.3,
-            w_mod = 1.25, 
+            w_mod = 1.25,
             card_scale = 1.27,
         })
     }
 end
+
 function G.FUNCS.cstorm_tags(e)
     local new_tags = {
-    "tag_cstorm_raccoon", -- put the key for your new cards here
+        "tag_cstorm_raccoon", -- put the key for your new cards here
     }
 
     local new_pool = {}
@@ -342,17 +355,18 @@ function G.FUNCS.cstorm_tags(e)
     end
 
     G.FUNCS.overlay_menu {
-        definition = SMODS.card_collection_UIBox(new_pool, {5,5,5}, {
-            no_materialize = true, 
+        definition = SMODS.card_collection_UIBox(new_pool, { 5, 5, 5 }, {
+            no_materialize = true,
             modify_card = function(card, center) card.sticker = get_joker_win_sticker(center) end,
             h_mod = 0.95,
         })
     }
 end
+
 function G.FUNCS.cstorm_blinds(e)
     local new_blinds = {
-    "bl_cstorm_slots", -- put the key for your new cards here
-    "bl_cstorm_green_light_red_light",
+        "bl_cstorm_slots", -- put the key for your new cards here
+        "bl_cstorm_green_light_red_light",
     }
 
     local new_pool = {}
@@ -362,16 +376,17 @@ function G.FUNCS.cstorm_blinds(e)
     end
 
     G.FUNCS.overlay_menu {
-        definition = SMODS.card_collection_UIBox(new_pool, {5,5,5}, {
-            no_materialize = true, 
+        definition = SMODS.card_collection_UIBox(new_pool, { 5, 5, 5 }, {
+            no_materialize = true,
             modify_card = function(card, center) card.sticker = get_joker_win_sticker(center) end,
             h_mod = 0.95,
         })
     }
 end
+
 function G.FUNCS.cstorm_others(e)
     local new_others = {
-    "cstorm_death", -- put the key for your new cards here
+        "cstorm_death", -- put the key for your new cards here
     }
 
     local new_pool = {}
@@ -381,7 +396,7 @@ function G.FUNCS.cstorm_others(e)
     end
 
     G.FUNCS.overlay_menu {
-        definition = SMODS.card_collection_UIBox(new_pool, {5,5}, {
+        definition = SMODS.card_collection_UIBox(new_pool, { 5, 5 }, {
             snap_back = true,
             hide_single_page = true,
             collapse_single_page = true,

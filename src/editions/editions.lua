@@ -70,6 +70,7 @@ SMODS.Edition {
     extra_cost = 5,
     badge_colour = SMODS.Gradients["cstorm_mirrorGradient"],
     sound = { sound = "cstorm_mirror1" },
+    apply_to_float = true,
 
     calculate = function(self, card, context)
         if card.debuff then
@@ -147,6 +148,7 @@ SMODS.Edition {
     extra_cost = 0,
     badge_colour = SMODS.Gradients["cstorm_glitchGradient"],
     sound = { sound = "cstorm_glitch1", vol = 0.7 },
+    apply_to_float = true,
 
     calculate = function(self, card, context)
         if context.after and SMODS.pseudorandom_probability(card, 'cstorm_glitch', 1, card.edition.odds) then
@@ -244,6 +246,7 @@ SMODS.Edition {
     badge_colour = HEX("000000"),
     disable_base_shader = true, --needed if form of object needs to be distorted
     disable_shadow = true,
+    apply_to_float = true,
     --sound = { sound = "cstorm_void1", vol = 0.7 },
 
     calculate = function(self, card, context)
@@ -267,6 +270,7 @@ SMODS.Edition {
     badge_colour = HEX("4B0082"),
     disable_base_shader = true,
     disable_shadow = true,
+    apply_to_float = true,
     --sound = { sound = "cstorm_forgotten1", vol = 0.7 },
 
     calculate = function(self, card, context)
@@ -287,8 +291,4 @@ SMODS.Edition {
     in_pool = function(self, args)
         return false
     end,
-
-    on_apply(card) {
-        print("test")
-    }
 }
