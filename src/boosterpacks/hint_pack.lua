@@ -6,7 +6,7 @@ SMODS.Booster {
     atlas = 'booster',
     discovered = false,
     cost = 4,
-    weight = 1,
+    weight = 11,
     draw_hand = false,
     
     ease_background_colour = function(self)

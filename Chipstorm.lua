@@ -14,7 +14,9 @@ end
 local joker_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/jokers" )
 local enhancement_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/enhancements" )
 local edition_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/editions" )
-local consumable_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/consumables" )
+local tokens_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/consumables/tokens" )
+local spectral_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/consumables/spectral" )
+local astro_cards_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/consumables/astro_cards" )
 local challenge_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/challenges" )
 local boosterpack_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/boosterpacks" )
 local blind_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/blinds" )
@@ -49,8 +51,16 @@ for _, file in ipairs(edition_src) do
     assert(SMODS.load_file("src/editions/" .. file ))()
 end
 
-for _, file in ipairs(consumable_src) do
-    assert(SMODS.load_file("src/consumables/" .. file ))()
+for _, file in ipairs(astro_cards_src) do
+    assert(SMODS.load_file("src/consumables/astro_cards/" .. file ))()
+end
+
+for _, file in ipairs(tokens_src) do
+    assert(SMODS.load_file("src/consumables/tokens/" .. file ))()
+end
+
+for _, file in ipairs(spectral_src) do
+    assert(SMODS.load_file("src/consumables/spectral/" .. file ))()
 end
 
 for _, file in ipairs(challenge_src) do

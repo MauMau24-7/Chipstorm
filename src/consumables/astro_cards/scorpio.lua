@@ -10,7 +10,9 @@ SMODS.Consumable {
         if context.blind then
             local RNGesus = pseudorandom_element(G.P_CENTER_POOLS.Joker, "scorpioJoker")
             card.c_cstorm_scorpio = true
+            card:flip()
             card:set_ability(RNGesus)
+            card:flip()
         end
     end,
 

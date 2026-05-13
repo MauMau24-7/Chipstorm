@@ -949,7 +949,7 @@ return {
                 name = 'Unknown Astro Hint',
                 text = {
                     'Use this card in an unseeded',
-                    'run to find out how to get a {C:cstorm_astro}Astro Card'
+                    'run to find out how to get an {C:cstorm_astro}Astro Card'
                 }
             },
             undiscovered_cstorm_astro = {

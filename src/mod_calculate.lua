@@ -284,8 +284,10 @@ SMODS.current_mod.calculate = function(self, context)
 		-- Turn joker back to scorpio
 		for _, v in pairs(G.I.CARD) do
 			if v.c_cstorm_scorpio then
+				v:flip()
 				v:set_ability("c_cstorm_scorpio")
 				v.c_cstorm_scorpio = false
+				v:flip()
 			end
 		end
 	end

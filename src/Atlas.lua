@@ -219,6 +219,21 @@ SMODS.Sound({
 	path = "curse1.ogg"
 })
 
+SMODS.Sound({
+	key = "chaotic1",
+	path = "chaotic1.ogg"
+})
+
+SMODS.Sound({
+	key = "void1",
+	path = "void1.ogg"
+})
+
+SMODS.Sound({
+	key = "forgotten1",
+	path = "forgotten1.ogg"
+})
+
 -- Gradients
 
 --Credits to All in Jest
