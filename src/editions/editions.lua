@@ -212,7 +212,7 @@ SMODS.Edition {
     extra_cost = 0,
     badge_colour = HEX("8000CC"),
     disable_base_shader = true,
-    --sound = { sound = "cstorm_chaotic1", vol = 0.7 },
+    sound = { sound = "cstorm_chaotic1", vol = 0.7 },
 
     calculate = function(self, card, context)
         if context.press_play and card.ability.set == "Joker" then
@@ -247,7 +247,7 @@ SMODS.Edition {
     disable_base_shader = true, --needed if form of object needs to be distorted
     disable_shadow = true,
     apply_to_float = true,
-    --sound = { sound = "cstorm_void1", vol = 0.7 },
+    sound = { sound = "cstorm_void1", vol = 0.7 },
 
     calculate = function(self, card, context)
         if (context.main_scoring and context.cardarea == G.play) or context.pre_joker then
@@ -270,8 +270,8 @@ SMODS.Edition {
     badge_colour = HEX("4B0082"),
     disable_base_shader = true,
     disable_shadow = true,
-    apply_to_float = true,
-    --sound = { sound = "cstorm_forgotten1", vol = 0.7 },
+    apply_to_float = true, --// FIXME: WHY IS IT NOT APPLYING TO FLOATS?! IT'S TRUE!
+    sound = { sound = "cstorm_forgotten1", vol = 0.7 },
 
     calculate = function(self, card, context)
         if context.after then
@@ -291,4 +291,8 @@ SMODS.Edition {
     in_pool = function(self, args)
         return false
     end,
+
+    on_apply = function (card)
+        increase_volume_over_frames(10, 1, 300)
+    end
 }
