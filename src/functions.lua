@@ -164,3 +164,36 @@ function check_riddle_answer(user_answer, riddle_answer)
 	user_answer = user_answer:upper()
 	return user_answer == riddle_answer
 end
+
+function increase_volume_over_frames(frames_per_tick, increase_amount, wait_frame_amount_until_start)
+	local music_volume = G.SETTINGS.SOUND.music_volume
+	G.SETTINGS.SOUND.music_volume = 0
+
+	local frame_counter = 0
+	local wait_counter = 0
+
+	local event
+	event = Event {
+		blockable = false,
+		blocking = false,
+		pause_force = false,
+		no_delete = true,
+		func = function()
+			if wait_counter < wait_frame_amount_until_start then
+                wait_counter = wait_counter + 1
+                return false
+            end
+
+			frame_counter = frame_counter + 1
+			if frame_counter >= frames_per_tick then    -- every x frames + 1 to volume
+				frame_counter = 0
+				G.SETTINGS.SOUND.music_volume = G.SETTINGS.SOUND.music_volume + increase_amount
+			end
+			if G.SETTINGS.SOUND.music_volume >= music_volume then
+				G.SETTINGS.SOUND.music_volume = music_volume	-- if over, correct
+				return true   -- stop when earlier volume is reached
+			else return false end
+		end
+	}
+	G.E_MANAGER:add_event(event)
+end
