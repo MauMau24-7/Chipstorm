@@ -4,7 +4,7 @@
 
 G.FUNCS.riddler_open_overlay = function(e)
     if not current_riddle then
-        current_riddle = get_random_riddle("the_riddler")
+        current_riddle = Chipstorm.get_random_riddle("the_riddler")
     end
 
     print("G.OVERLAY_MENU is " .. (G.OVERLAY_MENU or "nil"))
@@ -76,7 +76,7 @@ function riddle_overlay(menu_name, riddle)
                 extended_corpus = true,
                 callback = function()
                     if answers.answer and riddle.answer then
-                        correct_answer = check_riddle_answer(
+                        correct_answer = Chipstorm.check_riddle_answer(
                             answers.answer,
                             riddle.answer
                         )
@@ -168,7 +168,7 @@ SMODS.Blind {
 
     calculate = function(self, blind, context)
         if context.setting_blind then
-            current_riddle = get_random_riddle("the_riddler")
+            current_riddle = Chipstorm.get_random_riddle("the_riddler")
             print(current_riddle)
         end
 

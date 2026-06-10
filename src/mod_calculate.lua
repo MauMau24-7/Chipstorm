@@ -128,7 +128,7 @@ SMODS.current_mod.calculate = function(self, context)
 		if not G.P_CENTERS.c_cstorm_scorpio.unlocked then
 			unlock_card(G.P_CENTERS.c_cstorm_scorpio)
 		end
-		destroy_and_spawn_astros("c_cstorm_scorpio")
+		Chipstorm.destroy_and_spawn_astros("c_cstorm_scorpio")
 		if not G.P_CENTERS.c_cstorm_scorpio.discovered then
 			discover_card(G.P_CENTERS.c_cstorm_scorpio)
 		end
@@ -141,7 +141,7 @@ SMODS.current_mod.calculate = function(self, context)
 		if not G.P_CENTERS.c_cstorm_aquarius.unlocked then
 			unlock_card(G.P_CENTERS.c_cstorm_aquarius)
 		end
-		destroy_and_spawn_astros("c_cstorm_aquarius")
+		Chipstorm.destroy_and_spawn_astros("c_cstorm_aquarius")
 		if not G.P_CENTERS.c_cstorm_aquarius.discovered then
 			discover_card(G.P_CENTERS.c_cstorm_aquarius)
 		end
@@ -154,7 +154,7 @@ SMODS.current_mod.calculate = function(self, context)
 		if not G.P_CENTERS.c_cstorm_pisces.unlocked then
 			unlock_card(G.P_CENTERS.c_cstorm_pisces)
 		end
-		destroy_and_spawn_astros("c_cstorm_pisces")
+		Chipstorm.destroy_and_spawn_astros("c_cstorm_pisces")
 		if not G.P_CENTERS.c_cstorm_pisces.discovered then
 			discover_card(G.P_CENTERS.c_cstorm_pisces)
 		end
@@ -167,7 +167,7 @@ SMODS.current_mod.calculate = function(self, context)
 		if not G.P_CENTERS.c_cstorm_aries.unlocked then
 			unlock_card(G.P_CENTERS.c_cstorm_aries)
 		end
-		destroy_and_spawn_astros("c_cstorm_aries")
+		Chipstorm.destroy_and_spawn_astros("c_cstorm_aries")
 		if not G.P_CENTERS.c_cstorm_aries.discovered then
 			discover_card(G.P_CENTERS.c_cstorm_aries)
 		end
@@ -180,7 +180,7 @@ SMODS.current_mod.calculate = function(self, context)
 		if not G.P_CENTERS.c_cstorm_taurus.unlocked then
 			unlock_card(G.P_CENTERS.c_cstorm_taurus)
 		end
-		destroy_and_spawn_astros("c_cstorm_taurus")
+		Chipstorm.destroy_and_spawn_astros("c_cstorm_taurus")
 		if not G.P_CENTERS.c_cstorm_taurus.discovered then
 			discover_card(G.P_CENTERS.c_cstorm_taurus)
 		end
@@ -193,7 +193,7 @@ SMODS.current_mod.calculate = function(self, context)
 		if not G.P_CENTERS.c_cstorm_cancer.unlocked then
 			unlock_card(G.P_CENTERS.c_cstorm_cancer)
 		end
-		destroy_and_spawn_astros("c_cstorm_cancer")
+		Chipstorm.destroy_and_spawn_astros("c_cstorm_cancer")
 		if not G.P_CENTERS.c_cstorm_cancer.discovered then
 			discover_card(G.P_CENTERS.c_cstorm_cancer)
 		end
@@ -206,7 +206,7 @@ SMODS.current_mod.calculate = function(self, context)
 		if not G.P_CENTERS.c_cstorm_leo.unlocked then
 			unlock_card(G.P_CENTERS.c_cstorm_leo)
 		end
-		destroy_and_spawn_astros("c_cstorm_leo")
+		Chipstorm.destroy_and_spawn_astros("c_cstorm_leo")
 		if not G.P_CENTERS.c_cstorm_leo.discovered then
 			discover_card(G.P_CENTERS.c_cstorm_leo)
 		end
@@ -219,7 +219,7 @@ SMODS.current_mod.calculate = function(self, context)
 		if not G.P_CENTERS.c_cstorm_virgo.unlocked then
 			unlock_card(G.P_CENTERS.c_cstorm_virgo)
 		end
-		destroy_and_spawn_astros("c_cstorm_virgo")
+		Chipstorm.destroy_and_spawn_astros("c_cstorm_virgo")
 		if not G.P_CENTERS.c_cstorm_virgo.discovered then
 			discover_card(G.P_CENTERS.c_cstorm_virgo)
 		end
@@ -232,7 +232,7 @@ SMODS.current_mod.calculate = function(self, context)
 		if not G.P_CENTERS.c_cstorm_libra.unlocked then
 			unlock_card(G.P_CENTERS.c_cstorm_libra)
 		end
-		destroy_and_spawn_astros("c_cstorm_libra")
+		Chipstorm.destroy_and_spawn_astros("c_cstorm_libra")
 		if not G.P_CENTERS.c_cstorm_libra.discovered then
 			discover_card(G.P_CENTERS.c_cstorm_libra)
 		end
@@ -245,7 +245,7 @@ SMODS.current_mod.calculate = function(self, context)
 		if not G.P_CENTERS.c_cstorm_sagittarius.unlocked then
 			unlock_card(G.P_CENTERS.c_cstorm_sagittarius)
 		end
-		destroy_and_spawn_astros("c_cstorm_sagittarius")
+		Chipstorm.destroy_and_spawn_astros("c_cstorm_sagittarius")
 		if not G.P_CENTERS.c_cstorm_sagittarius.discovered then
 			discover_card(G.P_CENTERS.c_cstorm_sagittarius)
 		end
@@ -258,7 +258,7 @@ SMODS.current_mod.calculate = function(self, context)
 		if not G.P_CENTERS.c_cstorm_capricorn.unlocked then
 			unlock_card(G.P_CENTERS.c_cstorm_capricorn)
 		end
-		destroy_and_spawn_astros("c_cstorm_capricorn")
+		Chipstorm.destroy_and_spawn_astros("c_cstorm_capricorn")
 		if not G.P_CENTERS.c_cstorm_capricorn.discovered then
 			discover_card(G.P_CENTERS.c_cstorm_capricorn)
 		end
@@ -271,7 +271,7 @@ SMODS.current_mod.calculate = function(self, context)
 		if not G.P_CENTERS.c_cstorm_gemini.unlocked then
 			unlock_card(G.P_CENTERS.c_cstorm_gemini)
 		end
-		destroy_and_spawn_astros("c_cstorm_gemini")
+		Chipstorm.destroy_and_spawn_astros("c_cstorm_gemini")
 		if not G.P_CENTERS.c_cstorm_gemini.discovered then
 			discover_card(G.P_CENTERS.c_cstorm_gemini)
 		end
@@ -287,6 +287,7 @@ SMODS.current_mod.calculate = function(self, context)
 				v:flip()
 				v:set_ability("c_cstorm_scorpio")
 				v.c_cstorm_scorpio = false
+				delay(0.5)
 				v:flip()
 			end
 		end

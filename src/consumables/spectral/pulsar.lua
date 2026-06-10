@@ -1,4 +1,4 @@
--- -- CREDITS TO theonegoofali
+-- -- CREDITS TO theonegoofali (Not needed anymore)
 -- local calcindiveffectref = SMODS.calculate_individual_effect
 -- SMODS.calculate_individual_effect = function(effect, scored_card, key, amount, from_edition)
 

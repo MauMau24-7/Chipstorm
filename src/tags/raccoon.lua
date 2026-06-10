@@ -9,10 +9,10 @@ SMODS.Tag{
     apply = function (self, tag, context)
         if #G.jokers.cards > 0 then
             local try = 0
-            local replaceJoker = pseudorandom_element(G.jokers.cards, "replaceJoker")
+            local replaceJoker = pseudorandom_element(G.jokers.cards, "washedJoker")
 
             while replaceJoker.config.center_key == "j_cstorm_washed_card" do
-                replaceJoker = pseudorandom_element(G.jokers.cards, "replaceJoker")
+                replaceJoker = pseudorandom_element(G.jokers.cards, "washedJoker")
                 try = try + 1
                 if try >= 10 then
                     break

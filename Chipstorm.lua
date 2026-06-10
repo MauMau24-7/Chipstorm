@@ -5,6 +5,10 @@ CSTORM_UTIL = {}
 
 Chipstorm.config = SMODS.current_mod.config
 
+Chipstorm.all_curse_editions = { "e_cstorm_glitch", "e_cstorm_curse", "e_cstorm_chaotic", "e_cstorm_void", "e_cstorm_forgotten" }
+Chipstorm.curse_strength = { e_cstorm_glitch = "strong", e_cstorm_curse = "weak", e_cstorm_chaotic = "strong", e_cstorm_void = "weak", e_cstorm_forgotten = "strong" }
+
+
 SMODS.current_mod.optional_features = function()
     return {
         retrigger_joker = true,
@@ -40,7 +44,9 @@ assert(SMODS.load_file("src/riddles.lua"))()
 
 
 for _, file in ipairs(joker_src) do
-    assert(SMODS.load_file("src/jokers/" .. file ))()
+    if file ~= "shnack.lua" and file ~= "dog.lua" then      -- Both Jokers aren't that good and sprites aren't finished, so I remove them
+        assert(SMODS.load_file("src/jokers/" .. file ))()
+    end
 end
 
 for _, file in ipairs(enhancement_src) do

@@ -15,7 +15,7 @@ SMODS.Joker {
 			already_done = false
 			local RNGesus = pseudorandom("riddle_joker_hand_discard", 1, 2)
 			if not context.blueprint then
-				Riddle_all = get_random_riddle("riddle_joker")
+				Riddle_all = Chipstorm.get_random_riddle("riddle_joker")
 				Riddle = Riddle_all.question
 				for i, text in ipairs(Riddle) do
 					SMODS.calculate_effect({ message = text, colour = G.C.PURPLE }, card)

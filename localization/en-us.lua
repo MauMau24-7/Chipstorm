@@ -348,7 +348,49 @@ return {
                         "{C:chips}Chips{} by {C:green}50%"
                     }
                 }
-            }
+            },
+            c_cstorm_devils_deal = {
+                name = "Devil's Deal",
+                text = {
+                    {
+                        "Gain {C:attention}+#1# Joker Slot",
+                        "{C:purple}Curse #2#{} of your Jokers",
+                        "{C:inactive}(Must have #2# Jokers)",
+                    }
+                }
+            },
+            c_cstorm_devils_worker = {
+                name = "Devil's Worker",
+                text = {
+                    {
+                        "Gain {C:dark_edition}#1# Legendary{}, {C:purple}Cursed{} Joker",
+                        "{C:inactive}(Must have room)",
+                    }
+                }
+            },
+            c_cstorm_devils_hand = {
+                name = "Devil's Hand",
+                text = {
+                    {
+                        "Gain {C:attention}+#1# handsize{}",
+                        "{C:purple}Curse #2#{} of your Jokers",
+                        "{C:inactive}(Must have #2# Jokers)",
+                    }
+                }
+            },
+            c_cstorm_devils_wealth = {
+                name = "Devil's Wealth",
+                text = {
+                    {
+                        "Gives {C:attention}2x{} the total sell",
+                        "value of all current Jokers,",
+                        "{C:purple}Curse #2#{} of your Jokers",
+                        " ",
+                        "{C:inactive}(Currently {C:money}$#1#{C:inactive})",
+                        "{C:inactive}(Must have #2# Jokers)",
+                    }
+                }
+            },
         },
         cstorm_tokens = {
             c_cstorm_void_chip = {
@@ -881,17 +923,10 @@ return {
                 name = " ",
                 text = {
                     "{C:cstorm_mod}Custom Music:{} Myself :3",
-                    -- " ",
-                    -- "{C:cstorm_mod}Localization:{}",
-                    -- "{C:attention}French:{} Keraloon",
-                    -- "{C:attention}Simplified Chinese:{} Alophrine",
-                    " ",
-                    -- "{C:cstorm_mod}Archetype Ideas:{}",
-                    -- "{C:cstorm_link}@Ignister{}: gyro/rina",
                     " ",
                     "Some ideas taken from these mods:",
                     --Add Mod names here
-                    "{C:attention}All in Jest",
+                    "{C:attention}All in Jest", -- Banger mod, try it out >:3
                     " ",
                     "{C:cstorm_mod}Special Thanks{} to the",
                     "{C:attention}Balatro{} Discord server <3"
@@ -971,10 +1006,10 @@ return {
             b_cstorm_tokens_cards = "Tokens",
             k_cstorm_astro = "Astro",
             b_cstorm_astro_cards = "Astro Cards",
-            k_cstorm_astro_hints = "Astro Hint",
+            k_cstorm_hint_pack = "Astro Hint",
             b_cstorm_astro_hints_cards = "Astro Hints",
 
-            k_chip_stack = "Gambler's Thing",
+            k_cstorm_chip_stack = "Gambler's Thing",
 
             k_cstorm_github = "Github",
             k_cstorm_credits = "Credits",

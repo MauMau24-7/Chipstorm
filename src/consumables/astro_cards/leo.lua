@@ -12,7 +12,7 @@ SMODS.Consumable {
             return{
                 message = "^" .. self.config.emult,
                 remove_default_message = true,
-                mult = my_pow(mult, self.config.emult) - mult
+                mult = Chipstorm.my_pow(mult, self.config.emult) - mult
             }
         end
     end,

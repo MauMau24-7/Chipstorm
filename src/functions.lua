@@ -54,17 +54,17 @@ function balance_percent(card, percent)
 	return hand_chips, mult
 end
 
-function destroy_and_spawn_astros(astro_key)
+function Chipstorm.destroy_and_spawn_astros(astro_key)
 	G.E_MANAGER:add_event(Event({
 		func = function()
 			if #G.cstorm_astro_card_area.cards > 0 then
 				SMODS.destroy_cards(G.cstorm_astro_card_area.cards)
 			end
 			if next(SMODS.find_card("c_cstorm_sagittarius")) then
-                for _, sagittarius in ipairs(SMODS.find_card("c_cstorm_sagittarius")) do
-                    SMODS.destroy_cards(sagittarius)
-                end
-            end
+				for _, sagittarius in ipairs(SMODS.find_card("c_cstorm_sagittarius")) do
+					SMODS.destroy_cards(sagittarius)
+				end
+			end
 			return true
 		end
 	}))
@@ -78,75 +78,77 @@ function destroy_and_spawn_astros(astro_key)
 	}))
 end
 
-function my_pow(base, exponent)
-    if base == 0 and exponent == 0 then
-        return 1 -- 0^0 is defined as 1 here because I say so >:(
-    elseif base == 0 then
-        return 0
-    elseif exponent == 0 then
-        return 1
-    elseif exponent > 0 and math.floor(exponent) == exponent then
-        -- int exponent
-        local result = 1
-        for i = 1, exponent do
-            result = result * base
-        end
-        return result
-    else
-        -- not int or negative exponent
-        return math.exp(exponent * math.log(base))
-    end
+function Chipstorm.my_pow(base, exponent)
+	if base == 0 and exponent == 0 then
+		return 1 -- 0^0 is defined as 1 here because I say so >:(
+	elseif base == 0 then
+		return 0
+	elseif exponent == 0 then
+		return 1
+	elseif exponent > 0 and math.floor(exponent) == exponent then
+		-- int exponent
+		local result = 1
+		for i = 1, exponent do
+			result = result * base
+		end
+		return result
+	else
+		-- not int or negative exponent
+		return math.exp(exponent * math.log(base))
+	end
 end
 
 function level_up_hand_mult(card, hand, instant, amount)
-    if (G.GAME.hands[hand].level and G.GAME.hands[hand].mult) then
-        amount = amount or 1
-        G.GAME.hands[hand].level = math.max(0, G.GAME.hands[hand].level + amount)
+	if (G.GAME.hands[hand].level and G.GAME.hands[hand].mult) then
+		amount = amount or 1
+		G.GAME.hands[hand].level = math.max(0, G.GAME.hands[hand].level + amount)
 
-        G.GAME.hands[hand].mult = math.max(1, G.GAME.hands[hand].mult + G.GAME.hands[hand].l_mult)
-        if not instant then
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.2,
-                func = function()
-                    play_sound('tarot1')
-                    if card then card:juice_up(0.8, 0.5) end
-                    G.TAROT_INTERRUPT_PULSE = true
-                    return true
-                end
-            }))
-            update_hand_text({ delay = 0 }, { mult = G.GAME.hands[hand].mult, StatusText = true })
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.9,
-                func = function()
-                    play_sound('tarot1')
-                    if card then card:juice_up(0.8, 0.5) end
-                    G.TAROT_INTERRUPT_PULSE = nil
-                    return true
-                end
-            }))
-            update_hand_text({ sound = 'button', volume = 0.7, pitch = 0.9, delay = 0 }, { level = G.GAME.hands[hand]
-            .level })
-            delay(1.3)
-        end
-        G.E_MANAGER:add_event(Event({
-            trigger = 'immediate',
-            func = (function()
-                check_for_unlock { type = 'upgrade_hand', hand = hand, level = G.GAME.hands[hand].level }
-                return true
-            end)
-        }))
-    end
+		G.GAME.hands[hand].mult = math.max(1, G.GAME.hands[hand].mult + G.GAME.hands[hand].l_mult)
+		if not instant then
+			G.E_MANAGER:add_event(Event({
+				trigger = 'after',
+				delay = 0.2,
+				func = function()
+					play_sound('tarot1')
+					if card then card:juice_up(0.8, 0.5) end
+					G.TAROT_INTERRUPT_PULSE = true
+					return true
+				end
+			}))
+			update_hand_text({ delay = 0 }, { mult = G.GAME.hands[hand].mult, StatusText = true })
+			G.E_MANAGER:add_event(Event({
+				trigger = 'after',
+				delay = 0.9,
+				func = function()
+					play_sound('tarot1')
+					if card then card:juice_up(0.8, 0.5) end
+					G.TAROT_INTERRUPT_PULSE = nil
+					return true
+				end
+			}))
+			update_hand_text({ sound = 'button', volume = 0.7, pitch = 0.9, delay = 0 }, {
+				level = G.GAME.hands[hand]
+					.level
+			})
+			delay(1.3)
+		end
+		G.E_MANAGER:add_event(Event({
+			trigger = 'immediate',
+			func = (function()
+				check_for_unlock { type = 'upgrade_hand', hand = hand, level = G.GAME.hands[hand].level }
+				return true
+			end)
+		}))
+	end
 end
 
-function get_random_riddle(caller)
+function Chipstorm.get_random_riddle(caller)
 	if tostring(caller) == "riddle_joker" then
 		local index = math.random(1, #CSTORM.riddles)
 		return CSTORM.riddles[index]
 	elseif tostring(caller) == "the_riddler" then
 		-- Array with keys
-		local keys = {"Jokers",}
+		local keys = { "Jokers", }
 
 		-- get random key
 		local randomKey = keys[math.random(#keys)]
@@ -159,13 +161,13 @@ function get_random_riddle(caller)
 	end
 end
 
-function check_riddle_answer(user_answer, riddle_answer)
+function Chipstorm.check_riddle_answer(user_answer, riddle_answer)
 	riddle_answer = riddle_answer:upper()
 	user_answer = user_answer:upper()
 	return user_answer == riddle_answer
 end
 
-function increase_volume_over_frames(frames_per_tick, increase_amount, wait_frame_amount_until_start)
+function Chipstorm.increase_volume_over_frames(frames_per_tick, increase_amount, wait_frame_amount_until_start)
 	local music_volume = G.SETTINGS.SOUND.music_volume
 	G.SETTINGS.SOUND.music_volume = 0
 
@@ -180,20 +182,96 @@ function increase_volume_over_frames(frames_per_tick, increase_amount, wait_fram
 		no_delete = true,
 		func = function()
 			if wait_counter < wait_frame_amount_until_start then
-                wait_counter = wait_counter + 1
-                return false
-            end
+				wait_counter = wait_counter + 1
+				return false
+			end
 
 			frame_counter = frame_counter + 1
-			if frame_counter >= frames_per_tick then    -- every x frames + 1 to volume
+			if frame_counter >= frames_per_tick then -- every x frames + 1 to volume
 				frame_counter = 0
 				G.SETTINGS.SOUND.music_volume = G.SETTINGS.SOUND.music_volume + increase_amount
 			end
 			if G.SETTINGS.SOUND.music_volume >= music_volume then
-				G.SETTINGS.SOUND.music_volume = music_volume	-- if over, correct
-				return true   -- stop when earlier volume is reached
-			else return false end
+				G.SETTINGS.SOUND.music_volume = music_volume -- if over, correct
+				return true                      -- stop when earlier volume is reached
+			else
+				return false
+			end
 		end
 	}
 	G.E_MANAGER:add_event(event)
+end
+
+function Chipstorm.get_strong_curses()
+	local result = {}
+
+	for _, id in ipairs(Chipstorm.all_curse_editions) do
+		if Chipstorm.curse_strength[id] == "strong" then
+			table.insert(result, id)
+		end
+	end
+
+	return result
+end
+
+function Chipstorm.get_weak_curses()
+	local result = {}
+
+	for _, id in ipairs(Chipstorm.all_curse_editions) do
+		if Chipstorm.curse_strength[id] == "weak" then
+			table.insert(result, id)
+		end
+	end
+
+	return result
+end
+
+---@param curse_amount integer
+---@param seed string
+---@param curse_types string
+function Chipstorm.apply_curses_to_jokers(curse_amount, seed, curse_types)
+	local usedJokers = {}
+
+	for i = 1, curse_amount do
+		local curseJoker
+		local attempts = 0
+		local maxAttempts = 50
+
+		repeat
+			curseJoker = pseudorandom_element(G.jokers.cards, seed)
+			attempts = attempts + 1
+		until not usedJokers[curseJoker] or attempts >= maxAttempts
+
+		if attempts >= maxAttempts then
+			-- print("Couldn't find unused Joker")
+			break
+		end
+
+		usedJokers[curseJoker] = true
+		local curse
+
+		if string.lower(curse_types) == "strong" then
+			curse = pseudorandom_element(Chipstorm.get_strong_curses(), seed)
+		elseif string.lower(curse_types) == "weak" then
+			curse = pseudorandom_element(Chipstorm.get_weak_curses(), seed)
+		else
+			curse = pseudorandom_element(Chipstorm.all_curse_editions, seed)
+		end
+
+		G.E_MANAGER:add_event(Event({
+			trigger = 'after',
+			delay = 0.4,
+			func = function()
+				curseJoker:juice_up(0.3, 0.5)
+				-- print(curseJoker.config.center.key .. " gets " .. curse)
+				curseJoker:set_edition(curse)
+				return true
+			end
+		}))
+	end
+end
+
+function Chipstorm.key_to_seed(key)
+	local seed = (key):gsub("^%a+_", "")
+	return seed
 end

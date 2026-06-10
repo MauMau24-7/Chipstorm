@@ -12,6 +12,7 @@ SMODS.Consumable {
             card.c_cstorm_scorpio = true
             card:flip()
             card:set_ability(RNGesus)
+            delay(0.5)
             card:flip()
         end
     end,

@@ -141,7 +141,7 @@ SMODS.Edition {
 
 SMODS.Edition {
     key = "glitch",
-    config = { odds = 8 },
+    config = { odds = 6 },
     shader = "cstorm_glitchShader",
     in_shop = false,
     weight = 2,
@@ -293,6 +293,6 @@ SMODS.Edition {
     end,
 
     on_apply = function (card)
-        increase_volume_over_frames(10, 1, 300)
+        Chipstorm.increase_volume_over_frames(10, 1, 300)
     end
 }
