@@ -4,7 +4,7 @@
 --     atlas = "tokens",
 --     pos = { x = 0, y = 0},
 --     pixel_size = { w = 71, h = 71 },
---     config = { chips = 200, beforeSelection = 5, maxCardSelection = 1, active = false },
+--     config = { extra = { chips = 200, beforeSelection = 5, maxCardSelection = 1, active = false } },
 --     unlocked = true,
 --     discovered = true,
 --     cost = 5,
@@ -13,26 +13,26 @@
 -- -- TODO: Maybe make chips last for x Rounds instead of usables
 
 --     calculate = function (self, card, context)
---         if context.after and self.config.active == true then
---             self.config.active = false
---             SMODS.change_play_limit(self.config.beforeSelection - 1)
+--         if context.after and card.ability.extra.active == true then
+--             card.ability.extra.active = false
+--             SMODS.change_play_limit(card.ability.extra.beforeSelection - 1)
 
 --             SMODS.destroy_cards(card)
 --         end
 --     end,
 
 --     use = function(self, card, area)
---         self.config.active = true
---         self.config.beforeSelection = G.hand.config.highlighted_limit
+--         card.ability.extra.active = true
+--         card.ability.extra.beforeSelection = G.hand.config.highlighted_limit
         
---         self.config.maxCardSelection = G.hand.config.highlighted_limit -1
+--         card.ability.extra.maxCardSelection = G.hand.config.highlighted_limit -1
 
---         SMODS.change_play_limit(-self.config.maxCardSelection)
+--         SMODS.change_play_limit(-card.ability.extra.maxCardSelection)
 
 --     end,
 
 --     can_use = function (self, card)
---         if self.config.active == false then
+--         if card.ability.extra.active == false then
 --             return true
 --         end
 --     end,
@@ -42,6 +42,6 @@
 --     end,
 
 --     loc_vars = function(self, info_queue, card)
---         return{ vars = { self.config.chips, self.config.maxCardSelection }, key = self.key}
+--         return{ vars = { card.ability.extra.chips, card.ability.extra.maxCardSelection }, key = self.key}
 --     end
 -- }

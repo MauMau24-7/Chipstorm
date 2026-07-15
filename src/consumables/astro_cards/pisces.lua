@@ -1,6 +1,6 @@
 SMODS.Consumable {
     key = "pisces",
-    config = { dollars = 0, limit = 15 },
+    config = { extra = { dollars = 0, limit = 15 } },
     set = "cstorm_astro",
     atlas = "consumables",
     discovered = false,
@@ -8,12 +8,12 @@ SMODS.Consumable {
     pos = { x = 2, y = 1 },
 
     calculate = function(self, card, context)
-        local difference = self.config.limit - G.GAME.dollars
-        self.config.dollars = math.max(0, difference)
+        local difference = card.ability.extra.limit - G.GAME.dollars
+        card.ability.extra.dollars = math.max(0, difference)
 
-        if context.starting_shop and G.GAME.dollars < self.config.limit then
+        if context.starting_shop and G.GAME.dollars < card.ability.extra.limit then
             return{
-                dollars = self.config.dollars
+                dollars = card.ability.extra.dollars
             }
         end
     end,
@@ -24,7 +24,7 @@ SMODS.Consumable {
 
     loc_vars = function (self, info_queue, card)
         info_queue[#info_queue + 1] = { set = "Other", key = "astro_planets", specific_vars = { "Jupiter & Neptune" } }
-        return { vars = { self.config.dollars, self.config.limit }, key = self.key }
+        return { vars = { card.ability.extra.dollars, card.ability.extra.limit }, key = self.key }
     end,
 
     locked_loc_vars = function (self, info_queue, card)

@@ -1,6 +1,6 @@
 SMODS.Consumable {
     key = "aquarius",
-    config = { percent = 0, multFactor = 10 },
+    config = { extra = { percent = 0, multFactor = 10 } },
     set = "cstorm_astro",
     atlas = "consumables",
     discovered = false,
@@ -8,14 +8,14 @@ SMODS.Consumable {
     pos = { x = 1, y = 1 },
 
     calculate = function(self, card, context)
-        self.config.percent = #G.jokers.cards * self.config.multFactor
+        card.ability.extra.percent = #G.jokers.cards * card.ability.extra.multFactor
 
-        if self.config.percent > 100 then
-            self.config.percent = 100
+        if card.ability.extra.percent > 100 then
+            card.ability.extra.percent = 100
         end
 
         if context.joker_main then
-            balance_percent(card, (self.config.percent * 0.01))
+            balance_percent(card, (card.ability.extra.percent * 0.01))
         end
     end,
 
@@ -25,7 +25,7 @@ SMODS.Consumable {
 
     loc_vars = function (self, info_queue, card)
         info_queue[#info_queue + 1] = { set = "Other", key = "astro_planets", specific_vars = { "Uranus & Saturn" } }
-        return { vars = { self.config.percent, self.config.multFactor }, key = self.key }
+        return { vars = { card.ability.extra.percent, card.ability.extra.multFactor }, key = self.key }
     end,
 
     locked_loc_vars = function (self, info_queue, card)

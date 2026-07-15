@@ -1,6 +1,6 @@
 SMODS.Consumable {
     key = "sagittarius",
-    config = { mult = 15, chips = 150, currentBonus = "+15 Mult & +150 Chips" },
+    config = { extra = { mult = 15, chips = 150, currentBonus = "" } },
     set = "cstorm_astro",
     atlas = "consumables",
     discovered = false,
@@ -13,24 +13,24 @@ SMODS.Consumable {
 
             if sagittariusPos == 1 then
                 SMODS.add_card { key = 'c_cstorm_sagittarius', area = G.jokers }
-                self.config.currentBonus = "+" .. self.config.mult .. " Mult"
+                card.ability.extra.currentBonus = "+" .. card.ability.extra.mult .. " Mult"
             elseif sagittariusPos == 2 then
                 SMODS.add_card { key = 'c_cstorm_sagittarius', area = G.consumeables }
-                self.config.currentBonus = "+" .. self.config.chips .. " Chips"
+                card.ability.extra.currentBonus = "+" .. card.ability.extra.chips .. " Chips"
             elseif sagittariusPos == 3 then
                 SMODS.add_card { key = 'c_cstorm_sagittarius', area = Chipstorm.astro_card_area }
-                self.config.currentBonus = "+" .. self.config.mult .. " Mult & " .. "+" .. self.config.chips .. " Chips"
+                card.ability.extra.currentBonus = "+" .. card.ability.extra.mult .. " Mult & " .. "+" .. card.ability.extra.chips .. " Chips"
             end
             SMODS.destroy_cards(card)
         end
 
         if context.joker_main then
             if card.area == G.jokers then
-                return { mult = self.config.mult }
+                return { mult = card.ability.extra.mult }
             elseif card.area == G.consumeables then
-                return { chips = self.config.chips }
+                return { chips = card.ability.extra.chips }
             elseif card.area == Chipstorm.astro_card_area then
-                return { mult = self.config.mult, chips = self.config.chips }
+                return { mult = card.ability.extra.mult, chips = card.ability.extra.chips }
             end
         end
     end,
@@ -41,7 +41,7 @@ SMODS.Consumable {
 
     loc_vars = function (self, info_queue, card)
         info_queue[#info_queue + 1] = { set = "Other", key = "astro_planets", specific_vars = { "Jupiter & Uranus" } }
-        return { vars = { self.config.mult, self.config.chips, self.config.currentBonus }, key = self.key }
+        return { vars = { card.ability.extra.mult, card.ability.extra.chips, card.ability.extra.currentBonus }, key = self.key }
     end,
 
     locked_loc_vars = function (self, info_queue, card)

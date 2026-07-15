@@ -1,6 +1,6 @@
 SMODS.Consumable {
     key = "libra",
-    config = { multiplier = 2 },
+    config = { extra = { multiplier = 2 } },
     set = "cstorm_astro",
     atlas = "consumables",
     discovered = false,
@@ -13,11 +13,11 @@ SMODS.Consumable {
 
             --xChips
             if libraDecision == 1 then
-                return { xchips = self.config.multiplier }
+                return { xchips = card.ability.extra.multiplier }
             
             --xMult
             elseif libraDecision == 2 then
-                return { xmult = self.config.multiplier }
+                return { xmult = card.ability.extra.multiplier }
             end
         end
     end,
@@ -28,7 +28,7 @@ SMODS.Consumable {
 
     loc_vars = function (self, info_queue, card)
         info_queue[#info_queue + 1] = { set = "Other", key = "astro_planets", specific_vars = { "Venus & Saturn" } }
-        return { vars = { self.config.multiplier }, key = self.key }
+        return { vars = { card.ability.extra.multiplier }, key = self.key }
     end,
 
     locked_loc_vars = function (self, info_queue, card)

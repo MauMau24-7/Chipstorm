@@ -4,7 +4,7 @@ SMODS.Consumable{
     atlas = "tokens",
     pos = { x = 4, y = 0},
     pixel_size = { w = 71, h = 71 },
-    config = { max_highlighted = 1 },
+    config = { extra = { max_highlighted = 1 } },
     unlocked = true,
     discovered = true,
     cost = 3,
@@ -35,7 +35,7 @@ SMODS.Consumable{
     end,
 
     loc_vars = function (self, info_queue, card)
-        return { vars = { self.config.max_highlighted }, key = self.key}
+        return { vars = { card.ability.extra.max_highlighted }, key = self.key}
     end
 
 }

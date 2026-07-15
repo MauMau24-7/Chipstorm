@@ -1,6 +1,6 @@
 SMODS.Consumable {
     key = "leo",
-    config = { emult = 1.05 },
+    config = { extra = { emult = 1.05 } },
     set = "cstorm_astro",
     atlas = "consumables",
     discovered = false,
@@ -10,9 +10,9 @@ SMODS.Consumable {
     calculate = function(self, card, context)
         if context.joker_main then
             return{
-                message = "^" .. self.config.emult,
+                message = "^" .. card.ability.extra.emult,
                 remove_default_message = true,
-                mult = Chipstorm.my_pow(mult, self.config.emult) - mult
+                mult = Chipstorm.my_pow(mult, card.ability.extra.emult) - mult
             }
         end
     end,
@@ -23,7 +23,7 @@ SMODS.Consumable {
 
     loc_vars = function (self, info_queue, card)
         info_queue[#info_queue + 1] = { set = "Other", key = "astro_planets", specific_vars = { "Jupiter & Pluto" } }
-        return { vars = { self.config.emult }, key = self.key }
+        return { vars = { card.ability.extra.emult }, key = self.key }
     end,
 
     locked_loc_vars = function (self, info_queue, card)

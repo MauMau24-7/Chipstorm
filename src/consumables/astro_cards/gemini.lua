@@ -2,7 +2,7 @@
 
 SMODS.Consumable {
 	key = "gemini",
-	config = { copying = nil, multiplier = 2, },
+	config = { extra = { copying = nil, multiplier = 2, } },
 	set = "cstorm_astro",
 	atlas = "consumables",
     discovered = false,
@@ -12,8 +12,8 @@ SMODS.Consumable {
 	calculate = function(self, card, context)
 		local ret = nil
 
-		if card.config.copying then
-			local jokers = SMODS.find_card(card.config.copying)
+		if card.ability.extra.copying then
+			local jokers = SMODS.find_card(card.ability.extra.copying)
 			local other_joker = pseudorandom_element(jokers, pseudoseed("gemini_dupes"))
 
 			if other_joker and not context.no_blueprint then
@@ -24,7 +24,7 @@ SMODS.Consumable {
 					ret = CSTORM_UTIL.modify_gemini_effect(self, other_joker_ret)
 				end
 			elseif not other_joker then
-				card.config.copying = nil
+				card.ability.extra.copying = nil
 			end
 		end
 
@@ -45,7 +45,7 @@ SMODS.Consumable {
 	end,
 
 	loc_vars = function(self, info_queue, card)
-		local copying = card.config.copying
+		local copying = card.ability.extra.copying
 
 		info_queue[#info_queue + 1] = { set = "Other", key = "astro_planets", specific_vars = { "Mercury & Planet X" } }
 		return { vars = { copying and G.localization.descriptions.Joker[copying].name or localize('chipstorm_none') }, key = self.key }
@@ -118,7 +118,7 @@ function CSTORM_UTIL.modify_gemini_effect(card, effects)
 				new_effects[key] = nil
 			end
 
-			new_effects[eff_type or key] = value * card.config.multiplier
+			new_effects[eff_type or key] = value * card.ability.extra.multiplier
 		end
 	end
 
@@ -145,5 +145,5 @@ function CSTORM_UTIL.reset_gemini(card)
 
 	-- Assign the key of the random joker to gemini
 	local joker = pseudorandom_element(eligible_jokers, pseudoseed("gemini"))
-	card.config.copying = joker and joker.config.center_key or nil
+	card.ability.extra.copying = joker and joker.config.center_key or nil
 end
