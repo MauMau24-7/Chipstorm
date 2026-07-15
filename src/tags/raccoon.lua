@@ -2,7 +2,7 @@ SMODS.Tag{
     key = "raccoon",
     atlas = "tags",
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     min_ante = 0,
 

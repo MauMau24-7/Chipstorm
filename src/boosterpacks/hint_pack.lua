@@ -10,8 +10,8 @@ SMODS.Booster {
     draw_hand = false,
     
     ease_background_colour = function(self)
-        ease_colour(G.C.DYN_UI.MAIN, G.C.BLUE)
-        ease_background_colour({ new_colour = G.C.BLUE, special_colour = G.C.GOLD, contrast = 3 })
+        ease_colour(G.C.DYN_UI.MAIN, G.C.CSTORM.ASTRO)
+        ease_background_colour({ new_colour = G.C.BLUE, special_colour = G.C.CSTORM.ASTRO, contrast = 3 })
     end,
 
     create_card = function(self, card, i)

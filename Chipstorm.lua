@@ -44,7 +44,7 @@ assert(SMODS.load_file("src/riddles.lua"))()
 
 
 for _, file in ipairs(joker_src) do
-    if file ~= "shnack.lua" and file ~= "dog.lua" then      -- Both Jokers aren't that good and sprites aren't finished, so I remove them
+    if file ~= "shnack.lua" and file ~= "dog.lua" then      -- Both Jokers aren't that good and sprites aren't finished, so I remove them till next update
         assert(SMODS.load_file("src/jokers/" .. file ))()
     end
 end
@@ -61,9 +61,9 @@ for _, file in ipairs(astro_cards_src) do
     assert(SMODS.load_file("src/consumables/astro_cards/" .. file ))()
 end
 
-for _, file in ipairs(tokens_src) do
-    assert(SMODS.load_file("src/consumables/tokens/" .. file ))()
-end
+-- for _, file in ipairs(tokens_src) do
+--     assert(SMODS.load_file("src/consumables/tokens/" .. file ))()
+-- end
 
 for _, file in ipairs(spectral_src) do
     assert(SMODS.load_file("src/consumables/spectral/" .. file ))()
@@ -74,7 +74,9 @@ for _, file in ipairs(challenge_src) do
 end
 
 for _, file in ipairs(boosterpack_src) do
-    assert(SMODS.load_file("src/boosterpacks/" .. file ))()
+    if file ~= "chip_stack.lua" then
+        assert(SMODS.load_file("src/boosterpacks/" .. file ))()
+    end
 end
 
 for _, file in ipairs(blind_src) do
