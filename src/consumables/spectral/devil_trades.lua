@@ -34,14 +34,17 @@ SMODS.Consumable {
 SMODS.Consumable {
 	key = "devils_worker",
 	set = "Spectral",
-	config = { extra = { legedaries = 1 } },
+	config = { extra = { legedaries = 1, curse_amount = 1 } },
 	atlas = "consumables",
 	discovered = false,
 	unlocked = true,
 	pos = { x = 1, y = 3 },
 
 	can_use = function(self, card)
-		return #G.jokers.cards < G.jokers.config.card_limit and #G.jokers.cards >= card.ability.extra.curse_amount
+		if #G.jokers.cards < G.jokers.config.card_limit then
+			return true
+		end
+		return false
 	end,
 
 	use = function(self, card, area, copier)
@@ -57,7 +60,7 @@ SMODS.Consumable {
 			info_queue[#info_queue + 1] = G.P_CENTERS[curse]
 		end
 
-		return { vars = { card.ability.extra.legedaries }, key = self.key }
+		return { vars = { card.ability.extra.legedaries, }, key = self.key }
 	end
 
 }
