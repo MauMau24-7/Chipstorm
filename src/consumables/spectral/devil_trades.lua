@@ -6,7 +6,7 @@ SMODS.Consumable {
 	atlas = "consumables",
 	discovered = false,
 	unlocked = true,
-	pos = { x = 0, y = 2 },
+	pos = { x = 2, y = 3 },
 
 	can_use = function(self, card)
 		return #G.jokers.cards >= card.ability.extra.curse_amount
@@ -38,7 +38,7 @@ SMODS.Consumable {
 	atlas = "consumables",
 	discovered = false,
 	unlocked = true,
-	pos = { x = 0, y = 2 },
+	pos = { x = 1, y = 3 },
 
 	can_use = function(self, card)
 		return #G.jokers.cards < G.jokers.config.card_limit and #G.jokers.cards >= card.ability.extra.curse_amount
@@ -70,7 +70,7 @@ SMODS.Consumable {
 	atlas = "consumables",
 	discovered = false,
 	unlocked = true,
-	pos = { x = 0, y = 2 },
+	pos = { x = 3, y = 3 },
 
 	can_use = function(self, card)
 		return #G.jokers.cards >= card.ability.extra.curse_amount

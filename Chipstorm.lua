@@ -81,9 +81,9 @@ for _, file in ipairs(blind_src) do
     assert(SMODS.load_file("src/blinds/" .. file ))()
 end
 
-for _, file in ipairs(back_src) do
-    assert(SMODS.load_file("src/backs/" .. file ))()
-end
+-- for _, file in ipairs(back_src) do
+--     assert(SMODS.load_file("src/backs/" .. file ))()
+-- end
 
 for _, file in ipairs(sticker_src) do
     assert(SMODS.load_file("src/stickers/" .. file ))()
