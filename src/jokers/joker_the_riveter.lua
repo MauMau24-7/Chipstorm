@@ -18,7 +18,7 @@ end
 SMODS.Joker {
     key = "joker_the_riveter",
     pos = { x = 0, y = 3 },
-    rarity = "cstorm_chatter",
+    rarity = 4,
     cost = 10,
     blueprint_compat = false,
     eternal_compat = true,

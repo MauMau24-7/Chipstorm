@@ -34,7 +34,7 @@ SMODS.Booster {
 
     in_pool = function(self, args)
         for _, center in ipairs(G.P_CENTER_POOLS["cstorm_astro_hints"]) do
-            if not center.discovered then
+            if not center.discovered and not G.GAME.challenge then
                 -- print("Found undiscovered: " .. center.key)
                 return true
             end

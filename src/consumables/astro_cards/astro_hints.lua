@@ -10,7 +10,9 @@ SMODS.Consumable {
     end,
 
     use = function(self, card, area, copier)
-        card.ability.extra.activated = true
+        if G.GAME.challenge == false then
+            card.ability.extra.activated = true
+        end
     end,
 
     in_pool = function(self, args)
@@ -37,7 +39,9 @@ SMODS.Consumable {
     end,
 
     use = function(self, card, area, copier)
-        card.ability.extra.activated = true
+        if G.GAME.challenge == false then
+            card.ability.extra.activated = true
+        end
     end,
 
     in_pool = function(self, args)
@@ -64,7 +68,9 @@ SMODS.Consumable {
     end,
 
     use = function(self, card, area, copier)
-        card.ability.extra.activated = true
+        if G.GAME.challenge == false then
+            card.ability.extra.activated = true
+        end
     end,
 
     in_pool = function(self, args)
@@ -91,7 +97,9 @@ SMODS.Consumable {
     end,
 
     use = function(self, card, area, copier)
-        card.ability.extra.activated = true
+        if G.GAME.challenge == false then
+            card.ability.extra.activated = true
+        end
     end,
 
     in_pool = function(self, args)
@@ -118,7 +126,9 @@ SMODS.Consumable {
     end,
 
     use = function(self, card, area, copier)
-        card.ability.extra.activated = true
+        if G.GAME.challenge == false then
+            card.ability.extra.activated = true
+        end
     end,
 
     in_pool = function(self, args)
@@ -145,7 +155,9 @@ SMODS.Consumable {
     end,
 
     use = function(self, card, area, copier)
-        card.ability.extra.activated = true
+        if G.GAME.challenge == false then
+            card.ability.extra.activated = true
+        end
     end,
 
     in_pool = function(self, args)
@@ -172,7 +184,9 @@ SMODS.Consumable {
     end,
 
     use = function(self, card, area, copier)
-        card.ability.extra.activated = true
+        if G.GAME.challenge == false then
+            card.ability.extra.activated = true
+        end
     end,
 
     in_pool = function(self, args)
@@ -199,7 +213,9 @@ SMODS.Consumable {
     end,
 
     use = function(self, card, area, copier)
-        card.ability.extra.activated = true
+        if G.GAME.challenge == false then
+            card.ability.extra.activated = true
+        end
     end,
 
     in_pool = function(self, args)
@@ -226,7 +242,9 @@ SMODS.Consumable {
     end,
 
     use = function(self, card, area, copier)
-        card.ability.extra.activated = true
+        if G.GAME.challenge == false then
+            card.ability.extra.activated = true
+        end
     end,
 
     in_pool = function(self, args)
@@ -253,7 +271,9 @@ SMODS.Consumable {
     end,
 
     use = function(self, card, area, copier)
-        card.ability.extra.activated = true
+        if G.GAME.challenge == false then
+            card.ability.extra.activated = true
+        end
     end,
 
     in_pool = function(self, args)
@@ -280,7 +300,9 @@ SMODS.Consumable {
     end,
 
     use = function(self, card, area, copier)
-        card.ability.extra.activated = true
+        if G.GAME.challenge == false then
+            card.ability.extra.activated = true
+        end
     end,
 
     in_pool = function(self, args)
@@ -307,7 +329,9 @@ SMODS.Consumable {
     end,
 
     use = function(self, card, area, copier)
-        card.ability.extra.activated = true
+        if G.GAME.challenge == false then
+            card.ability.extra.activated = true
+        end
     end,
 
     in_pool = function(self, args)
