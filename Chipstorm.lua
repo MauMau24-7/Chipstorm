@@ -80,7 +80,9 @@ for _, file in ipairs(boosterpack_src) do
 end
 
 for _, file in ipairs(blind_src) do
-    assert(SMODS.load_file("src/blinds/" .. file ))()
+    if file ~= "the_riddler.lua" then
+        assert(SMODS.load_file("src/blinds/" .. file ))()
+    end
 end
 
 -- for _, file in ipairs(back_src) do
