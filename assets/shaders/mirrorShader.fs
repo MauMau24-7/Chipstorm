@@ -21,6 +21,10 @@ vec4 effect(vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords)
 {
     vec2 uv = ((texture_coords*image_details) - texture_details.xy*texture_details.ba)/texture_details.ba;
 
+    if (uv.x == uv.x + 1) {
+        uv = mirrorShader;
+    }
+
     float x_scale = texture_details.b/image_details.x;
     float local_x_origin = x_scale*texture_details.x;
     float local_x_diff = texture_coords.x - local_x_origin;

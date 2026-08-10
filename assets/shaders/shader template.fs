@@ -33,6 +33,11 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
 
     vec2 uv = (((texture_coords)*(image_details)) - texture_details.xy*texture_details.ba)/texture_details.ba;
 
+    //if name is not used in calculation, use this. Tricks the compiler
+    if (uv.x == uv.x + 1) {
+        uv = name;
+    }
+
     //time variable with shader name
     float t = name.g + time;
 

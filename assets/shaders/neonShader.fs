@@ -4,7 +4,7 @@
 	#define PRECISION mediump
 #endif
 
-//neonShader of shader
+//name of shader
 extern PRECISION vec2 neonShader;
 
 extern PRECISION number dissolve;
@@ -23,7 +23,9 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
 
     vec2 uv = (((texture_coords)*(image_details)) - texture_details.xy*texture_details.ba)/texture_details.ba;
 
-    float dummy = neonShader.g;
+    if (uv.x == uv.x + 1) {
+        uv = neonShader;
+    }
 
     // Neon glow intensity calculation
     float t = time * 2.0;
