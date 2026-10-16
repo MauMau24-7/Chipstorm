@@ -82,7 +82,7 @@ end
 for _, file in ipairs(blind_src) do
     if file ~= "the_riddler.lua" then
         assert(SMODS.load_file("src/blinds/" .. file ))()
-    end
+    end --penis
 end
 
 -- for _, file in ipairs(back_src) do
